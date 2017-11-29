@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-  import partialAccordion from './vue-accordion-partial.vue'
+  import partialAccordion from './VueAccordionPartial.vue'
 
   export default {
     name: 'vue-accordion',
