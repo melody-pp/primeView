@@ -7,32 +7,26 @@
   </li>
 </template>
 <script>
+  import { get } from 'lodash'
+
   export default {
     props: {
-      item: {
-        type: Object
-      },
-      styles: {
-        type: Object
-      }
+      item: Object,
+      styles: Object
     },
     computed: {
       liStyles () {
-        const li = {
-          backgroundImage: 'url(' + this.item.image + ')'
-        }
-        if (this.styles && this.styles.li)
-          Object.assign(li, this.styles.li)
-        return li
+        const backgroundImage = `url(${this.item.image})`
+        return Object.assign({backgroundImage}, get(this, 'styles.li', {}))
       },
       aStyles () {
-        return this.styles && this.styles.a ? this.styles.a : {}
+        return get(this, 'styles.a', {})
       },
       h2Styles () {
-        return this.styles && this.styles.h2 ? this.styles.h2 : {}
+        return get(this, 'styles.h2', {})
       },
       pStyles () {
-        return this.styles && this.styles.p ? this.styles.p : {}
+        return get(this, 'styles.p', {})
       }
     }
   }

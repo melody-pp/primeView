@@ -1,27 +1,26 @@
 <template>
   <div :class="accordionClass" :style="divStyles">
     <ul>
-      <partial-accordion
+      <partialAccordion
         v-for="(item,index) in items"
         :item="item"
         :key="index"
         :styles="styles"
-      ></partial-accordion>
+      ></partialAccordion>
     </ul>
   </div>
 </template>
 <script>
+  import { get } from 'lodash'
   import partialAccordion from './VueAccordionPartial.vue'
 
   export default {
     name: 'vue-accordion',
     props: {
-      items: {
-        type: Array
-      },
+      items: Array,
       styles: {
         type: Object,
-        default: function () {
+        default () {
           return {}
         }
       },
@@ -32,12 +31,10 @@
     },
     computed: {
       divStyles () {
-        return this.styles && this.styles.div ? this.styles.div : {}
+        return get(this, 'styles.div', {})
       }
     },
-    components: {
-      partialAccordion
-    }
+    components: {partialAccordion}
   }
 </script>
 <style>
