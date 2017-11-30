@@ -1,2 +1,2 @@
 import './bootstrap'
-import './fullpage-vue'
+import './fullpage'
