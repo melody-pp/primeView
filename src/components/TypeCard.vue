@@ -62,19 +62,16 @@
             that.show = false
             that.$refs.card.parentNode.style.background = that.cardStyle.background
 
-            setTimeout(() => {
-              that.inClass = sample(that.inClasses)
-              that.outClass = sample(that.outClasses)
-              that.showString = [sample(that.strings)]
-              that.cardStyle.background = sample(that.colors)
-
-              that.$nextTick(() => {
-                $span.parentNode.removeChild($span.nextElementSibling)
-                $span.innerHTML = ''
-                that.initTyped()
-              })
-            }, 1000)
-
+            that.inClass = sample(that.inClasses)
+            that.outClass = sample(that.outClasses)
+            that.showString = [sample(that.strings)]
+            that.cardStyle.background = sample(that.colors)
+           
+            that.$nextTick(() => {
+              $span.parentNode.removeChild($span.nextElementSibling)
+              $span.innerHTML = ''
+              that.initTyped()
+            })
           }
         })
       },
