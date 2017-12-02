@@ -1,6 +1,6 @@
 <template>
   <b-container :style="containerStyle">
-    <b-row style="height: 25%;">
+    <b-row :style="rowStyle">
       <template v-for="n in 12">
         <b-col cols="4" :style="colStyle">
           <TypeCard :strings="keywords" :typeSpeed="500" :colors="colors"></TypeCard>
@@ -30,11 +30,15 @@
           width: '100%',
           maxWidth: '100%',
         },
+        rowStyle: {
+          margin: 0,
+          height: '25%',
+        },
         colStyle: {
           padding: 0,
           height: '100%',
-          overflow: 'hidden'
-        }
+          overflow: 'hidden',
+        },
       }
     },
     mounted () {

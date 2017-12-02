@@ -24,6 +24,8 @@
         cardStyle: {
           height: '100%',
           background: sample(this.colors),
+          textAlign: 'left',
+          textIndent: '15px'
         },
       }
     },
