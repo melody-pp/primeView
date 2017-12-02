@@ -5,8 +5,8 @@
         v-for="(item,index) in items"
         :item="item"
         :key="index"
-        @mouseenter.native="mouseEnter(index)"
-      ></partialAccordion>
+        @mouseenter.native="mouseEnter(index)">
+      </partialAccordion>
     </ul>
     <div class="accordionModel">
       <table>
@@ -60,7 +60,7 @@
 <style>
   .vue-accordion {
     width: 100%;
-    height: 500px;
+    height: 100%;
     overflow: hidden;
     position: relative;
   }

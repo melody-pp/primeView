@@ -18,9 +18,13 @@
         <Keywords></Keywords>
       </div>
 
-      <div class="page-3 page"></div>
+      <div class="page-3 page">
+        <Visual></Visual>
+      </div>
 
-      <div class="page-4 page"></div>
+      <div class="page-4 page">
+        <Interaction></Interaction>
+      </div>
 
       <div class="page-5 page"></div>
 
@@ -32,6 +36,8 @@
 <script>
   import Banner from './Banner'
   import Keywords from './Keywords'
+  import Visual from './Visual'
+  import Interaction from './Interaction'
 
   export default {
     data () {
@@ -65,7 +71,7 @@
       }
     },
     components: {
-      Banner, Keywords
+      Banner, Keywords, Visual, Interaction
     }
   }
 </script>
@@ -90,11 +96,8 @@
     height: 100%;
   }
 
-  .page-2 {
+  .page-2, .page-4 {
     padding-top: 65px;
-  }
-
-  .page-3 {
   }
 
   .button-group {
