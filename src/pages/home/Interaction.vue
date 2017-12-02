@@ -1,28 +1,29 @@
 <template>
   <b-container :style="containerStyle">
     <b-row :style="rowStyle">
-      <b-col cols="6" :style="colStyle">
-        <b-img :src="require('../../assets/index/it2.png')"></b-img>
-      </b-col>
-
-      <b-col cols="6" :style="colStyle">
-        <b-img :src="require('../../assets/index/it2.png')"></b-img>
-      </b-col>
+      <InteractionCard
+        :imgUrl="require('../../assets/index/it2.png')"
+        text="一些说明文字"/>
+      <InteractionCard
+        :imgUrl="require('../../assets/index/it2.png')"
+        text="一些说明文字"/>
     </b-row>
+
     <b-row :style="rowStyle">
-      <b-col cols="6" :style="colStyle">
-        <b-img :src="require('../../assets/index/it3.jpg')"></b-img>
-      </b-col>
+      <InteractionCard
+        :imgUrl="require('../../assets/index/it3.jpg')"
+        text="一些说明文字"/>
 
-      <b-col cols="6" :style="colStyle">
-        <b-img :src="require('../../assets/index/it4.jpg')"></b-img>
-      </b-col>
+      <InteractionCard
+        :imgUrl="require('../../assets/index/it4.jpg')"
+        text="一些说明文字"/>
     </b-row>
-
   </b-container>
 </template>
 
 <script>
+  import InteractionCard from './InteractionCard.vue'
+
   export default {
     data () {
       return {
@@ -37,12 +38,8 @@
           margin: 0,
           height: '50%',
         },
-        colStyle: {
-          padding: 0,
-          height: '100%',
-          overflow: 'hidden',
-        },
       }
-    }
+    },
+    components: {InteractionCard},
   }
 </script>
