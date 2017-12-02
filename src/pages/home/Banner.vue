@@ -51,8 +51,7 @@
     mounted () {
       this.axios.get('/api/getImgUrls')
         .then(res => {
-          console.log(res)
-          this.imgUrls = res.data
+          this.imgUrls = res.data.imgUrls
         })
     },
 

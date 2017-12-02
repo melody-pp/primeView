@@ -3,7 +3,7 @@
     <b-row style="height: 25%;">
       <template v-for="n in 12">
         <b-col cols="4" :style="colStyle">
-          <TypeCard :strings="items" :typeSpeed="500" :colors="colors"></TypeCard>
+          <TypeCard :strings="keywords" :typeSpeed="500" :colors="colors"></TypeCard>
         </b-col>
       </template>
     </b-row>
@@ -16,8 +16,13 @@
   export default {
     data () {
       return {
-        items: new Array(100).fill(1).map(() => String(Math.random()).substring(5)),
-        colors: ['rgb(234, 67, 53)', 'rgb(52, 168, 82)', 'rgb(66, 133, 244)', 'rgb(250, 187, 5)'],
+        keywords: [],
+        colors: [
+          'rgb(234, 67, 53)',
+          'rgb(52, 168, 82)',
+          'rgb(66, 133, 244)',
+          'rgb(250, 187, 5)',
+        ],
         containerStyle: {
           margin: 0,
           padding: 0,
@@ -31,6 +36,13 @@
           overflow: 'hidden'
         }
       }
+    },
+    mounted () {
+      this.axios
+        .get('/api/getKeywords')
+        .then(res => {
+          this.keywords = res.data.keywords
+        })
     },
     components: {TypeCard}
   }

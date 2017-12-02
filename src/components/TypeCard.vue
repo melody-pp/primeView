@@ -66,7 +66,7 @@
             that.outClass = sample(that.outClasses)
             that.showString = [sample(that.strings)]
             that.cardStyle.background = sample(that.colors)
-           
+
             that.$nextTick(() => {
               $span.parentNode.removeChild($span.nextElementSibling)
               $span.innerHTML = ''
