@@ -26,7 +26,9 @@
         <Interaction></Interaction>
       </div>
 
-      <div class="page-5 page"></div>
+      <div class="page-5 page">
+        <Experience></Experience>
+      </div>
 
       <div class="page-6 page"></div>
     </div>
@@ -38,6 +40,7 @@
   import Keywords from './Keywords'
   import Visual from './Visual'
   import Interaction from './Interaction'
+  import Experience from './Experience'
 
   export default {
     data () {
@@ -71,7 +74,7 @@
       }
     },
     components: {
-      Banner, Keywords, Visual, Interaction
+      Banner, Keywords, Visual, Interaction, Experience
     }
   }
 </script>
@@ -96,7 +99,7 @@
     height: 100%;
   }
 
-  .page-2, .page-4 {
+  .page-2, .page-4, .page-5 {
     padding-top: 65px;
   }
 
