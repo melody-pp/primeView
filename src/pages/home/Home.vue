@@ -13,12 +13,17 @@
       <div class="page-1 page">
         <Banner></Banner>
       </div>
+
       <div class="page-2 page">
         <Keywords></Keywords>
       </div>
+
       <div class="page-3 page"></div>
+
       <div class="page-4 page"></div>
+
       <div class="page-5 page"></div>
+
       <div class="page-6 page"></div>
     </div>
   </div>
@@ -31,9 +36,9 @@
   export default {
     data () {
       const that = this
+
       return {
         index: 0,
-        pageNum: 0,
         opts: {
           start: 0,
           dir: 'v',
@@ -86,11 +91,6 @@
   .page-3 {
   }
 
-  h3,
-  p {
-    font-size: 16px;
-  }
-
   .button-group {
     position: absolute;
     top: 50%;
@@ -104,14 +104,12 @@
     display: inline-block;
     margin: 5px;
     color: #000;
-    background: #fff;
     background: rgba(255, 255, 255, .5);
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    padding: 5px;
-    border: none;
-    outline: none;
     cursor: pointer;
+    padding: 5px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
   }
 
   .button-group button.active {
