@@ -12,7 +12,8 @@
 <script>
   import 'animate.css'
   import iTyped from 'ityped'
-  import { sample } from 'lodash'
+
+  const sample = arr => arr[Math.floor(Math.random() * arr.length)]
 
   export default {
     data () {
@@ -20,7 +21,7 @@
         show: false,
         inClass: sample(this.inClasses),
         outClass: sample(this.outClasses),
-        showString: [sample(this.strings)],
+        showString: sample(this.strings),
         cardStyle: {
           height: '100%',
           background: sample(this.colors),
@@ -58,12 +59,9 @@
         const $card = that.$refs.card
 
         that.show = true
-        if (!that.showString[0]) {
-          that.showString = ['  ']
-        }
 
         iTyped.init($span, {
-          strings: that.showString,
+          strings: ['  ' + (that.showString || '')],
           typeSpeed: that.typeSpeed + Math.random() * 500,
           onFinished () {
             that.show = false
@@ -71,7 +69,7 @@
 
             that.inClass = sample(that.inClasses)
             that.outClass = sample(that.outClasses)
-            that.showString = [sample(that.strings)]
+            that.showString = sample(that.strings)
             that.cardStyle.background = sample(that.colors)
 
             that.$nextTick(() => {
