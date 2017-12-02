@@ -44,19 +44,25 @@
           dir: 'v',
           loop: false,
           duration: 300,
-          beforeChange: function (ele, current, next) {
+          beforeChange (ele, current, next) {
             that.index = next
           },
-          afterChange: function (ele, current) {
+          afterChange (ele, current) {
             that.index = current
           }
         }
       }
     },
+    mounted () {
+      window.addEventListener('resize', this.handleResize)
+    },
     methods: {
-      moveTo: function (index) {
+      moveTo (index) {
         this.$refs.fullpage.$fullpage.moveTo(index, true)
       },
+      handleResize () {
+        this.$refs.fullpage.$fullpage.moveTo(this.index, false)
+      }
     },
     components: {
       Banner, Keywords
