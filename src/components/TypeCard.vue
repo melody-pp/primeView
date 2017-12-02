@@ -1,6 +1,9 @@
 <template>
-  <transition>
-    <div class="type-card-wrapper">
+  <transition
+    :enter-active-class="`animated ${inClass}`"
+    :leave-active-class="`animated ${outClass}`">
+
+    <div v-show="show" ref="card" :style="cardStyle">
       <span ref="span"></span>
     </div>
   </transition>
@@ -14,15 +17,31 @@
   export default {
     data () {
       return {
-        showString: [sample(this.$props.strings)]
+        show: false,
+        inClass: sample(this.inClass),
+        outClass: sample(this.outClass),
+        showString: [sample(this.strings)],
+        cardStyle: {
+          height: '100%',
+          background: sample(this.colors),
+        },
       }
     },
 
     props: {
       strings: Array,
+      colors: Array,
+      inClasses: {
+        type: Array,
+        default: ['slideInUp', 'slideInDown', 'slideInLeft', 'slideInRight']
+      },
+      outClasses: {
+        type: Array,
+        default: ['slideOutUp', 'slideOutDown', 'slideOutLeft', 'slideOutRight']
+      },
       typeSpeed: {
         type: Number,
-        default: 200
+        default: 800
       }
     },
 
@@ -34,18 +53,28 @@
       initTyped () {
         const that = this
         const $span = that.$refs.span
+        that.show = true
 
         iTyped.init($span, {
           strings: that.showString,
-          typeSpeed: that.$props.typeSpeed,
+          typeSpeed: that.typeSpeed + Math.random() * 500,
           onFinished () {
-            that.showString = [sample(that.$props.strings)]
+            that.show = false
+            that.$refs.card.parentNode.style.background = that.cardStyle.background
 
-            that.$nextTick(() => {
-              $span.parentNode.removeChild($span.nextElementSibling)
-              $span.innerHTML = ''
-              that.initTyped()
-            })
+            setTimeout(() => {
+              that.inClass = sample(that.inClasses)
+              that.outClass = sample(that.outClasses)
+              that.showString = [sample(that.strings)]
+              that.cardStyle.background = sample(that.colors)
+
+              that.$nextTick(() => {
+                $span.parentNode.removeChild($span.nextElementSibling)
+                $span.innerHTML = ''
+                that.initTyped()
+              })
+            }, 1000)
+
           }
         })
       },
@@ -54,16 +83,9 @@
 </script>
 
 <style>
-  .type-card-wrapper {
-    height: 150px;
-    line-height: 150px;
-  }
-
   .ityped-cursor {
-    font-size: 2.2rem;
     opacity: 1;
-    -webkit-animation: blink 0.3s infinite;
-    -moz-animation: blink 0.3s infinite;
+    font-size: 2.2rem;
     animation: blink 0.3s infinite;
     animation-direction: alternate;
   }

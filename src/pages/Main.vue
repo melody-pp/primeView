@@ -1,11 +1,10 @@
 <template>
   <div>
     <b-navbar toggleable="md" type="light" variant="info" fixed="top" class="b-ca">
-      <b-navbar-brand to="/">
-        <img src="../assets/logo.png" alt="">
-      </b-navbar-brand>
+      <b-navbar-brand to="/"><img src="../assets/logo.png" alt=""></b-navbar-brand>
 
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav class="ml-auto">
           <b-nav-item to="home">首页</b-nav-item>

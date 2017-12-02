@@ -13,7 +13,9 @@
       <div class="page-1 page">
         <Banner></Banner>
       </div>
-      <div class="page-2 page"></div>
+      <div class="page-2 page">
+        <KeyWords></KeyWords>
+      </div>
       <div class="page-3 page"></div>
       <div class="page-4 page"></div>
       <div class="page-5 page"></div>
@@ -24,6 +26,7 @@
 
 <script>
   import Banner from './Banner'
+  import KeyWords from './KeyWords'
 
   export default {
     data () {
@@ -51,7 +54,7 @@
       },
     },
     components: {
-      Banner
+      Banner, KeyWords
     }
   }
 </script>
@@ -77,6 +80,7 @@
   }
 
   .page-2 {
+    padding-top: 65px;
   }
 
   .page-3 {
