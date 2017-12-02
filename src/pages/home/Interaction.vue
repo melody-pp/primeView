@@ -2,8 +2,8 @@
   <b-container :style="containerStyle">
     <b-row :style="rowStyle">
       <InteractionCard
-        :imgUrl="require('../../assets/index/it2.png')"
-        text="一些说明文字"/>
+        :imgUrl="require('../../assets/index/it2.png')"/>
+
       <InteractionCard
         :imgUrl="require('../../assets/index/it2.png')"
         text="一些说明文字"/>
@@ -13,7 +13,6 @@
       <InteractionCard
         :imgUrl="require('../../assets/index/it3.jpg')"
         text="一些说明文字"/>
-
       <InteractionCard
         :imgUrl="require('../../assets/index/it4.jpg')"
         text="一些说明文字"/>

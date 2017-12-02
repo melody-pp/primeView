@@ -3,12 +3,11 @@
     cols="6" :style="colStyle"
     @mouseleave="mouseLeave"
     @mouseenter="mouseEnter">
-    <b-img :src="imgUrl"></b-img>
 
     <transition
       enter-active-class="animated slideInUp"
       leave-active-class="animated slideOutDown">
-      <div v-show="showModel" :style="modelStyle" v-text="text"></div>
+      <div v-if="text" v-show="showModel" :style="modelStyle" v-text="text"></div>
     </transition>
   </b-col>
 </template>
@@ -23,17 +22,21 @@
           height: '100%',
           overflow: 'hidden',
           position: 'relative',
+          backgroundSize: 'cover',
+          backgroundImage: `url(${this.imgUrl})`,
         },
         modelStyle: {
+          bottom: 0,
+          width: '100%',
+          height: '100%',
           position: 'absolute',
           background: 'rgba(0, 0, 0, .5)',
-          height: '100%',
-          width: '100%',
-          bottom: 0,
         }
       }
     },
+
     props: ['imgUrl', 'text'],
+
     methods: {
       mouseLeave () {
         this.showModel = false

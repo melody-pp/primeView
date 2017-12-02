@@ -10,10 +10,10 @@
 </template>
 
 <script>
-  import 'animate.css'
   import iTyped from 'ityped'
+  import utils from '../utils'
 
-  const sample = arr => arr[Math.floor(Math.random() * arr.length)]
+  const sample = utils.sample
 
   export default {
     data () {
