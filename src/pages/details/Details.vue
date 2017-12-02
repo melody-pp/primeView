@@ -1,10 +1,35 @@
 <template>
   <b-container class="bv-example-row">
-    <b-row>
-      <b-col cols="1" md="1" sm="1"></b-col>
-      <b-col cols="2" md="2" sm="2">案例介绍</b-col>
-      <b-col cols="8" md="8" sm="8">3 of 3</b-col>
-      <b-col cols="1" md="1" sm="1">3 of 3</b-col>
+    <b-row align-h="start">
+      <b-col cols="3" sm="3" md="">案例介绍</b-col>
+      <b-col cols="8" sm="8">
+        <b-breadcrumb :items="items"/>
+      </b-col>
     </b-row>
+    <b-img src="../../assets/details_top_pic.jpg" fluid alt="Responsive image" />
+
   </b-container>
+
 </template>
+
+<script>
+  export default {
+    data() {
+      return {
+        items: [{
+          text: 'Admin',
+          href: '#'
+        }, {
+          text: 'Manage',
+          href: '#'
+        }, {
+          text: 'Library',
+          active: true
+        }]
+      }
+    }
+  }
+</script>
+<style scoped>
+
+</style>

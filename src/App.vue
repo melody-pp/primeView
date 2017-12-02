@@ -10,7 +10,8 @@
   }
 </script>
 
-<style scoped>
-#app{
-}
+<style>
+  body {
+    font-family: "Microsoft YaHei";
+  }
 </style>

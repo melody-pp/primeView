@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="md" type="light" variant="info" fixed="top">
+    <b-navbar toggleable="md" type="light" variant="info" fixed="top" class="b-ca">
       <b-navbar-brand to="/">
         <img src="../assets/logo.png" alt="">
       </b-navbar-brand>
@@ -32,16 +32,12 @@
 </script>
 
 <style scoped>
-  .bg-info{
-    background-color: rgba(255,255,255,0.6) !important;
+  .bg-info {
+    background-color: rgba(255, 255, 255, 0.6) !important;
   }
+
   .navbar-brand img {
-    height: 2rem !important;
+    height: 2.4rem !important;
   }
-  .navbar-toggler{
-    font-size:0.25rem;
-  }
-  .navbar-light .navbar-nav .nav-link{
-    font-size:.8rem!important;
-  }
+
 </style>

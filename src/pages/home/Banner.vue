@@ -1,45 +1,39 @@
 <template>
   <div>
-    <b-carousel id="carousel1"
-                style="text-shadow: 1px 1px 2px #333;"
-                :interval="4000"
-                img-width="1024"
-                img-height="480"
-                v-model="slide"
-                @sliding-start="onSlideStart"
-                @sliding-end="onSlideEnd"
-    >
-      <!-- Slides with image only -->
-      <b-carousel-slide>
-        <img slot="img" class="d-block img-fluid w-100" width="1024" height="480"
-             src="../../assets/top_pic.jpg" alt="image slot">
-      </b-carousel-slide>
-      <!-- Slides with img slot -->
-      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-      <b-carousel-slide>
-        <img slot="img" class="d-block img-fluid w-100" width="1024" height="480"
-             src="../../assets/top_pic.jpg" alt="image slot">
-      </b-carousel-slide>
+    <b-carousel
+      id="carousel1"
+      style="text-shadow: 1px 1px 2px #333;"
+      controls
+      :interval="4000"
+      v-model="slide"
+      @sliding-start="onSlideStart"
+      @sliding-end="onSlideEnd">
+
+      <b-carousel-slide v-for="imgUrl in imgUrls" :img-src="imgUrl"></b-carousel-slide>
+
     </b-carousel>
 
     <div class="abstract">
-      <div>
-        <span class="iconCustomer"></span>
-        <span class="num">120</span>
-        <span class="unit">名员工</span>
-      </div>
-      <div>
-        <span class="num">500</span>
-        <span class="unit">强企业服务经验</span>
-      </div>
-      <div>
-        <span class="num">28590</span>
-        <span class="unit">次效率支付</span>
-      </div>
-      <div>
-        <span class="num">123</span>
-        <span class="unit">家客户合作</span>
-      </div>
+      <b-container class="bv-example-row">
+        <b-row class="justify-content-md-center">
+          <b-col cols="3">
+            <span class="num">120</span>
+            <span class="unit">名员工</span>
+          </b-col>
+          <b-col cols="3">
+            <span class="num">500</span>
+            <span class="unit">强企业服务经验</span>
+          </b-col>
+          <b-col cols="3">
+            <span class="num">28590</span>
+            <span class="unit">次效率支付</span>
+          </b-col>
+          <b-col cols="3">
+            <span class="num">123</span>
+            <span class="unit">家客户合作</span>
+          </b-col>
+        </b-row>
+      </b-container>
     </div>
   </div>
 </template>
@@ -49,9 +43,19 @@
     data () {
       return {
         slide: 0,
-        sliding: null
+        sliding: null,
+        imgUrls: []
       }
     },
+
+    mounted () {
+      this.axios.get('/api/getImgUrls')
+        .then(res => {
+          console.log(res)
+          this.imgUrls = res.data
+        })
+    },
+
     methods: {
       onSlideStart (slide) {
         this.sliding = true
@@ -62,18 +66,25 @@
     }
   }
 </script>
+
 <style>
+  #carousel1, .carousel-inner, .carousel-item {
+    height: 100%;
+  }
+
+  .img-fluid {
+    height: 100%;
+  }
+
   .abstract {
-    display: flex;
-    text-align: center;
-    position: relative;
-    margin-top: -4.4rem;
-    justify-content: center;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
   }
 
   .abstract div {
-    padding:0.5rem 3rem;
+    padding: 0.4rem 0;
   }
 
   .abstract span {
@@ -81,12 +92,14 @@
   }
 
   .abstract .num {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: 300;
   }
 
   .abstract .unit {
-    font-size: 0.1rem;
+    font-size: 0.9rem;
   }
+
   .abstract .iconCustomer {
     background: url("../../assets/icon_pic.png") 0 200px no-repeat;
   }

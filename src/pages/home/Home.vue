@@ -1,35 +1,23 @@
 <template>
   <div class="fullpage-container">
     <div class="button-group">
-      <button type="button" :class="{active:index ==0}" @click="moveTo(0)">first page</button>
-      <button type="button" :class="{active:index ==1}" @click="moveTo(1)">Second page</button>
-      <button type="button" :class="{active:index ==2}" @click="moveTo(2)">Third page</button>
-      <button type="button" v-for="btn in pageNum" :class="{active:index == btn + 2}" @click="moveTo(btn+2)">
-        page {{btn + 2}}
-      </button>
-      <button type="button" @click="showPage()">add page</button>
+      <button type="button" :class="{active:index ==0}" @click="moveTo(0)"></button>
+      <button type="button" :class="{active:index ==1}" @click="moveTo(1)"></button>
+      <button type="button" :class="{active:index ==2}" @click="moveTo(2)"></button>
+      <button type="button" :class="{active:index ==3}" @click="moveTo(3)"></button>
+      <button type="button" :class="{active:index ==4}" @click="moveTo(4)"></button>
+      <button type="button" :class="{active:index ==5}" @click="moveTo(5)"></button>
     </div>
+
     <div class="fullpage-wp" v-fullpage="opts" ref="fullpage">
       <div class="page-1 page">
-        <h1 class="part-1" v-animate="{value: 'bounceInLeft'}">vue-fullpage.js</h1>
-        <h3 class="" v-animate="{value: 'bounceInLeft'}">
-          A sigle-page scroll plugin based on vue@2.x,support for mobile and PC .</h3>
+        <Banner></Banner>
       </div>
-      <div class="page-2 page">
-        <h2 class="part-2" v-animate="{value: 'bounceInRight'}">Easy to use plugin</h2>
-      </div>
-      <div class="page-3 page">
-        <h2 class="" v-animate="{value: 'bounceInTop'}">Working On Tablets</h2>
-        <h3 class="" v-animate="{value: 'bounceInBotton'}">
-          Designed to fit different screen sizes as well as tablet and mobile devices. </h3>
-        <p class="part-3" v-animate="{value: 'bounceInLeft', delay: 0}">vue-fullpage</p>
-        <p class="part-3" v-animate="{value: 'bounceInRight', delay: 300}">vue-fullpage</p>
-        <p class="part-3" v-animate="{value: 'bounceInDown', delay: 600}">vue-fullpage</p>
-        <p class="part-3" v-animate="{value: 'zoomInDown', delay: 900}">vue-fullpage</p>
-      </div>
-      <div class="page-2 page" v-for="page in pageNum">
-        <h2 class="part-2" v-animate="{value: 'bounceInRight'}">page {{page}}</h2>
-      </div>
+      <div class="page-2 page"></div>
+      <div class="page-3 page"></div>
+      <div class="page-4 page"></div>
+      <div class="page-5 page"></div>
+      <div class="page-6 page"></div>
     </div>
   </div>
 </template>
@@ -39,7 +27,7 @@
 
   export default {
     data () {
-      var that = this
+      const that = this
       return {
         index: 0,
         pageNum: 0,
@@ -49,12 +37,10 @@
           loop: false,
           duration: 300,
           beforeChange: function (ele, current, next) {
-            console.log('before', current, next)
             that.index = next
           },
           afterChange: function (ele, current) {
             that.index = current
-            console.log('after', current)
           }
         }
       }
@@ -63,13 +49,13 @@
       moveTo: function (index) {
         this.$refs.fullpage.$fullpage.moveTo(index, true)
       },
-      showPage: function () {
-        this.pageNum++
-        this.$refs.fullpage.$fullpage.$update()
-      }
+    },
+    components: {
+      Banner
     }
   }
 </script>
+
 <style scoped>
   .fullpage-container {
     position: absolute;
@@ -86,19 +72,14 @@
     color: #eee;
   }
 
-  .page-1 {
-    padding-top: 100px;
-    background: #1bbc9b;
+  .page-1 > div {
+    height: 100%;
   }
 
   .page-2 {
-    padding-top: 100px;
-    background-color: rgb(75, 191, 195);
   }
 
   .page-3 {
-    padding-top: 50px;
-    background: #aabbcc;
   }
 
   h3,
@@ -108,26 +89,29 @@
 
   .button-group {
     position: absolute;
-    top: 30px;
-    left: 30px;
+    top: 50%;
+    right: 24px;
     z-index: 9;
+    width: 20px;
+    margin-top: -84px;
   }
 
   .button-group button {
     display: inline-block;
-    margin: 10px;
+    margin: 5px;
     color: #000;
     background: #fff;
     background: rgba(255, 255, 255, .5);
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    padding: 9px 18px;
+    padding: 5px;
     border: none;
     outline: none;
+    cursor: pointer;
   }
 
   .button-group button.active {
-    background: rgba(0, 0, 0, .5);
     color: #fff;
+    background: rgba(0, 0, 0, .5);
   }
 </style>
