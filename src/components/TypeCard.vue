@@ -18,8 +18,8 @@
     data () {
       return {
         show: false,
-        inClass: sample(this.inClass),
-        outClass: sample(this.outClass),
+        inClass: sample(this.inClasses),
+        outClass: sample(this.outClasses),
         showString: [sample(this.strings)],
         cardStyle: {
           height: '100%',
