@@ -1,8 +1,8 @@
 <template>
   <div class="ex-container">
     <div class="top" :style="topStyle" @click="showAll"></div>
-    <div class="right"></div>
-    <div class="bottom"></div>
+    <div class="right" :style="rightStyle"></div>
+    <div class="bottom" :style="bottomStyle"></div>
     <div class="left"></div>
   </div>
 </template>
@@ -27,6 +27,38 @@
           backgroundImage: `url(${require('../../assets/index/car.png')})`,
           backgroundSize: `${window.innerWidth}px ${(window.innerHeight - 65) / 2}px`,
         },
+        rightStyle: {
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: 0,
+          height: 0,
+          transition: 'all 500ms',
+          borderLeft: `${window.innerWidth / 2}px solid transparent`,
+          borderBottom: `${(window.innerHeight - 65) / 2}px solid #fff`,
+          borderTop: `${(window.innerHeight - 65) / 2}px solid #fff`,
+          backgroundOrigin: 'border',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: '100% 50%',
+          backgroundImage: `url(${require('../../assets/index/computer.png')})`,
+          backgroundSize: `${window.innerWidth / 2}px ${window.innerHeight - 65}px`,
+        },
+        bottomStyle: {
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          width: 0,
+          height: 0,
+          transition: 'all 500ms',
+          borderLeft: `${window.innerWidth / 2}px solid #fff`,
+          borderRight: `${window.innerWidth / 2}px solid #fff`,
+          borderBottom: `${(window.innerHeight - 65) / 2}px solid transparent`,
+          backgroundOrigin: 'border',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: '50% 0%',
+          backgroundImage: `url(${require('../../assets/index/exhibition.png')})`,
+          backgroundSize: `${window.innerWidth}px ${(window.innerHeight - 65) / 2}px`,
+        }
       }
     },
 
