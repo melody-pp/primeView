@@ -33,11 +33,11 @@
       colors: Array,
       inClasses: {
         type: Array,
-        default: ['slideInUp', 'slideInDown', 'slideInLeft', 'slideInRight']
+        default: () => ['slideInUp', 'slideInDown', 'slideInLeft', 'slideInRight']
       },
       outClasses: {
         type: Array,
-        default: ['slideOutUp', 'slideOutDown', 'slideOutLeft', 'slideOutRight']
+        default: () => ['slideOutUp', 'slideOutDown', 'slideOutLeft', 'slideOutRight']
       },
       typeSpeed: {
         type: Number,
@@ -53,14 +53,19 @@
       initTyped () {
         const that = this
         const $span = that.$refs.span
+        const $card = that.$refs.card
+
         that.show = true
+        if (!that.showString[0]) {
+          that.showString = ['  ']
+        }
 
         iTyped.init($span, {
           strings: that.showString,
           typeSpeed: that.typeSpeed + Math.random() * 500,
           onFinished () {
             that.show = false
-            that.$refs.card.parentNode.style.background = that.cardStyle.background
+            $card.parentNode.style.background = that.cardStyle.background
 
             that.inClass = sample(that.inClasses)
             that.outClass = sample(that.outClasses)

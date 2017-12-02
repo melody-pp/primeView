@@ -14,7 +14,7 @@
         <Banner></Banner>
       </div>
       <div class="page-2 page">
-        <KeyWords></KeyWords>
+        <Keywords></Keywords>
       </div>
       <div class="page-3 page"></div>
       <div class="page-4 page"></div>
@@ -26,7 +26,7 @@
 
 <script>
   import Banner from './Banner'
-  import KeyWords from './KeyWords'
+  import Keywords from './Keywords'
 
   export default {
     data () {
@@ -54,7 +54,7 @@
       },
     },
     components: {
-      Banner, KeyWords
+      Banner, Keywords
     }
   }
 </script>

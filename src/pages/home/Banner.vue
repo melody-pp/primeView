@@ -9,7 +9,7 @@
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd">
 
-      <b-carousel-slide v-for="imgUrl in imgUrls" :img-src="imgUrl"></b-carousel-slide>
+      <b-carousel-slide v-for="(imgUrl,index) in imgUrls" :img-src="imgUrl" :key="index"></b-carousel-slide>
 
     </b-carousel>
 
