@@ -16,20 +16,13 @@
 </template>
 
 <script>
-
   export default {
     data () {
-      return {
-        items: [
-          {image: require('../../assets/top_pic.jpg'),},
-          {image: require('../../assets/top_pic.jpg'),},
-          {image: require('../../assets/top_pic.jpg'),},
-        ]
-      }
+      return {}
     },
-
   }
 </script>
+
 <style scoped>
   .productsBox {
     padding-top: 65px;
@@ -40,44 +33,44 @@
   }
 
   .topPic img:not(:nth-child(1)) {
-    position: absolute;
     top: 50%;
     left: 50%;
+    position: absolute;
   }
 
   .topPic img:nth-child(2) {
-    margin-left: -25%;
-    margin-top: 0;
     width: 8%;
+    margin-top: 0;
+    margin-left: -25%;
   }
 
   .topPic img:nth-child(3) {
-    margin-left: -15.3%;
     width: 6%;
     margin-top: -5%;
+    margin-left: -15.3%;
   }
 
   .topPic img:nth-child(4) {
-    margin-left: -3%;
-    margin-top: -7.4%;
     width: 6%;
+    margin-top: -7.4%;
+    margin-left: -3%;
   }
 
   .topPic img:nth-child(5) {
-    margin-left: 9%;
     width: 7%;
     margin-top: -5.6%;
+    margin-left: 9%;
   }
 
   .topPic img:nth-child(6) {
-    margin-left: 18%;
     width: 8%;
     margin-top: -1%;
+    margin-left: 18%;
   }
 
   .topPic img:nth-child(7) {
-    margin-top: 12%;
     width: 18%;
+    margin-top: 12%;
     margin-left: -8%;
   }
 </style>
