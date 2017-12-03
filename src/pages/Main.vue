@@ -38,5 +38,8 @@
   .navbar-brand img {
     height: 2.4rem !important;
   }
+  .navbar{
+    padding:0.5rem 2rem;
+  }
 
 </style>

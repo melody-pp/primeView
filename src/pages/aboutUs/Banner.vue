@@ -2,7 +2,6 @@
   <b-carousel
     id="carousel-about-us"
     style="text-shadow: 1px 1px 2px #333;"
-    controls
     indicators
     :interval="2000"
     v-model="slide"
