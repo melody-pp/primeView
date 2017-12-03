@@ -1,10 +1,10 @@
 <template>
   <div>
     <b-carousel
-      id="carousel1"
+      id="carousel-home"
       style="text-shadow: 1px 1px 2px #333;"
       controls
-      :interval="4000"
+      :interval="2000"
       v-model="slide"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd">
@@ -67,7 +67,7 @@
 </script>
 
 <style>
-  #carousel1, .carousel-inner, .carousel-item {
+  #carousel-home, .carousel-inner, .carousel-item {
     height: 100%;
   }
 
