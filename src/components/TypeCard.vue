@@ -11,9 +11,7 @@
 
 <script>
   import iTyped from 'ityped'
-  import utils from '../utils'
-
-  const sample = utils.sample
+  import { sample } from '../utils'
 
   export default {
     data () {
