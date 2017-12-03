@@ -63,19 +63,19 @@
     width: 6%;
   }
 
-  .topPic img:nth-child(4) {
+  .topPic img:nth-child(5) {
     margin-left: 9%;
     width: 7%;
     margin-top: -5.6%;
   }
 
-  .topPic img:nth-child(5) {
+  .topPic img:nth-child(6) {
     margin-left: 18%;
     width: 8%;
     margin-top: -1%;
   }
 
-  .topPic img:nth-child(6) {
+  .topPic img:nth-child(7) {
     margin-top: 12%;
     width: 18%;
     margin-left: -8%;
