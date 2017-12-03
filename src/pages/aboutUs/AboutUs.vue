@@ -19,9 +19,8 @@
             </div>
           </li>
         </ul>
-        <iframe :src="require('../../assets/baiduMap.html')" frameborder="0"></iframe>
       </div>
-      <div></div>
+      <iframe src="/api/baiduMap.html" frameborder="0" width="500" height="300"></iframe>
     </div>
   </div>
 </template>
@@ -39,6 +38,7 @@
     },
 
     mounted () {
+      console.log(require('./baiduMap.html'))
       this.axios.get('/api/getImgUrls')
         .then(res => {
           this.imgUrls = res.data.imgUrls
