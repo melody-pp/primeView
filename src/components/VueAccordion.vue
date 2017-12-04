@@ -39,7 +39,7 @@
           el.style.width = '0'
         })
 
-        const width = window.innerWidth * 0.7 + 'px'
+        const width = window.innerWidth * 0.6 + 'px'
 
         switch (index) {
           case 0:
@@ -83,7 +83,7 @@
     opacity: 1;
     width: 100%;
     height: 100%;
-    font-size: 44px;
+    font-size: 40px;
     transition: all 500ms;
   }
 

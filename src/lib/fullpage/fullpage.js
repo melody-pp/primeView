@@ -407,6 +407,9 @@ var fullpage = {
   install: function install (Vue, options) {
     Vue.directive('fullpage', {
       inserted: function inserted (el, binding, vnode) {
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+          return
+        }
         var opts = binding.value || {}
 
         el.$fullpage = new Fullpage(el, opts, vnode)

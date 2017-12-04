@@ -1,5 +1,5 @@
 <template>
-  <div class="fullpage-container">
+  <div ref="fullpage" class="fullpage-container">
     <div class="button-group">
       <button type="button" :class="{active:index ==0}" @click="moveTo(0)"></button>
       <button type="button" :class="{active:index ==1}" @click="moveTo(1)"></button>
@@ -63,6 +63,12 @@
       }
     },
     mounted () {
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        const classList = this.$refs.fullpage.classList
+
+        classList.remove('fullpage-container')
+        classList.add('no-fullpage')
+      }
       window.addEventListener('resize', this.handleResize)
     },
     methods: {
@@ -81,11 +87,25 @@
 
 <style scoped>
   .fullpage-container {
-    position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
+    position: absolute;
     width: 100%;
     height: 100%;
+  }
+
+  .no-fullpage .page {
+    height: 320px;
+  }
+
+  .no-fullpage .button-group {
+    display: none;
+  }
+
+  .no-fullpage .page-2,
+  .no-fullpage .page-4,
+  .no-fullpage .page-5 {
+    padding-top: 0;
   }
 
   .page {
@@ -99,7 +119,9 @@
     height: 100%;
   }
 
-  .page-2, .page-4, .page-5 {
+  .page-2,
+  .page-4,
+  .page-5 {
     padding-top: 65px;
   }
 
