@@ -4,7 +4,7 @@
       <template v-if="index%2">
         <div style="width:49%">
           <h6>{{item.atitle}}</h6>
-          <p>{{item.created_at}}</p>
+          <p>{{item.content}}</p>
         </div>
         <div style="width: 51%;">
           <img :src="item.amedia" alt="">
@@ -17,7 +17,7 @@
         </div>
         <div style="width: 49%">
           <h6>{{item.atitle}}</h6>
-          <p>{{item.created_at}}</p>
+          <p>{{item.content}}</p>
         </div>
       </template>
     </div>
@@ -48,12 +48,12 @@
 
   .it-row > div {
     float: left;
-    height: 200px;
+
   }
 
   img {
     width: 100%;
-    height: 200px;
+
   }
 .introduceBox{
   width: 90%;

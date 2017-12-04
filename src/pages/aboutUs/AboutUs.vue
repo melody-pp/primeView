@@ -11,7 +11,7 @@
       <div class="row no-gutters">
         <div class="col-xs-12 col-md-6">
           <p class="headTxt">联系我们</p>
-          <div class="row" v-for="(info,index) in infos" :key="index">
+          <div class="row">
             <div class="col-md-12 col-xs-12">
               <img class="addressImg" src="../../assets/who/position.png" alt="">
               <div class="addressIfo">
@@ -37,7 +37,7 @@
 
         </div>
         <div class="col-xs-12 col-md-6">
-          <iframe src="/api/baiduMap.html" frameborder="0" width="100%"></iframe>
+          <iframe src="/api/baiduMap.html" frameborder="0" width="100%" height="100%"></iframe>
         </div>
       </div>
     </div>
@@ -51,30 +51,41 @@
   import Introduce from './Introduce'
 
   export default {
-    data() {
+    data () {
       return {
         imgUrls: [],
         items: [],
-        infos: []
+        infos: [{
+          'id': 1,
+          'addr': '\u96c5\u6210\u4e00\u91cc\u7532\u4e09\u53f7',
+          'tel': '85988521',
+          'mail': 'sjxh@pview.com',
+          'created_at': '2017-11-28 17:46:38',
+          'updated_at': '2017-11-28 17:47:56'
+        }]
+      }
+    },
+    computed: {
+      info () {
+        return this.infos[0]
       }
     },
 
-    mounted() {
+    mounted () {
       this.axios.get('/api/getAbhome')
         .then(res => {
           this.imgUrls = res.data
 
-
         })
 
-      this.axios.get('api/getAbout')
+      this.axios.get('api/getContact')
         .then(res => {
           this.items = res.data
         })
+
       this.axios.get('api/getContact')
         .then(res => {
-          this.infos = res.data
-          console.log(res.data);
+          console.log(res.data)
         })
     },
 
