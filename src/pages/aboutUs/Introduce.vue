@@ -3,21 +3,21 @@
     <div class="it-row" v-for="(item, index) in items" :key="index">
       <template v-if="index%2">
         <div style="width:49%">
-          <h6>{{item.title}}</h6>
-          <p>{{item.content}}</p>
+          <h6>{{item.atitle}}</h6>
+          <p>{{item.created_at}}</p>
         </div>
         <div style="width: 51%;">
-          <img :src="item.imgUrl" alt="">
+          <img :src="item.amedia" alt="">
         </div>
       </template>
 
       <template v-else>
         <div style="width: 51%">
-          <img :src="item.imgUrl" alt="">
+          <img :src="item.amedia" alt="">
         </div>
         <div style="width: 49%">
-          <h6>{{item.title}}</h6>
-          <p>{{item.content}}</p>
+          <h6>{{item.atitle}}</h6>
+          <p>{{item.created_at}}</p>
         </div>
       </template>
     </div>

@@ -7,21 +7,42 @@
       <img src="../../assets/who/company_team.jpg" alt="">
     </div>
     <div class="liner"></div>
-    <div class="contact-us">
-      <div>
-        <p>联系我们</p>
-        <ul>
-          <li>
-            <img class="addressImg" src="../../assets/who/position.png" alt="">
-            <div class="addressIfo">
-              <p>公司地址</p>
-              <p>雅成一里</p>
+    <div class="container-fluid contact-us">
+      <div class="row no-gutters">
+        <div class="col-xs-12 col-md-6">
+          <p class="headTxt">联系我们</p>
+          <div class="row" v-for="(info,index) in infos" :key="index">
+            <div class="col-md-12 col-xs-12">
+              <img class="addressImg" src="../../assets/who/position.png" alt="">
+              <div class="addressIfo">
+                <p>公司地址</p>
+                <p>{{info.addr}}</p>
+              </div>
             </div>
-          </li>
-        </ul>
+            <div class="col-md-12 col-xs-12">
+              <img class="addressImg" src="../../assets/who/tel.png" alt="">
+              <div class="addressIfo">
+                <p>办公电话</p>
+                <p>{{info.tel}}</p>
+              </div>
+            </div>
+            <div class="col-md-12 col-xs-12">
+              <img class="addressImg" src="../../assets/who/email.png" alt="">
+              <div class="addressIfo">
+                <p>EMAILS</p>
+                <p>{{info.mail}}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <iframe src="/api/baiduMap.html" frameborder="0" width="100%"></iframe>
+        </div>
       </div>
-      <iframe src="/api/baiduMap.html" frameborder="0" width="500" height="300"></iframe>
     </div>
+
+
   </div>
 </template>
 
@@ -30,24 +51,30 @@
   import Introduce from './Introduce'
 
   export default {
-    data () {
+    data() {
       return {
         imgUrls: [],
-        items: []
+        items: [],
+        infos: []
       }
     },
 
-    mounted () {
-      console.log(require('./baiduMap.html'))
-      this.axios.get('/api/getImgUrls')
+    mounted() {
+      this.axios.get('/api/getAbhome')
         .then(res => {
-          this.imgUrls = res.data.imgUrls
+          this.imgUrls = res.data
+
+
         })
 
-      this.axios.get('/api/getIntroduceItems')
+      this.axios.get('api/getAbout')
         .then(res => {
-          this.items = res.data.items
-          console.log(this.items)
+          this.items = res.data
+        })
+      this.axios.get('api/getContact')
+        .then(res => {
+          this.infos = res.data
+          console.log(res.data);
         })
     },
 
@@ -56,6 +83,27 @@
 </script>
 
 <style>
+  @font-face {
+    font-family: 'SourceHanSansCN-ExtraLight';
+    src: url('../../font/SourceHanSansCN-ExtraLight.otf');
+    font-weight: 100;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'SourceHanSansCN-Light';
+    src: url('../../font/SourceHanSansCN-Light.otf');
+    font-weight: 100;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'SourceHanSansCN-Regular';
+    src: url('../../font/SourceHanSansCN-Regular.otf');
+    font-weight: 100;
+    font-style: normal;
+  }
+
   .company-team {
     width: 90%;
     margin: 40px auto;
@@ -74,12 +122,30 @@
 
   .contact-us {
     width: 90%;
-    margin: 0 auto;
+    padding: 0;
+  }
+
+  .headTxt {
+    color: #313131;
+    font-size: 30px;
+    font-family: "SourceHanSansCN-ExtraLight";
   }
 
   .addressImg, .addressIfo {
     display: inline-block;
 
+  }
+
+  .addressIfo p:nth-child(1) {
+    color: #98d4d5;
+    font-size: 18px;
+    font-family: 'SourceHanSansCN-Light';
+  }
+
+  .addressIfo p:nth-child(2) {
+    color: #2c2b2a;
+    font-size: 14px;
+    font-family: 'SourceHanSansCN-Regular';
   }
 
   .addressImg {

@@ -1,5 +1,8 @@
 <template>
   <div class="case-container">
+    <b-row>
+      <b-col></b-col>
+    </b-row>
     <Waterfall
       :align="align"
       :lineGap="200"
