@@ -1,28 +1,27 @@
 <template>
-  <li :style="{backgroundImage: `url(${item.image})`}">
-    <a :href="item.url"></a>
-  </li>
+  <div class="accordion-item" :style="{backgroundImage: `url(${image})`}">
+    <a :href="url"></a>
+  </div>
 </template>
+
 <script>
   export default {
-    props: {
-      item: Object,
-    }
+    props: ['image', 'url']
   }
 </script>
 
 <style>
-  .vue-accordion ul li {
-    width: 50%;
+  .accordion-item {
+    float: left;
+    width: 33.33%;
     height: 100%;
     position: relative;
-    display: table-cell;
     vertical-align: bottom;
     transition: all 500ms;
     background: no-repeat center center;
   }
 
-  .vue-accordion ul li a {
+  .accordion-item a {
     z-index: 3;
     width: 100%;
     height: 100%;
@@ -30,7 +29,11 @@
     position: relative;
   }
 
-  .vue-accordion ul:hover li:hover {
-    width: 200%;
+  .accordion-container:hover .accordion-item {
+    width: 15%;
+  }
+
+  .accordion-container:hover .accordion-item:hover {
+    width: 70%;
   }
 </style>

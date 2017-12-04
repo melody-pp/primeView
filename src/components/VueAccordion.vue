@@ -1,62 +1,65 @@
 <template>
   <div class="vue-accordion">
-    <ul @mouseleave="mouseLeave()">
+    <div class="accordion-container" @mouseleave="mouseLeave()">
       <partialAccordion
         v-for="(item,index) in items"
-        :item="item"
-        :key="index"
-        @mouseenter.native="mouseEnter(index)">
-      </partialAccordion>
-    </ul>
+        v-bind="item" :key="index"
+        @mouseenter.native="mouseEnter(index)"/>
+    </div>
+
     <div class="accordionModel">
-      <table>
+      <table ref="table">
         <tbody>
         <tr>
-          <td class="sp" :class="{active: hoverIndex === 0}"></td>
-          <td><</td>
+          <td class="sp" ref="sp1"></td>
           <td>视</td>
           <td>觉</td>
-          <td class="sp" :class="{active: hoverIndex === 1}"></td>
+          <td class="sp" ref="sp2"></td>
           <td>表</td>
           <td>现</td>
-          <td>></td>
-          <td class="sp" :class="{active: hoverIndex === 2}"></td>
+          <td class="sp" ref="sp3"></td>
         </tr>
         </tbody>
       </table>
     </div>
   </div>
 </template>
+
 <script>
   import partialAccordion from './VueAccordionPartial.vue'
   import index from '../router/index'
 
   export default {
     name: 'vue-accordion',
-
-    data () {
-      return {
-        hoverIndex: null,
-      }
-    },
-
-    props: {
-      items: Array,
-    },
-
+    props: {items: Array,},
     components: {partialAccordion},
-
     methods: {
       mouseEnter (index) {
-        this.hoverIndex = index
+        [...this.$refs.table.querySelectorAll('.sp')].forEach(el => {
+          el.style.width = '0'
+        })
+
+        const width = window.innerWidth * 0.7 + 'px'
+
+        switch (index) {
+          case 0:
+            return this.$refs.sp1.style.width = width
+          case 1:
+            return this.$refs.sp2.style.width = width
+          case 2:
+            return this.$refs.sp3.style.width = width
+        }
       },
 
       mouseLeave () {
-        this.hoverIndex = null
+        [...this.$refs.table.querySelectorAll('.sp')].forEach(el => {
+          el.style.width = '0'
+        })
       }
     }
   }
 </script>
+
 <style>
   .vue-accordion {
     width: 100%;
@@ -65,13 +68,11 @@
     position: relative;
   }
 
-  .vue-accordion ul {
+  .accordion-container {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    display: table;
-    table-layout: fixed;
   }
 
   .accordionModel {
@@ -102,9 +103,4 @@
     transition: all 500ms;
     background: rgba(0, 0, 0, 0);
   }
-
-  .accordionModel table td.active {
-    width: 850px;
-  }
-
 </style>
