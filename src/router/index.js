@@ -38,7 +38,7 @@ export default new Router({
           component: Cases
         },
         {
-          path: '/details/:caseId',
+          path: '/details',
           component: Details
         },
       ]

@@ -7,27 +7,24 @@
       </div>
     </div>
     <img class="bannerCss" :src="banner.url" alt="">
-    <Content></Content>
+    <DetailContent></DetailContent>
   </div>
 
 </template>
 
 <script>
   import Breadcrumb from './Breadcrumb'
-  import Content from './Content'
+  import DetailContent from './DetailContent'
 
   export default {
-    data() {
+    data () {
       return {
         banner: {
           url: require('../../assets/detail_page/pic_1 (2).jpg')
         }
       }
     },
-    components: {
-      Breadcrumb,
-      Content
-    }
+    components: {Breadcrumb, DetailContent}
   }
 </script>
 <style scoped>

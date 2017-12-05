@@ -71,8 +71,9 @@
 
         classList.remove('fullpage-container')
         classList.add('no-fullpage')
+      } else {
+        window.addEventListener('resize', this.handleResize)
       }
-      window.addEventListener('resize', this.handleResize)
     },
     methods: {
       moveTo (index) {
