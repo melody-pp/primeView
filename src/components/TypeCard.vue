@@ -11,10 +11,10 @@
 
 <script>
   import iTyped from 'ityped'
-  import { sample } from '../utils'
+  import {sample} from '../utils'
 
   export default {
-    data () {
+    data() {
       return {
         show: false,
         inClass: sample(this.inClasses),
@@ -24,7 +24,8 @@
           height: '100%',
           background: sample(this.colors),
           textAlign: 'left',
-          textIndent: '15px'
+          textIndent: '15px',
+          lineHeight: '7'
         },
       }
     },
@@ -46,12 +47,12 @@
       }
     },
 
-    mounted () {
+    mounted() {
       this.initTyped()
     },
 
     methods: {
-      initTyped () {
+      initTyped() {
         const that = this
         const $span = that.$refs.span
         const $card = that.$refs.card
@@ -61,7 +62,7 @@
         iTyped.init($span, {
           strings: ['  ' + (that.showString || '')],
           typeSpeed: that.typeSpeed + Math.random() * 500,
-          onFinished () {
+          onFinished() {
             that.show = false
             $card.parentNode.style.background = that.cardStyle.background
 

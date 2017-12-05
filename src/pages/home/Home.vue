@@ -30,7 +30,9 @@
         <Experience></Experience>
       </div>
 
-      <div class="page-6 page"></div>
+      <div class="page-6 page">
+        <PartnerAndContact></PartnerAndContact>
+      </div>
     </div>
   </div>
 </template>
@@ -41,9 +43,10 @@
   import Visual from './Visual'
   import Interaction from './Interaction'
   import Experience from './Experience'
+  import PartnerAndContact from './PartnerAndContact'
 
   export default {
-    data () {
+    data() {
       const that = this
 
       return {
@@ -53,16 +56,16 @@
           dir: 'v',
           loop: false,
           duration: 300,
-          beforeChange (ele, current, next) {
+          beforeChange(ele, current, next) {
             that.index = next
           },
-          afterChange (ele, current) {
+          afterChange(ele, current) {
             that.index = current
           }
         }
       }
     },
-    mounted () {
+    mounted() {
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         const classList = this.$refs.fullpage.classList
 
@@ -72,15 +75,15 @@
       window.addEventListener('resize', this.handleResize)
     },
     methods: {
-      moveTo (index) {
+      moveTo(index) {
         this.$refs.fullpage.$fullpage.moveTo(index, true)
       },
-      handleResize () {
+      handleResize() {
         this.$refs.fullpage.$fullpage.moveTo(this.index, false)
       }
     },
     components: {
-      Banner, Keywords, Visual, Interaction, Experience
+      Banner, Keywords, Visual, Interaction, Experience, PartnerAndContact
     }
   }
 </script>

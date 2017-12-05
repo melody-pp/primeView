@@ -3,6 +3,7 @@
     <b-row>
       <b-col></b-col>
     </b-row>
+    <b-link to="/details">details</b-link>
     <Waterfall
       :align="align"
       :lineGap="200"

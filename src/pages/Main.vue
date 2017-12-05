@@ -15,14 +15,31 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
+    <div class="footerBox">
+      <b-link to="/" class="logo"><img src="../assets/logo.png" alt=""></b-link>
+      <ul class=" joinUs clearfix">
+        <li>加入我们</li>
+        <li>|</li>
+        <li>首页映像旗下机构：世纪星瀚</li>
+        <li>|</li>
+        <li>贰零肆捌+</li>
+        <li>|</li>
+        <li>四维空间</li>
+      </ul>
+      <div class="clearfix share">
+        <a href="javascript:;"><img src="../assets/logo/wx.png" alt=""></a>
+        <a href="javascript:;"><img src="../assets/logo/bird.png" alt=""></a>
+        <a href="javascript:;"><img src="../assets/logo/cream.png" alt=""></a>
+      </div>
 
+    </div>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
   export default {
-    data () {
+    data() {
       return {
         lang: 'cn'
       }
@@ -35,11 +52,47 @@
     background-color: rgba(255, 255, 255, 0.6) !important;
   }
 
-  .navbar-brand img {
+  .navbar-brand img, .footerBox .logo img {
     height: 2.4rem !important;
   }
-  .navbar{
-    padding:0.5rem 2rem;
+
+  .navbar {
+    margin: 0 auto;
+    padding: 10px 10%;
   }
 
+  .footerBox {
+    width: 100%;
+    padding: 10px 10%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: #000;
+    color: #ccc;
+  }
+
+  .joinUs li {
+    float: left;
+    line-height: 2.4rem;
+    margin: 0 5px;
+  }
+  .joinUs{
+    display: inline-block;
+  }
+  .footerBox .logo {
+    float: left;
+    height: 2.4rem !important;
+    margin-right: 5%;
+  }
+.share{
+  float:right;
+  display: inline-block;
+}
+  .share a{
+    float:left;
+    margin: 0 10px;
+  }
+  .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active{
+    color:rgb(52,152,219);
+  }
 </style>
