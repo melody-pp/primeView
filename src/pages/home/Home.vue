@@ -1,12 +1,12 @@
 <template>
   <div class="fullpage-container">
     <div class="button-group">
-      <button type="button" :class="{active:index ==0}" @click="moveTo(0)"></button>
-      <button type="button" :class="{active:index ==1}" @click="moveTo(1)"></button>
-      <button type="button" :class="{active:index ==2}" @click="moveTo(2)"></button>
-      <button type="button" :class="{active:index ==3}" @click="moveTo(3)"></button>
-      <button type="button" :class="{active:index ==4}" @click="moveTo(4)"></button>
-      <button type="button" :class="{active:index ==5}" @click="moveTo(5)"></button>
+      <button type="button" :class="{active:index === 0}" @click="moveTo(0)"></button>
+      <button type="button" :class="{active:index === 1}" @click="moveTo(1)"></button>
+      <button type="button" :class="{active:index === 2}" @click="moveTo(2)"></button>
+      <button type="button" :class="{active:index === 3}" @click="moveTo(3)"></button>
+      <button type="button" :class="{active:index === 4}" @click="moveTo(4)"></button>
+      <button type="button" :class="{active:index === 5}" @click="moveTo(5)"></button>
     </div>
 
     <div class="fullpage-wp" v-fullpage="opts" ref="fullpage">
@@ -46,7 +46,7 @@
   import PartnerAndContact from './PartnerAndContact'
 
   export default {
-    data() {
+    data () {
       const that = this
 
       return {
@@ -56,16 +56,16 @@
           dir: 'v',
           loop: false,
           duration: 300,
-          beforeChange(ele, current, next) {
+          beforeChange (ele, current, next) {
             that.index = next
           },
-          afterChange(ele, current) {
+          afterChange (ele, current) {
             that.index = current
           }
         }
       }
     },
-    mounted() {
+    mounted () {
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         const classList = this.$refs.fullpage.classList
 
@@ -75,10 +75,10 @@
       window.addEventListener('resize', this.handleResize)
     },
     methods: {
-      moveTo(index) {
+      moveTo (index) {
         this.$refs.fullpage.$fullpage.moveTo(index, true)
       },
-      handleResize() {
+      handleResize () {
         this.$refs.fullpage.$fullpage.moveTo(this.index, false)
       }
     },
