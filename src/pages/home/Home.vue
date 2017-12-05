@@ -1,5 +1,5 @@
 <template>
-  <div ref="fullpage" class="fullpage-container">
+  <div class="fullpage-container">
     <div class="button-group">
       <button type="button" :class="{active:index ==0}" @click="moveTo(0)"></button>
       <button type="button" :class="{active:index ==1}" @click="moveTo(1)"></button>
