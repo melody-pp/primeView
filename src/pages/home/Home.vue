@@ -67,7 +67,7 @@
     },
     mounted () {
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        const classList = this.$refs.fullpage.classList
+        const classList = document.querySelector('.fullpage-container').classList
 
         classList.remove('fullpage-container')
         classList.add('no-fullpage')
@@ -97,7 +97,7 @@
     height: 100%;
   }
 
-  .no-fullpage .page {
+  .no-fullpage .page:not(:last-of-type) {
     height: 320px;
   }
 

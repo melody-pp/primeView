@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="contact-container">
-      <div class="partners">
+      <div class="partners clearfix">
         <div>
           <h3>合作伙伴</h3>
         </div>
@@ -31,15 +31,15 @@
         <div class="info">
           <div v-for="info in contactInfo">
             <img :src="info.icon">
-            <span>{{info.key}}</span>
-            <span>{{info.val}}</span>
+            <span class="key">{{info.key}}</span>
+            <span class="val">{{info.val}}</span>
           </div>
         </div>
       </div>
     </div>
+
     <FootBox></FootBox>
   </div>
-
 </template>
 
 <script>
@@ -108,7 +108,23 @@
     float: left;
   }
 
-  .contact-us {
+  .info {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+  }
+
+  .info img {
+    width: 65px;
+  }
+
+  .info .key {
+    font-size: 13px;
+  }
+
+  .info .val {
+    font-size: 13px;
+
   }
 </style>
