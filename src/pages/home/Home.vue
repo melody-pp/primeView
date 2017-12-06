@@ -98,7 +98,9 @@
     height: 100%;
   }
 
-  .no-fullpage .page-2 {
+  .no-fullpage .page-2,
+  .no-fullpage .page-3,
+  .no-fullpage .page-4 {
     height: 600px
   }
 

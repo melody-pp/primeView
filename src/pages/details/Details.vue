@@ -17,7 +17,7 @@
   import DetailContent from './DetailContent'
 
   export default {
-    data() {
+    data () {
       return {
         banner: {
           url: require('../../assets/detail_page/pic_1 (2).jpg')
@@ -50,6 +50,7 @@
     padding: 8px 0;
 
   }
+
   .bannerCss {
     width: 100%;
   }
