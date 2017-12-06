@@ -72,9 +72,9 @@
     },
 
     mounted () {
-      this.axios.get('/api/getAbhome')
+      this.axios.get('/api/getImgUrls')
         .then(res => {
-          this.imgUrls = res.data
+          this.imgUrls = res.data.imgUrls
 
         })
 
@@ -93,31 +93,12 @@
   }
 </script>
 
-<style>
-  @font-face {
-    font-family: 'SourceHanSansCN-ExtraLight';
-    src: url('../../font/SourceHanSansCN-ExtraLight.otf');
-    font-weight: 100;
-    font-style: normal;
-  }
+<style scoped>
 
-  @font-face {
-    font-family: 'SourceHanSansCN-Light';
-    src: url('../../font/SourceHanSansCN-Light.otf');
-    font-weight: 100;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'SourceHanSansCN-Regular';
-    src: url('../../font/SourceHanSansCN-Regular.otf');
-    font-weight: 100;
-    font-style: normal;
-  }
 
   .company-team {
     width: 90%;
-    margin: 40px auto;
+    margin: 10% auto;
 
   }
 
@@ -126,24 +107,26 @@
   }
 
   .liner {
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgb(240, 240, 240);
     width: 100%;
     height: 5px;
   }
 
   .contact-us {
     width: 90%;
-    padding: 0;
+    padding: 2% 0;
   }
 
   .headTxt {
     color: #313131;
     font-size: 30px;
     font-family: "SourceHanSansCN-ExtraLight";
+    margin: 2% 0;
   }
 
   .addressImg, .addressIfo {
     display: inline-block;
+    padding: 1% 2%;
 
   }
 

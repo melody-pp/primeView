@@ -15,7 +15,7 @@
 
 <script>
   export default {
-    data () {
+    data() {
       return {
         slide: 0,
         sliding: null,
@@ -25,12 +25,11 @@
     props: {
       imgUrls: Array
     },
-
     methods: {
-      onSlideStart (slide) {
+      onSlideStart(slide) {
         this.sliding = true
       },
-      onSlideEnd (slide) {
+      onSlideEnd(slide) {
         this.sliding = false
       }
     }

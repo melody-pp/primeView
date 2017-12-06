@@ -14,33 +14,31 @@
     </b-carousel>
 
     <div class="abstract">
-      <b-container class="bv-example-row">
-        <b-row class="justify-content-md-center">
-          <b-col cols="3">
-            <span class="num">120</span>
-            <span class="unit">名员工</span>
-          </b-col>
-          <b-col cols="3">
-            <span class="num">500</span>
-            <span class="unit">强企业服务经验</span>
-          </b-col>
-          <b-col cols="3">
-            <span class="num">28590</span>
-            <span class="unit">次效率支付</span>
-          </b-col>
-          <b-col cols="3">
-            <span class="num">123</span>
-            <span class="unit">家客户合作</span>
-          </b-col>
-        </b-row>
-      </b-container>
+      <div class="abstractBox">
+        <div>
+          <span class="num">120</span>
+          <span class="unit">名员工</span>
+        </div>
+        <div>
+          <span class="num">500</span>
+          <span class="unit">强企业服务经验</span>
+        </div>
+        <div>
+          <span class="num">28590</span>
+          <span class="unit">次效率支付</span>
+        </div>
+        <div>
+          <span class="num">123</span>
+          <span class="unit">家客户合作</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    data () {
+    data() {
       return {
         slide: 0,
         sliding: null,
@@ -48,7 +46,7 @@
       }
     },
 
-    mounted () {
+    mounted() {
       this.axios.get('/api/getImgUrls')
         .then(res => {
           this.imgUrls = res.data.imgUrls
@@ -56,10 +54,10 @@
     },
 
     methods: {
-      onSlideStart (slide) {
+      onSlideStart(slide) {
         this.sliding = true
       },
-      onSlideEnd (slide) {
+      onSlideEnd(slide) {
         this.sliding = false
       }
     }
@@ -80,10 +78,18 @@
     width: 100%;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
+
   }
 
-  .abstract div {
-    padding: 0.4rem 0;
+  .abstractBox {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .abstractBox div {
+    float: left;
+    width: 25%;
+    text-align: center;
   }
 
   .abstract span {
@@ -91,15 +97,13 @@
   }
 
   .abstract .num {
-    font-size: 2.5rem;
-    font-weight: 300;
+    font-size: 72px;
+    font-family: "SourceHanSansCN-ExtraLight";
   }
 
   .abstract .unit {
-    font-size: 0.9rem;
+    font-size: 16px;
+    font-family: "SourceHanSansCN-Medium";
   }
 
-  .abstract .iconCustomer {
-    background: url("../../assets/icon_pic.png") 0 200px no-repeat;
-  }
 </style>

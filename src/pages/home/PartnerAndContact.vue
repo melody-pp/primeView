@@ -3,7 +3,7 @@
     <div class="contact-container">
       <div class="partners clearfix">
         <div>
-          <h3>合作伙伴</h3>
+          <h3 class="partnerTitle">合作伙伴</h3>
         </div>
         <div>
           <img src="../../assets/logo/logo_01.jpg" alt="">
@@ -29,10 +29,13 @@
         </div>
 
         <div class="info">
-          <div v-for="info in contactInfo">
-            <img :src="info.icon">
-            <span class="key">{{info.key}}</span>
-            <span class="val">{{info.val}}</span>
+          <div class="infoBox clearfix" v-for="info in contactInfo">
+            <img class="icon" :src="info.icon">
+            <div class="txt">
+              <span class="key">{{info.key}}</span>
+              <span class="val">{{info.val}}</span>
+            </div>
+
           </div>
         </div>
       </div>
@@ -46,7 +49,7 @@
   import FootBox from '../../components/FootBox'
 
   export default {
-    data () {
+    data() {
       return {
         slide: 0,
         sliding: null,
@@ -63,20 +66,20 @@
     },
 
     computed: {
-      info () {
+      info() {
         return this.infos[0]
       },
-      contactInfo () {
+      contactInfo() {
         const res = []
-        res.push({key: '办公电话', val: this.info.tel, icon: require('../../assets/who/tel.png')})
-        res.push({key: '办公地址 ', val: this.info.addr, icon: require('../../assets/who/position.png')})
-        res.push({key: 'EMAILS', val: this.info.mail, icon: require('../../assets/who/email.png')})
+        res.push({key: '办公电话', val: this.info.tel, icon: require('../../assets/logo/tel.png')})
+        res.push({key: '办公地址 ', val: this.info.addr, icon: require('../../assets/logo/pos.png')})
+        res.push({key: 'EMAILS', val: this.info.mail, icon: require('../../assets/logo/email.png')})
 
         return res
       }
     },
 
-    mounted () {
+    mounted() {
       this.axios.get('/api/getImgUrls')
         .then(res => {
           this.imgUrls = res.data.imgUrls
@@ -84,10 +87,10 @@
     },
 
     methods: {
-      onSlideStart (slide) {
+      onSlideStart(slide) {
         this.sliding = true
       },
-      onSlideEnd (slide) {
+      onSlideEnd(slide) {
         this.sliding = false
       }
     },
@@ -99,24 +102,17 @@
 <style scoped>
   .contact-container {
     margin-top: 65px;
-    padding: 0 10%;
+  }
+
+  .partners {
+    width: 80%;
+    margin: 0 auto;
   }
 
   .partners img {
-    margin: 15px 10px;
+    margin: 15px 9px;
     height: 90px;
     float: left;
-  }
-
-  .info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: space-around;
-  }
-
-  .info img {
-    width: 65px;
   }
 
   .info .key {
@@ -126,5 +122,53 @@
   .info .val {
     font-size: 13px;
 
+  }
+
+  .infoBox {
+    width: 33.33%;
+    display: inline-block;
+  }
+
+  .partnerTitle {
+    font-family: "SourceHanSansCN-Normal";
+    font-size: 48px;
+    color: #191918;
+  }
+
+  .contact-us {
+    background-color: #000;
+    padding: 5% 20%;
+  }
+
+  .contact-us .title {
+    font-family: "SourceHanSansCN-Normal";
+    font-size: 48px;
+    color: #fff;
+    margin-bottom: 5%;
+  }
+
+  .info .icon {
+    float: left;
+  }
+
+  .info .txt {
+    float: left;
+    display: inline-block;
+    margin-left: 10%;
+  }
+
+  .key {
+    color: #0ead82;
+    font-size: 18px;
+    font-family: "SourceHanSansCN-Bold";
+  }
+  .val{
+    font-size: 14px;
+    font-family: "SourceHanSansCN-Normal";
+  }
+
+  .info .txt span {
+    display: block;
+    text-align: left;
   }
 </style>

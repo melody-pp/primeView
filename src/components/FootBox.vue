@@ -43,7 +43,7 @@
 
   .joinUs span {
     float: left;
-    margin-left: 15px;
+    margin-left: 1%;
     line-height: 45px;
   }
 

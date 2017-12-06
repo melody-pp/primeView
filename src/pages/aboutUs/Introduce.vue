@@ -2,7 +2,7 @@
   <div class="introduceBox">
     <div class="it-row" v-for="(item, index) in items" :key="index">
       <template v-if="index%2">
-        <div style="width:49%">
+        <div class="introduceTxt" style="padding-right: 5%;">
           <h6>{{item.atitle}}</h6>
           <p>{{item.content}}</p>
         </div>
@@ -12,10 +12,10 @@
       </template>
 
       <template v-else>
-        <div style="width: 51%">
+        <div style="width: 51%;">
           <img :src="item.amedia" alt="">
         </div>
-        <div style="width: 49%">
+        <div class="introduceTxt" style="padding-left: 5%;">
           <h6>{{item.atitle}}</h6>
           <p>{{item.content}}</p>
         </div>
@@ -26,7 +26,7 @@
 
 <script>
   export default {
-    data () {
+    data() {
       return {}
     },
 
@@ -43,7 +43,7 @@
 
   .it-row {
     overflow: hidden;
-    margin: 20px 0;
+    margin: 5% 0;
   }
 
   .it-row > div {
@@ -55,9 +55,26 @@
     width: 100%;
 
   }
-.introduceBox{
-  width: 90%;
-  margin: 10px auto;
-}
 
+  .introduceBox {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .introduceTxt {
+    width: 49%;
+  }
+
+  .introduceTxt h6 {
+    font-family: "SourceHanSansCN-ExtraLight";
+    font-size: 30px;
+    color: #313131;
+    margin-bottom: 3%;
+  }
+
+  .introduceTxt p {
+    font-family: "SourceHanSansCN-Normal";
+    font-size: 14px;
+    color: #313131;
+  }
 </style>

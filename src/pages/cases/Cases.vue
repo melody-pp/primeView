@@ -1,9 +1,12 @@
 <template>
   <div class="case-container">
-    <b-row>
-      <b-col></b-col>
-    </b-row>
-    <b-link to="/details">details</b-link>
+    <div class="chooseBtn">
+      <a href="javascript:;">全部案例({{cases.length}})</a>
+      <a href="javascript:;">体验营销(12)</a>
+      <a href="javascript:;">数字交互设计(5)</a>
+      <a href="javascript:;">视觉表现(36)</a>
+    </div>
+
     <Waterfall
       :align="align"
       :lineGap="200"
@@ -30,6 +33,7 @@
     <div v-show="isBusy" class="loader">Loading...</div>
 
     <button @click="showCaseType = 'tiyan'"></button>
+
   </div>
 </template>
 
@@ -39,7 +43,7 @@
   import WaterfallSlot from 'vue-waterfall/lib/waterfall-slot'
 
   export default {
-    data () {
+    data() {
       return {
         isBusy: false,
         align: 'center',
@@ -49,7 +53,7 @@
     },
 
     computed: {
-      showCases () {
+      showCases() {
         switch (this.showCaseType) {
           case 'all':
             return this.cases
@@ -59,7 +63,7 @@
       }
     },
 
-    mounted () {
+    mounted() {
       const vm = this
 
       vm.getCases()
@@ -76,7 +80,7 @@
         this.isBusy = false
       },
 
-      getCases () {
+      getCases() {
         if (this.isBusy) return
 
         this.isBusy = true
@@ -94,6 +98,7 @@
 <style scoped>
   .case-container {
     padding: 65px 100px 50px 100px;
+    background-color: #ecebe9;
   }
 
   .item-move {
@@ -171,5 +176,14 @@
     87.5% {
       box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
     }
+  }
+  .chooseBtn{
+    border-bottom: 2px dashed #bdbcba;
+  }
+  .chooseBtn a {
+    display: inline-block;
+    padding: 2%;
+    background-color: #49494e;
+    color: #fff;
   }
 </style>

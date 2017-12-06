@@ -34,20 +34,26 @@
 
 <style scoped>
   .bg-info {
-    background-color: rgba(255, 255, 255, 0.6) !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
   }
 
   .navbar-brand img, .footerBox .logo img {
-    height: 2.4rem !important;
+    height: 44px !important;
   }
 
   .navbar {
     margin: 0 auto;
     padding: 10px 10%;
+    border-bottom: 2px solid #e3e3e3;
   }
 
+  .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+    color: rgb(52, 152, 219);
+  }
 
-  .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active{
-    color:rgb(52,152,219);
+  .navbar-light .navbar-nav .nav-link {
+    font-family: "SourceHanSansCN-Medium";
+    font-size: 18px;
+    color: #333;
   }
 </style>

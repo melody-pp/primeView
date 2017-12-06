@@ -22,5 +22,7 @@
   margin: 0;
   background-color: #fff;
 }
-
+a, span {
+  color: #000 !important;
+}
 </style>

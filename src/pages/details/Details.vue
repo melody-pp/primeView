@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="row breadCrumb no-gutters">
-      <div class="col-xs-1 col-md-1">案例介绍</div>
-      <div class="col-xs-6 col-md-6 align-middle">
+    <div class="breadCrumb">
+      <div class="title">案例介绍</div>
+      <div class="Breadcrumb">
         <Breadcrumb></Breadcrumb>
       </div>
     </div>
@@ -17,7 +17,7 @@
   import DetailContent from './DetailContent'
 
   export default {
-    data () {
+    data() {
       return {
         banner: {
           url: require('../../assets/detail_page/pic_1 (2).jpg')
@@ -31,14 +31,27 @@
   .breadCrumb {
     width: 80%;
     margin: 0 auto;
-    margin-top: 65px;
+    margin-top: 1%;
+    padding: 5% 0;
+
   }
 
-  .breadCrumb div:nth-child(1) {
-    font-size: 1.5rem;
+  .breadCrumb .title {
+    font-size: 40px;
+    font-family: "SourceHanSansCN-Bold";
+    float: left;
   }
 
+  .breadCrumb .Breadcrumb {
+    float: left;
+    margin-left: 3%;
+    font-size: 30px;
+    font-family: "SourceHanSansCN-Bold";
+    padding: 8px 0;
+
+  }
   .bannerCss {
     width: 100%;
   }
+
 </style>
