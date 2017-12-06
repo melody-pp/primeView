@@ -19,6 +19,7 @@
     methods: {
       toDetail () {
         this.$router.push('/details')
+        this.$nextTick(() => this.$router.go(0))
       }
     }
   }

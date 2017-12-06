@@ -34,10 +34,12 @@
 
 <style scoped lang="scss">
   .case-card {
+    position: relative;
     overflow: hidden;
 
     img {
       width: 100%;
+      float: left;
     }
 
     .model {
@@ -45,6 +47,7 @@
       bottom: 0;
       width: 100%;
       height: 100%;
+      color: #fff;
       background: rgba(0, 0, 0, .5);
     }
   }
