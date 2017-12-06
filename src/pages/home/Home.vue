@@ -98,8 +98,8 @@
     height: 100%;
   }
 
-  .no-fullpage .page:not(:last-of-type) {
-    height: 320px;
+  .no-fullpage .page-2 {
+    height: 600px
   }
 
   .no-fullpage .button-group {
