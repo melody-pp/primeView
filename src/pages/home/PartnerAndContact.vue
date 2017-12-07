@@ -24,9 +24,7 @@
         </div>
       </div>
       <div class="contact-us">
-        <div class="title">
-          联系我们
-        </div>
+        <div class="title">联系我们</div>
 
         <div class="info">
           <div class="infoBox clearfix" v-for="info in contactInfo">
@@ -60,7 +58,7 @@
           'mail': 'sjxh@pview.com',
           'created_at': '2017-11-28 17:46:38',
           'updated_at': '2017-11-28 17:47:56'
-        }]
+        }],
       }
     },
 
@@ -69,12 +67,11 @@
         return this.infos[0]
       },
       contactInfo () {
-        const res = []
-        res.push({key: '办公电话', val: this.info.tel, icon: require('../../assets/logo/tel.png')})
-        res.push({key: '办公地址 ', val: this.info.addr, icon: require('../../assets/logo/pos.png')})
-        res.push({key: 'EMAILS', val: this.info.mail, icon: require('../../assets/logo/email.png')})
-
-        return res
+        return [
+          {key: '办公电话', val: this.info.tel, icon: require('../../assets/logo/tel.png')},
+          {key: '办公地址 ', val: this.info.addr, icon: require('../../assets/logo/pos.png')},
+          {key: 'EMAILS', val: this.info.mail, icon: require('../../assets/logo/email.png')},
+        ]
       }
     },
 
