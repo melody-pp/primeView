@@ -100,7 +100,7 @@
     position: absolute;
     bottom: 0;
   }
-
+  
   .contact-container {
     margin-top: 65px;
   }
@@ -108,49 +108,12 @@
   .partners {
     width: 80%;
     margin: 0 auto;
+
     img {
       margin: 15px 9px;
       height: 90px;
       float: left;
     }
-  }
-
-  .info {
-    .key {
-      font-size: 13px;
-    }
-    .val {
-      font-size: 13px;
-    }
-    .icon {
-      float: left;
-    }
-    .txt {
-      float: left;
-      display: inline-block;
-      margin-left: 10%;
-
-      span {
-        display: block;
-        text-align: left;
-      }
-    }
-  }
-
-  .key {
-    color: #0ead82;
-    font-size: 18px;
-    font-family: "SourceHanSansCN-Bold";
-  }
-
-  .val {
-    font-size: 14px;
-    font-family: "SourceHanSansCN-Normal";
-  }
-
-  .infoBox {
-    width: 33.33%;
-    display: inline-block;
   }
 
   .partnerTitle {
@@ -160,14 +123,40 @@
   }
 
   .contact-us {
+    background-color: #000;
     padding: 5% 20%;
     margin-top: 40px;
-    background-color: #000;
     .title {
       font-family: "SourceHanSansCN-Normal";
       font-size: 48px;
       color: #fff;
       margin-bottom: 5%;
+    }
+  }
+
+  .infoBox {
+    width: 33.33%;
+    display: inline-block;
+    .key {
+      color: #0ead82;
+      font-size: 18px;
+      font-family: "SourceHanSansCN-Bold";
+    }
+    .val {
+      font-size: 14px;
+      font-family: "SourceHanSansCN-Normal";
+    }
+    .icon {
+      float: left;
+    }
+    .txt {
+      float: left;
+      display: inline-block;
+      margin-left: 10%;
+      span {
+        display: block;
+        text-align: left;
+      }
     }
   }
 </style>
