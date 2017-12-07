@@ -10,14 +10,14 @@
 
 <script>
   export default {
-    data () {
+    data() {
       return {}
     },
 
     props: ['title', 'time', 'imgUrl', 'id'],
 
     methods: {
-      toDetail () {
+      toDetail() {
         this.$router.push('/details')
         this.$nextTick(() => this.$router.go(0))
       }
@@ -30,6 +30,7 @@
     height: calc(100% - 20px);
     margin: 10px;
     border: 1px solid gray;
+    cursor: pointer;
   }
 
   .card-body {

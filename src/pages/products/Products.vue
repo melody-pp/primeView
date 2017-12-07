@@ -11,10 +11,15 @@
     </div>
     <img src="../../assets/products_middle.jpg" width="100%">
     <img src="../../assets/products_bottom.jpg" width="100%">
+    <div style="position:relative;">
+      <FootBox class="caseFooter"></FootBox>
+    </div>
   </div>
 </template>
 
 <script>
+  import FootBox from '../../components/FootBox'
+
   export default {
     data () {
       return {
@@ -48,7 +53,8 @@
       mouseleave () {
         this.topPicStyle.transform = ''
       }
-    }
+    },
+    components: {FootBox}
   }
 </script>
 
@@ -100,5 +106,10 @@
     width: 18%;
     margin-top: 12%;
     margin-left: -8%;
+  }
+  .caseFooter{
+    color:#4a4a4a;
+    font-size: 14px;
+    background-color: #000;
   }
 </style>

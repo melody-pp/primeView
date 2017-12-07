@@ -1,8 +1,8 @@
 <template>
-  <footer>
+  <footer class="clearfix">
     <b-link to="/" class="logo"><img src="../assets/logo.png"></b-link>
     <div class="joinUs clearfix">
-      <span>加入我们</span>
+      <b-link to="joinUs"><span>加入我们</span></b-link>
       <span>|</span>
       <span>首页映像旗下机构：世纪星瀚</span>
       <span>|</span>
@@ -22,13 +22,11 @@
 <style>
   footer {
     width: 100%;
-    height: 65px;
     padding: 10px 10%;
-    left: 0;
-    bottom: 0;
-    position: absolute;
     color: #000;
     background-color: #FFF;
+    position: absolute;
+    bottom: 0;
   }
 
   footer .logo img {
@@ -39,12 +37,16 @@
   .joinUs {
     float: left;
     font-size: 14px;
+    margin-left: 10px;
   }
 
   .joinUs span {
     float: left;
-    margin-left: 1%;
+    margin-left: 5px;
     line-height: 45px;
+    color: #333;
+    font-family: "SourceHanSansCN-Medium";
+    font-size: 18px;
   }
 
   .share {

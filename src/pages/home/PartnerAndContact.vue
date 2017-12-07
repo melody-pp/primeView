@@ -138,6 +138,7 @@
   .contact-us {
     background-color: #000;
     padding: 5% 20%;
+    margin-top: 40px;
   }
 
   .contact-us .title {

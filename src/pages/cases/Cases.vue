@@ -1,46 +1,50 @@
 <template>
-  <div class="case-container">
-    <div class="chooseBtn">
-      <a href="javascript:;">全部案例({{cases.length}})</a>
-      <a href="javascript:;">体验营销(12)</a>
-      <a href="javascript:;">数字交互设计(5)</a>
-      <a href="javascript:;">视觉表现(36)</a>
+  <div>
+    <div class="case-container">
+      <div class="chooseBtn">
+        <a class="active" href="javascript:;" @click="showCaseType = 'all'">全部案例({{cases.length}})</a>
+        <a href="javascript:;" @click="showCaseType = 'tyyx'">体验营销(12)</a>
+        <a href="javascript:;">数字交互设计(5)</a>
+        <a href="javascript:;">视觉表现(36)</a>
+      </div>
+
+      <Waterfall
+        :align="align"
+        :lineGap="200"
+        :min-line-gap="100"
+        :max-line-gap="220"
+        :single-max-width="300"
+        :watch="showCases"
+        @reflowed="reflowed"
+        ref="waterfall">
+
+        <WaterfallSlot
+          v-for="(item, index) in showCases"
+          :width="item.width"
+          :height="item.height"
+          :order="index"
+          :key="index"
+          move-class="item-move">
+
+          <CaseCard class="case-card" v-bind="item"/>
+
+        </WaterfallSlot>
+
+      </Waterfall>
+      <div v-show="isBusy" class="loader">Loading...</div>
+
     </div>
-
-    <Waterfall
-      :align="align"
-      :lineGap="200"
-      :min-line-gap="100"
-      :max-line-gap="220"
-      :single-max-width="300"
-      :watch="showCases"
-      @reflowed="reflowed"
-      ref="waterfall">
-
-      <WaterfallSlot
-        v-for="(item, index) in showCases"
-        :width="item.width"
-        :height="item.height"
-        :order="index"
-        :key="index"
-        move-class="item-move">
-
-        <CaseCard class="case-card" v-bind="item"/>
-
-      </WaterfallSlot>
-
-    </Waterfall>
-    <div v-show="isBusy" class="loader">Loading...</div>
-
-    <button @click="showCaseType = 'tiyan'"></button>
+    <FootBox class="caseFooter"></FootBox>
 
   </div>
+
 </template>
 
 <script>
   import CaseCard from './CaseCard'
   import Waterfall from 'vue-waterfall/lib/waterfall'
   import WaterfallSlot from 'vue-waterfall/lib/waterfall-slot'
+  import FootBox from '../../components/FootBox'
 
   export default {
     data() {
@@ -57,7 +61,7 @@
         switch (this.showCaseType) {
           case 'all':
             return this.cases
-          case 'tiyan':
+          case 'tyyx':
             return this.cases.filter(item => item.type = 'tiyan')
         }
       }
@@ -91,7 +95,7 @@
       }
     },
 
-    components: {Waterfall, WaterfallSlot, CaseCard}
+    components: {Waterfall, WaterfallSlot, CaseCard, FootBox}
   }
 </script>
 
@@ -177,13 +181,31 @@
       box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
     }
   }
-  .chooseBtn{
+
+  .chooseBtn {
     border-bottom: 2px dashed #bdbcba;
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 0;
+    margin-bottom: 45px;
   }
+
+  .chooseBtn .active {
+    background-color: #98d4d5;
+  }
+
   .chooseBtn a {
     display: inline-block;
-    padding: 2%;
+    padding: 7px 10px;
     background-color: #49494e;
-    color: #fff;
+    color: #fefefe;
+    font-size: 16px;
+    font-family: "SourceHanSansCN-ExtraLight";
+    text-decoration: none;
+  }
+  .caseFooter{
+    color:#4a4a4a;
+    font-size: 14px;
+    background-color: #000;
   }
 </style>

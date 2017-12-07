@@ -6,6 +6,7 @@ import AboutUs from '@/pages/aboutUs/AboutUs'
 import Products from '@/pages/products/Products'
 import Cases from '@/pages/cases/Cases'
 import Details from '@/pages/details/Details'
+import JoinUs from '@/pages/JoinUs'
 
 Vue.use(Router)
 
@@ -38,7 +39,12 @@ export default new Router({
           path: '/details',
           component: Details
         },
+        {
+          path: '/joinUs',
+          component: JoinUs
+        },
       ]
     },
+
   ]
 })

@@ -34,11 +34,11 @@
 
 <style scoped>
   .bg-info {
-    background-color: rgba(255, 255, 255, 0.15) !important;
+    background-color: rgba(255, 255, 255, 0.3) !important;
   }
 
   .navbar-brand img, .footerBox .logo img {
-    height: 44px !important;
+    height: 34px !important;
   }
 
   .navbar {

@@ -58,7 +58,7 @@
   import CaseCard from './CaseCard'
 
   export default {
-    data () {
+    data() {
       return {}
     },
     components: {CaseCard}
@@ -69,6 +69,7 @@
   .detailContentBox {
     width: 90%;
     margin: 0 auto;
+    margin-bottom: 190px;
   }
 
   .content {
@@ -76,6 +77,7 @@
       margin-top: 5%;
       font-size: 36px;
       font-family: "SourceHanSansCN-Bold";
+      line-height: 86px;
     }
     p {
       font-size: 14px;

@@ -8,6 +8,10 @@
     </div>
     <img class="bannerCss" :src="banner.url" alt="">
     <DetailContent></DetailContent>
+    <div style="position:relative;">
+      <FootBox class="caseFooter"></FootBox>
+    </div>
+
   </div>
 
 </template>
@@ -15,6 +19,7 @@
 <script>
   import Breadcrumb from './Breadcrumb'
   import DetailContent from './DetailContent'
+  import FootBox from '../../components/FootBox'
 
   export default {
     data () {
@@ -24,15 +29,14 @@
         }
       }
     },
-    components: {Breadcrumb, DetailContent}
+    components: {Breadcrumb, DetailContent,FootBox}
   }
 </script>
 <style scoped>
   .breadCrumb {
     width: 80%;
     margin: 0 auto;
-    margin-top: 1%;
-    padding: 5% 0;
+    padding: 100px 0;
 
   }
 
@@ -44,7 +48,7 @@
 
   .breadCrumb .Breadcrumb {
     float: left;
-    margin-left: 3%;
+    margin-left: 40px;
     font-size: 30px;
     font-family: "SourceHanSansCN-Bold";
     padding: 8px 0;
@@ -54,5 +58,9 @@
   .bannerCss {
     width: 100%;
   }
-
+  .caseFooter{
+    color:#4a4a4a;
+    font-size: 14px;
+    background-color: #000;
+  }
 </style>
