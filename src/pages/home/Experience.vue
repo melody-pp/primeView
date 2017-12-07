@@ -32,38 +32,34 @@
     methods: {
       mousemove (event) {
         const $container = this.$refs.container
-        const $gather = this.$refs.gather
         const $top = $container.querySelector('.top')
         const $left = $container.querySelector('.left')
         const $bottom = $container.querySelector('.bottom')
+        const {isLeft, underL1, underL2} = this.getConditions(event)
 
+        this.changeActive($left, isLeft && underL2 && !underL1)
+        this.changeActive($top, (isLeft && underL1) || (!isLeft && underL2))
+        this.changeActive($bottom, (isLeft && !underL2) || (!isLeft && !underL1))
+      },
+
+      getConditions (event) {
+        const $gather = this.$refs.gather
         const width = $gather.offsetWidth
         const height = $gather.offsetHeight
-        let {x, y} = event
-        y -= 65 // nav bar
+        const {offsetX, offsetY} = event
 
-        const isLeft = 2 * x < width
-        const underL1 = width * y < height * x
-        const underL2 = height * x < width * (height - y)
-
-        if ((isLeft && underL1) || (!isLeft && underL2)) {
-          $top.classList.add('active')
-        } else {
-          $top.classList.remove('active')
-        }
-
-        if ((isLeft && !underL2) || (!isLeft && !underL1)) {
-          $bottom.classList.add('active')
-        } else {
-          $bottom.classList.remove('active')
-        }
-
-        if (isLeft && underL2 && !underL1) {
-          $left.classList.add('active')
-        } else {
-          $left.classList.remove('active')
+        return {
+          isLeft: 2 * offsetX < width,
+          underL1: width * offsetY < height * offsetX,
+          underL2: height * offsetX < width * (height - offsetY),
         }
       },
+
+      changeActive (el, isActive) {
+        isActive
+          ? el.classList.add('active')
+          : el.classList.remove('active')
+      }
     }
   }
 
