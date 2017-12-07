@@ -35,12 +35,13 @@
     components: {partialAccordion},
     methods: {
       mouseEnter (index) {
-        [...this.$refs.table.querySelectorAll('.sp')].forEach(el => {
+        this.$emit('stopInterval')
+
+        ;[...this.$refs.table.querySelectorAll('.sp')].forEach(el => {
           el.style.width = '0'
         })
 
         const width = window.innerWidth * 0.6 + 'px'
-
         switch (index) {
           case 0:
             return this.$refs.sp1.style.width = width
@@ -52,7 +53,8 @@
       },
 
       mouseLeave () {
-        [...this.$refs.table.querySelectorAll('.sp')].forEach(el => {
+        this.$emit('startInterval')
+        ;[...this.$refs.table.querySelectorAll('.sp')].forEach(el => {
           el.style.width = '0'
         })
       }
