@@ -1,8 +1,7 @@
 <template>
   <div>
-    <Banner :imgUrls="imgUrls"></Banner>
-
-    <Introduce :items="items"></Introduce>
+    <Banner :imgUrls="imgUrls"/>
+    <Introduce :items="items"/>
     <div class="company-team">
       <img src="../../assets/who/company_team.jpg" alt="">
     </div>
@@ -37,17 +36,14 @@
             </div>
 
           </div>
-          <div class="col-xs-6 col-md-6">
+          <div class="col-xs-6 col-md-6" style="overflow: auto">
             <iframe src="/api/baiduMap.html" frameborder="0" width="100%" height="100%"></iframe>
           </div>
         </div>
-
       </div>
-      <FootBox class="caseFooter"></FootBox>
+
+      <FootBox class="caseFooter"/>
     </div>
-
-
-
   </div>
 </template>
 
@@ -55,7 +51,6 @@
   import Banner from './Banner'
   import Introduce from './Introduce'
   import FootBox from '../../components/FootBox'
-
 
   export default {
     data () {
@@ -72,6 +67,7 @@
         }]
       }
     },
+
     computed: {
       info () {
         return this.infos[0]
@@ -96,27 +92,24 @@
         })
     },
 
-    components: {Banner, Introduce,FootBox}
+    components: {Banner, Introduce, FootBox}
   }
 </script>
 
-<style scoped>
-
-
+<style scoped lang="scss">
   .company-team {
     width: 90%;
     margin: 10% auto;
 
-  }
-
-  .company-team img {
-    width: 100%;
+    img {
+      width: 100%;
+    }
   }
 
   .liner {
-    background-color: rgb(240, 240, 240);
     width: 100%;
     height: 5px;
+    background: rgb(240, 240, 240);
   }
 
   .contact-us {
@@ -125,43 +118,36 @@
   }
 
   .headTxt {
+    margin: 2% 0;
     color: #313131;
     font-size: 30px;
     font-family: "SourceHanSansCN-ExtraLight";
-    margin: 2% 0;
-  }
-
-  .addressImg, .addressIfo {
-    display: inline-block;
-    padding: 1% 2%;
-
-  }
-
-  .addressIfo p:nth-child(1) {
-    color: #98d4d5;
-    font-size: 18px;
-    font-family: 'SourceHanSansCN-Light';
-  }
-
-  .addressIfo p:nth-child(2) {
-    color: #2c2b2a;
-    font-size: 14px;
-    font-family: 'SourceHanSansCN-Regular';
   }
 
   .addressImg {
     float: left;
-  }
-
-  .addressIf {
-    float: right;
+    .addressIfo {
+      display: inline-block;
+      padding: 1% 2%;
+      p:nth-child(1) {
+        color: #98d4d5;
+        font-size: 18px;
+        font-family: 'SourceHanSansCN-Light';
+      }
+      p:nth-child(2) {
+        color: #2c2b2a;
+        font-size: 14px;
+        font-family: 'SourceHanSansCN-Regular';
+      }
+    }
   }
 
   p {
     margin-bottom: 0;
   }
-  .caseFooter{
-    color:#4a4a4a;
+
+  .caseFooter {
+    color: #4a4a4a;
     font-size: 14px;
     background-color: #000;
   }

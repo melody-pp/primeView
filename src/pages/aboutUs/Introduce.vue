@@ -26,7 +26,7 @@
 
 <script>
   export default {
-    data() {
+    data () {
       return {}
     },
 
@@ -36,7 +36,7 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .title {
     width: 55%;
   }
@@ -44,16 +44,13 @@
   .it-row {
     overflow: hidden;
     margin: 5% 0;
-  }
-
-  .it-row > div {
-    float: left;
-
+    > div {
+      float: left;
+    }
   }
 
   img {
     width: 100%;
-
   }
 
   .introduceBox {
@@ -63,18 +60,18 @@
 
   .introduceTxt {
     width: 49%;
-  }
 
-  .introduceTxt h6 {
-    font-family: "SourceHanSansCN-ExtraLight";
-    font-size: 30px;
-    color: #313131;
-    margin-bottom: 3%;
-  }
+    h6 {
+      font-family: "SourceHanSansCN-ExtraLight";
+      font-size: 30px;
+      color: #313131;
+      margin-bottom: 3%;
+    }
 
-  .introduceTxt p {
-    font-family: "SourceHanSansCN-Normal";
-    font-size: 14px;
-    color: #313131;
+    p {
+      font-family: "SourceHanSansCN-Normal";
+      font-size: 14px;
+      color: #313131;
+    }
   }
 </style>
