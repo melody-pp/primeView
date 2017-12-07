@@ -1,12 +1,12 @@
 <template>
   <b-col
-    cols="6" :style="colStyle"
+    cols="6" ref="box" :style="colStyle"
     @mouseleave="mouseLeave"
     @mouseenter="mouseEnter">
 
     <transition
-      enter-active-class="animated slideInUp"
-      leave-active-class="animated slideOutDown">
+      :enter-active-class="enterClass"
+      :leave-active-class="leaveClass">
       <div v-if="text" v-show="showModel" :style="modelStyle" v-text="text"></div>
     </transition>
   </b-col>
@@ -17,6 +17,9 @@
     data () {
       return {
         showModel: false,
+        direction: 0,
+        enterAnimates: ['slideInDown', 'slideInRight', 'slideInUp', 'slideInLeft'],
+        leaveAnimates: ['slideOutUp', 'slideOutRight', 'slideOutDown', 'slideOutLeft'],
         colStyle: {
           padding: 0,
           height: '100%',
@@ -35,13 +38,33 @@
       }
     },
 
+    computed: {
+      enterClass () {
+        return 'animated ' + this.enterAnimates[this.direction]
+      },
+      leaveClass () {
+        return 'animated ' + this.leaveAnimates[this.direction]
+      }
+    },
+
     props: ['imgUrl', 'text'],
 
     methods: {
-      mouseLeave () {
+      getDirection (event) {
+        const $box = this.$refs.box
+        const width = $box.offsetWidth
+        const height = $box.offsetHeight
+        const x = (event.clientX - $box.offsetLeft - (width / 2)) * (width > height ? (height / width) : 1)
+        const y = (event.clientY - $box.offsetTop - (height / 2)) * (height > width ? (width / height) : 1)
+
+        return Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4
+      },
+      mouseLeave (event) {
+        this.direction = this.getDirection(event)
         this.showModel = false
       },
-      mouseEnter () {
+      mouseEnter (event) {
+        this.direction = this.getDirection(event)
         this.showModel = true
       }
     }
