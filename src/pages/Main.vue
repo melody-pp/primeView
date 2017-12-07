@@ -45,6 +45,8 @@
     margin: 0 auto;
     padding: 10px 10%;
     border-bottom: 2px solid #e3e3e3;
+    box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.6);
   }
 
   .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {

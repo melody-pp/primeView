@@ -61,7 +61,7 @@
    }
   }*/
 
-  ul,li{
+  ul,li,p{
     list-style: none;
     margin:0;
     padding: 0;

@@ -83,7 +83,6 @@
       width: 62%;
       p {
         text-align: left;
-        text-indent: 2em;
       }
       h3{
         text-align: left;
@@ -94,7 +93,7 @@
         line-height: 36px;
       }
       .secondLevel{
-        text-indent: 3em;
+        text-indent: 1em;
       }
     }
   }
