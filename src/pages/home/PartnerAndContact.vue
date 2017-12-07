@@ -35,7 +35,6 @@
               <span class="key">{{info.key}}</span>
               <span class="val">{{info.val}}</span>
             </div>
-
           </div>
         </div>
       </div>
@@ -49,7 +48,7 @@
   import FootBox from '../../components/FootBox'
 
   export default {
-    data() {
+    data () {
       return {
         slide: 0,
         sliding: null,
@@ -66,10 +65,10 @@
     },
 
     computed: {
-      info() {
+      info () {
         return this.infos[0]
       },
-      contactInfo() {
+      contactInfo () {
         const res = []
         res.push({key: '办公电话', val: this.info.tel, icon: require('../../assets/logo/tel.png')})
         res.push({key: '办公地址 ', val: this.info.addr, icon: require('../../assets/logo/pos.png')})
@@ -79,7 +78,7 @@
       }
     },
 
-    mounted() {
+    mounted () {
       this.axios.get('/api/getImgUrls')
         .then(res => {
           this.imgUrls = res.data.imgUrls
@@ -87,10 +86,10 @@
     },
 
     methods: {
-      onSlideStart(slide) {
+      onSlideStart (slide) {
         this.sliding = true
       },
-      onSlideEnd(slide) {
+      onSlideEnd (slide) {
         this.sliding = false
       }
     },
@@ -99,7 +98,12 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  footer {
+    position: absolute;
+    bottom: 0;
+  }
+
   .contact-container {
     margin-top: 65px;
   }
@@ -107,21 +111,44 @@
   .partners {
     width: 80%;
     margin: 0 auto;
+    img {
+      margin: 15px 9px;
+      height: 90px;
+      float: left;
+    }
   }
 
-  .partners img {
-    margin: 15px 9px;
-    height: 90px;
-    float: left;
+  .info {
+    .key {
+      font-size: 13px;
+    }
+    .val {
+      font-size: 13px;
+    }
+    .icon {
+      float: left;
+    }
+    .txt {
+      float: left;
+      display: inline-block;
+      margin-left: 10%;
+
+      span {
+        display: block;
+        text-align: left;
+      }
+    }
   }
 
-  .info .key {
-    font-size: 13px;
+  .key {
+    color: #0ead82;
+    font-size: 18px;
+    font-family: "SourceHanSansCN-Bold";
   }
 
-  .info .val {
-    font-size: 13px;
-
+  .val {
+    font-size: 14px;
+    font-family: "SourceHanSansCN-Normal";
   }
 
   .infoBox {
@@ -136,40 +163,14 @@
   }
 
   .contact-us {
-    background-color: #000;
     padding: 5% 20%;
     margin-top: 40px;
-  }
-
-  .contact-us .title {
-    font-family: "SourceHanSansCN-Normal";
-    font-size: 48px;
-    color: #fff;
-    margin-bottom: 5%;
-  }
-
-  .info .icon {
-    float: left;
-  }
-
-  .info .txt {
-    float: left;
-    display: inline-block;
-    margin-left: 10%;
-  }
-
-  .key {
-    color: #0ead82;
-    font-size: 18px;
-    font-family: "SourceHanSansCN-Bold";
-  }
-  .val{
-    font-size: 14px;
-    font-family: "SourceHanSansCN-Normal";
-  }
-
-  .info .txt span {
-    display: block;
-    text-align: left;
+    background-color: #000;
+    .title {
+      font-family: "SourceHanSansCN-Normal";
+      font-size: 48px;
+      color: #fff;
+      margin-bottom: 5%;
+    }
   }
 </style>

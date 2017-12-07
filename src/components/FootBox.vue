@@ -25,8 +25,6 @@
     padding: 10px 10%;
     color: #000;
     background-color: #FFF;
-    position: absolute;
-    bottom: 0;
   }
 
   footer .logo img {

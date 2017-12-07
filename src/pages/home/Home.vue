@@ -89,71 +89,66 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .fullpage-container {
     top: 0;
     left: 0;
-    position: absolute;
     width: 100%;
     height: 100%;
+    position: absolute;
   }
 
-  .no-fullpage .page-2,
-  .no-fullpage .page-3,
-  .no-fullpage .page-4 {
-    height: 600px
-  }
+  .no-fullpage {
+    .page-2, .page-3, .page-4 {
+      height: 600px
+    }
 
-  .no-fullpage .button-group {
-    display: none;
-  }
+    .page-2, .page-4, .page-5 {
+      padding-top: 0;
+    }
 
-  .no-fullpage .page-2,
-  .no-fullpage .page-4,
-  .no-fullpage .page-5 {
-    padding-top: 0;
+    .button-group {
+      display: none;
+    }
   }
 
   .page {
-    display: block;
-    text-align: center;
-    font-size: 26px;
     color: #eee;
+    display: block;
+    font-size: 26px;
+    text-align: center;
   }
 
   .page-1 > div {
     height: 100%;
   }
 
-  .page-2,
-  .page-4,
-  .page-5 {
+  .page-2, .page-4, .page-5 {
     padding-top: 65px;
   }
 
   .button-group {
-    position: absolute;
     top: 50%;
-    right: 24px;
     z-index: 9;
+    position: absolute;
+    right: 24px;
     width: 20px;
     margin-top: -84px;
-  }
 
-  .button-group button {
-    display: inline-block;
-    margin: 5px;
-    color: #000;
-    background: rgba(255, 255, 255, .5);
-    cursor: pointer;
-    padding: 5px;
-    outline: none;
-    border: none;
-    border-radius: 10px;
-  }
-
-  .button-group button.active {
-    color: #fff;
-    background: rgba(0, 0, 0, .5);
+    button {
+      display: inline-block;
+      margin: 5px;
+      color: #000;
+      background: rgba(255, 255, 255, .5);
+      cursor: pointer;
+      padding: 5px;
+      outline: none;
+      border: none;
+      border-radius: 10px;
+      &.active {
+        color: #fff;
+        background: rgba(0, 0, 0, .5);
+      }
+    }
   }
 </style>
