@@ -2,26 +2,27 @@
   <div>
     <div class="contact-container">
       <div class="partners clearfix">
-        <div>
-          <h3 class="partnerTitle">合作伙伴</h3>
-        </div>
-        <div>
-          <img src="../../assets/logo/logo_01.jpg" alt="">
-          <img src="../../assets/logo/logo_02.jpg" alt="">
-          <img src="../../assets/logo/logo_03.jpg" alt="">
-          <img src="../../assets/logo/logo_04.jpg" alt="">
-          <img src="../../assets/logo/logo_05.jpg" alt="">
-          <img src="../../assets/logo/logo_06.jpg" alt="">
-          <img src="../../assets/logo/logo_07.jpg" alt="">
-          <img src="../../assets/logo/logo_08.jpg" alt="">
-          <img src="../../assets/logo/logo_09.jpg" alt="">
-          <img src="../../assets/logo/logo_10.jpg" alt="">
-          <img src="../../assets/logo/logo_11.jpg" alt="">
-          <img src="../../assets/logo/logo_12.jpg" alt="">
-          <img src="../../assets/logo/logo_13.jpg" alt="">
-          <img src="../../assets/logo/logo_14.jpg" alt="">
-          <img src="../../assets/logo/logo_15.jpg" alt="">
-        </div>
+        <!--<div>-->
+        <!--<h3 class="partnerTitle">合作伙伴</h3>-->
+        <!--</div>-->
+        <!--<div>-->
+        <!--<img src="../../assets/logo/logo_01.jpg" alt="">-->
+        <!--<img src="../../assets/logo/logo_02.jpg" alt="">-->
+        <!--<img src="../../assets/logo/logo_03.jpg" alt="">-->
+        <!--<img src="../../assets/logo/logo_04.jpg" alt="">-->
+        <!--<img src="../../assets/logo/logo_05.jpg" alt="">-->
+        <!--<img src="../../assets/logo/logo_06.jpg" alt="">-->
+        <!--<img src="../../assets/logo/logo_07.jpg" alt="">-->
+        <!--<img src="../../assets/logo/logo_08.jpg" alt="">-->
+        <!--<img src="../../assets/logo/logo_09.jpg" alt="">-->
+        <!--<img src="../../assets/logo/logo_10.jpg" alt="">-->
+        <!--<img src="../../assets/logo/logo_11.jpg" alt="">-->
+        <!--<img src="../../assets/logo/logo_12.jpg" alt="">-->
+        <!--<img src="../../assets/logo/logo_13.jpg" alt="">-->
+        <!--<img src="../../assets/logo/logo_14.jpg" alt="">-->
+        <!--<img src="../../assets/logo/logo_15.jpg" alt="">-->
+        <!--</div>-->
+        <img src="../../assets/partner.png" alt="">
       </div>
       <div class="contact-us">
         <div class="title">联系我们</div>
@@ -46,7 +47,7 @@
   import FootBox from '../../components/FootBox'
 
   export default {
-    data () {
+    data() {
       return {
         slide: 0,
         sliding: null,
@@ -63,10 +64,10 @@
     },
 
     computed: {
-      info () {
+      info() {
         return this.infos[0]
       },
-      contactInfo () {
+      contactInfo() {
         return [
           {key: '办公电话', val: this.info.tel, icon: require('../../assets/logo/tel.png')},
           {key: '办公地址 ', val: this.info.addr, icon: require('../../assets/logo/pos.png')},
@@ -75,7 +76,7 @@
       }
     },
 
-    mounted () {
+    mounted() {
       this.axios.get('/api/getImgUrls')
         .then(res => {
           this.imgUrls = res.data.imgUrls
@@ -83,10 +84,10 @@
     },
 
     methods: {
-      onSlideStart (slide) {
+      onSlideStart(slide) {
         this.sliding = true
       },
-      onSlideEnd (slide) {
+      onSlideEnd(slide) {
         this.sliding = false
       }
     },
@@ -100,19 +101,21 @@
     position: absolute;
     bottom: 0;
   }
-  
+
   .contact-container {
     margin-top: 65px;
   }
 
   .partners {
-    width: 80%;
-    margin: 0 auto;
+    /*width: 80%;*/
+    /*margin: 0 auto;*/
+    padding-top: 70px;
 
     img {
-      margin: 15px 9px;
-      height: 90px;
-      float: left;
+      /*margin: 15px 9px;*/
+      /*height: 90px;*/
+      /*float: left;*/
+      width: 100%;
     }
   }
 
@@ -128,10 +131,21 @@
     margin-top: 40px;
     .title {
       font-family: "SourceHanSansCN-Normal";
-      font-size: 48px;
+      font-size: 47px;
       color: #fff;
       margin-bottom: 5%;
+      letter-spacing: 3px;
     }
+  }
+
+  .no-fullpage .contact-us {
+    margin-bottom: 70px;
+  }
+
+  .no-fullpage .partners {
+    margin-bottom: 40px;
+    padding-top: 10px;
+
   }
 
   .infoBox {
@@ -156,6 +170,7 @@
       span {
         display: block;
         text-align: left;
+        margin-bottom: 5px;
       }
     }
   }

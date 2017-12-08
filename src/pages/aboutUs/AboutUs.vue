@@ -9,7 +9,7 @@
     <div style="position:relative;">
       <div class="container-fluid contact-us">
         <div class="row no-gutters">
-          <div class="col-xs-6 col-md-6">
+          <div class="col-xs-4 col-md-4">
             <p class="headTxt">联系我们</p>
             <div class="row">
               <div class="col-md-12 col-xs-12">
@@ -34,9 +34,11 @@
                 </div>
               </div>
             </div>
-
+            <div class="row">
+              <div class="col-xs-12 col-ms-12"></div>
+            </div>
           </div>
-          <div class="col-xs-6 col-md-6" style="overflow: auto">
+          <div class="col-xs-8 col-md-8" style="overflow: auto;">
             <iframe src="/api/baiduMap.html" frameborder="0" width="100%" height="100%"></iframe>
           </div>
         </div>
@@ -53,7 +55,7 @@
   import FootBox from '../../components/FootBox'
 
   export default {
-    data () {
+    data() {
       return {
         imgUrls: [],
         items: [],
@@ -69,12 +71,12 @@
     },
 
     computed: {
-      info () {
+      info() {
         return this.infos[0]
       }
     },
 
-    mounted () {
+    mounted() {
       this.axios.get('/api/getImgUrls')
         .then(res => {
           this.imgUrls = res.data.imgUrls
@@ -126,19 +128,22 @@
 
   .addressImg {
     float: left;
-    .addressIfo {
-      display: inline-block;
-      padding: 1% 2%;
-      p:nth-child(1) {
-        color: #98d4d5;
-        font-size: 18px;
-        font-family: 'SourceHanSansCN-Light';
-      }
-      p:nth-child(2) {
-        color: #2c2b2a;
-        font-size: 14px;
-        font-family: 'SourceHanSansCN-Regular';
-      }
+
+  }
+
+  .addressIfo {
+    display: inline-block;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    p:nth-child(1) {
+      color: #98d4d5;
+      font-size: 18px;
+      font-family: 'SourceHanSansCN-Light';
+    }
+    p:nth-child(2) {
+      color: #2c2b2a;
+      font-size: 14px;
+      font-family: 'SourceHanSansCN-Regular';
     }
   }
 

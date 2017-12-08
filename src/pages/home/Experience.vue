@@ -18,9 +18,9 @@
       return {
         classMap: ['top', 'left', 'bottom'],
         items: [
-          {imgUrl: require('../../assets/index/car.png'), text: 'ajsldkfjlsdk'},
-          {imgUrl: require('../../assets/index/computer.png'), text: 'ajsldkfjlsdk'},
-          {imgUrl: require('../../assets/index/exhibition.png'), text: 'ajsldkfjlsdk'},
+          {imgUrl: require('../../assets/index/car.png'), text: '数字化营销'},
+          {imgUrl: require('../../assets/index/computer.png'), text: '数字化营销'},
+          {imgUrl: require('../../assets/index/exhibition.png'), text: '数字化营销'},
         ]
       }
     },
@@ -122,6 +122,11 @@
     height: 100%;
     color: #fff;
     position: absolute;
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0, 0, 0, .6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "SourceHanSansCN-Medium";
+    font-size: 30px;
   }
 </style>

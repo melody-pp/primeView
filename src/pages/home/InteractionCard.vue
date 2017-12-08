@@ -14,7 +14,7 @@
 
 <script>
   export default {
-    data () {
+    data() {
       return {
         showModel: false,
         direction: 0,
@@ -33,16 +33,21 @@
           width: '100%',
           height: '100%',
           position: 'absolute',
-          background: 'rgba(0, 0, 0, .5)',
+          background: 'rgba(0, 0, 0, .8)',
+          fontSize: '30px',
+          fontFamily: 'SourceHanSansCN-Medium',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
         }
       }
     },
 
     computed: {
-      enterClass () {
+      enterClass() {
         return 'animated ' + this.enterAnimates[this.direction]
       },
-      leaveClass () {
+      leaveClass() {
         return 'animated ' + this.leaveAnimates[this.direction]
       }
     },
@@ -50,7 +55,7 @@
     props: ['imgUrl', 'text'],
 
     methods: {
-      getDirection (event) {
+      getDirection(event) {
         const $box = this.$refs.box
         const width = $box.offsetWidth
         const height = $box.offsetHeight
@@ -59,11 +64,11 @@
 
         return Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4
       },
-      mouseLeave (event) {
+      mouseLeave(event) {
         this.direction = this.getDirection(event)
         this.showModel = false
       },
-      mouseEnter (event) {
+      mouseEnter(event) {
         this.direction = this.getDirection(event)
         this.showModel = true
       }

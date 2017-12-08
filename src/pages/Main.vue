@@ -58,4 +58,7 @@
     font-size: 18px;
     color: #333;
   }
+  .nav-item{
+    padding: 0 5px;
+  }
 </style>

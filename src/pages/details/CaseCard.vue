@@ -2,8 +2,8 @@
   <div class="case-card" @mouseleave="mouseLeave" @mouseenter="mouseEnter">
     <img :src="imgUrl" alt="">
     <transition
-      enter-active-class="animated slideInUp"
-      leave-active-class="animated slideOutDown">
+      enter-active-class="animated bounceInDown"
+      leave-active-class="animated bounceOutDown">
       <div class="model" v-show="showModel" v-text="text"></div>
     </transition>
   </div>
@@ -48,7 +48,12 @@
       width: 100%;
       height: 100%;
       color: #fff;
-      background: rgba(0, 0, 0, .5);
+      background: rgba(0, 0, 0, .6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "SourceHanSansCN-Bold";
+      font-size: 36px;
     }
   }
 

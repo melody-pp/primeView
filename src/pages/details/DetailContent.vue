@@ -40,8 +40,8 @@
         <h3>相似案例</h3>
         <p>qwerasdf</p>
         <div class="similar-case-pic clearfix">
-          <CaseCard class="left-top-pic" text="qwerasdf"
-                    :imgUrl="require('../../assets/detail_page/pic_1 (8).jpg')"/>
+          <CaseCard class="left-top-pic" text="2015年梅赛德斯-奔驰F2
+安全驾驶培训" :imgUrl="require('../../assets/detail_page/pic_1 (8).jpg')"/>
 
           <CaseCard class="left-bottom-pic" text="qwerasdf"
                     :imgUrl="require('../../assets/detail_page/pic_1 (10).jpg')"/>

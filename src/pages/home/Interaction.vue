@@ -27,9 +27,9 @@
         },
         items: [
           {imgUrl: require('../../assets/index/it1.png'), text: ''},
-          {imgUrl: require('../../assets/index/it2.png'), text: '一些说明文字。'},
-          {imgUrl: require('../../assets/index/it3.jpg'), text: '一些说明文字。'},
-          {imgUrl: require('../../assets/index/it4.jpg'), text: '一些说明文字。'},
+          {imgUrl: require('../../assets/index/it2.png'), text: '交互体验解决方案'},
+          {imgUrl: require('../../assets/index/it3.jpg'), text: '交互体验解决方案'},
+          {imgUrl: require('../../assets/index/it4.jpg'), text: '交互体验解决方案'},
         ]
       }
     },

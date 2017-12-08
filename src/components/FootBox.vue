@@ -29,13 +29,13 @@
 
   footer .logo img {
     float: left;
-    height: 2.4rem !important;
+    height: 34px !important;
   }
 
   .joinUs {
     float: left;
     font-size: 14px;
-    margin-left: 10px;
+    margin-left: 15px;
   }
 
   .joinUs span {
@@ -44,7 +44,7 @@
     line-height: 45px;
     color: #333;
     font-family: "SourceHanSansCN-Medium";
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .share {

@@ -110,6 +110,9 @@
     .button-group {
       display: none;
     }
+    .page-6 .contact-us{
+      /*margin-bottom: 70px;*/
+    }
   }
 
   .page {
