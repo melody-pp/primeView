@@ -148,8 +148,12 @@
 
   }
 
+  .info {
+    display: flex;
+    justify-content: space-around;
+  }
+
   .infoBox {
-    width: 33.33%;
     display: inline-block;
     .key {
       color: #0ead82;
@@ -166,7 +170,7 @@
     .txt {
       float: left;
       display: inline-block;
-      margin-left: 10%;
+      margin-left: 20px;
       span {
         display: block;
         text-align: left;

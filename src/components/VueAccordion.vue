@@ -8,7 +8,7 @@
     </div>
 
     <div class="accordionModel">
-      <table ref="table">
+      <table border="0" cellpadding="0" cellspacing="0" ref="table">
         <tbody>
         <tr>
           <td class="sp" ref="sp1"></td>
@@ -34,7 +34,7 @@
     props: {items: Array,},
     components: {partialAccordion},
     methods: {
-      mouseEnter (index) {
+      mouseEnter(index) {
         this.$emit('stopInterval')
 
         ;[...this.$refs.table.querySelectorAll('.sp')].forEach(el => {
@@ -52,7 +52,7 @@
         }
       },
 
-      mouseLeave () {
+      mouseLeave() {
         this.$emit('startInterval')
         ;[...this.$refs.table.querySelectorAll('.sp')].forEach(el => {
           el.style.width = '0'
@@ -105,5 +105,13 @@
     width: 0;
     transition: all 500ms;
     background: rgba(0, 0, 0, 0);
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  td, th {
+    border: none!important;
   }
 </style>

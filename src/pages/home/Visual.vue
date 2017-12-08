@@ -42,7 +42,7 @@
         this.timerId = setInterval(() => {
           this.index = (this.index + 3) % this.allItems.length
           this.showItems = this.allItems.slice(this.index, this.index + 3)
-        }, 3000)
+        }, 2000)
       },
 
       stopInterval () {

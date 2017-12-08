@@ -13,7 +13,7 @@
 <style>
   .accordion-item {
     float: left;
-    width: 33.33%;
+    width: 33.33333%;
     height: 100%;
     position: relative;
     vertical-align: bottom;
