@@ -111,7 +111,7 @@
   .liner {
     width: 100%;
     height: 5px;
-    background: rgb(240, 240, 240);
+    background-color: rgb(240, 240, 240);
   }
 
   .contact-us {
