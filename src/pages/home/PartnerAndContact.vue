@@ -1,27 +1,7 @@
 <template>
   <div>
     <div class="contact-container">
-      <div class="partners clearfix">
-        <!--<div>-->
-        <!--<h3 class="partnerTitle">合作伙伴</h3>-->
-        <!--</div>-->
-        <!--<div>-->
-        <!--<img src="../../assets/logo/logo_01.jpg" alt="">-->
-        <!--<img src="../../assets/logo/logo_02.jpg" alt="">-->
-        <!--<img src="../../assets/logo/logo_03.jpg" alt="">-->
-        <!--<img src="../../assets/logo/logo_04.jpg" alt="">-->
-        <!--<img src="../../assets/logo/logo_05.jpg" alt="">-->
-        <!--<img src="../../assets/logo/logo_06.jpg" alt="">-->
-        <!--<img src="../../assets/logo/logo_07.jpg" alt="">-->
-        <!--<img src="../../assets/logo/logo_08.jpg" alt="">-->
-        <!--<img src="../../assets/logo/logo_09.jpg" alt="">-->
-        <!--<img src="../../assets/logo/logo_10.jpg" alt="">-->
-        <!--<img src="../../assets/logo/logo_11.jpg" alt="">-->
-        <!--<img src="../../assets/logo/logo_12.jpg" alt="">-->
-        <!--<img src="../../assets/logo/logo_13.jpg" alt="">-->
-        <!--<img src="../../assets/logo/logo_14.jpg" alt="">-->
-        <!--<img src="../../assets/logo/logo_15.jpg" alt="">-->
-        <!--</div>-->
+      <div class="partners">
         <img src="../../assets/partner.png" alt="">
       </div>
       <div class="contact-us">
@@ -47,7 +27,7 @@
   import FootBox from '../../components/FootBox'
 
   export default {
-    data() {
+    data () {
       return {
         slide: 0,
         sliding: null,
@@ -64,19 +44,22 @@
     },
 
     computed: {
-      info() {
+      info () {
         return this.infos[0]
       },
-      contactInfo() {
+      contactInfo () {
         return [
           {key: '办公电话', val: this.info.tel, icon: require('../../assets/logo/tel.png')},
           {key: '办公地址 ', val: this.info.addr, icon: require('../../assets/logo/pos.png')},
           {key: 'EMAILS', val: this.info.mail, icon: require('../../assets/logo/email.png')},
         ]
-      }
+      },
     },
 
-    mounted() {
+    mounted () {
+      window.onload = this.setInfoHeight
+      window.addEventListener('resize', this.setInfoHeight)
+
       this.axios.get('/api/getImgUrls')
         .then(res => {
           this.imgUrls = res.data.imgUrls
@@ -84,11 +67,29 @@
     },
 
     methods: {
-      onSlideStart(slide) {
+      onSlideStart (slide) {
         this.sliding = true
       },
-      onSlideEnd(slide) {
+      onSlideEnd (slide) {
         this.sliding = false
+      },
+      setInfoHeight () {
+        const $page = document.querySelector('.page-6')
+        const pageStyle = window.getComputedStyle($page, null)
+        const pageHeight = parseFloat(pageStyle.height) - parseFloat(pageStyle.paddingTop)
+
+        const $partners = $page.querySelector('.partners')
+        const partnersHeight = $partners.offsetHeight
+
+        const $contactUs = $page.querySelector('.contact-us')
+        const $title = $contactUs.querySelector('.title')
+        const $info = $contactUs.querySelector('.info')
+
+        const totalHeight = pageHeight - partnersHeight - 65 - 40
+        const padding = totalHeight - $info.offsetHeight - $title.offsetHeight - 40
+
+        $contactUs.style.height = totalHeight + 'px'
+        $contactUs.style.paddingTop = padding / 2 + 'px'
       }
     },
 
@@ -98,54 +99,27 @@
 
 <style scoped lang="scss">
   footer {
-    position: absolute;
     bottom: 0;
-  }
-
-  .contact-container {
-    margin-top: 65px;
+    position: absolute;
   }
 
   .partners {
-    /*width: 80%;*/
-    /*margin: 0 auto;*/
-    padding-top: 70px;
-
+    padding-top: 40px;
     img {
-      /*margin: 15px 9px;*/
-      /*height: 90px;*/
-      /*float: left;*/
       width: 100%;
     }
   }
 
-  .partnerTitle {
-    font-family: "SourceHanSansCN-Normal";
-    font-size: 48px;
-    color: #191918;
-  }
-
   .contact-us {
-    background-color: #000;
-    padding: 5% 20%;
     margin-top: 40px;
+    background-color: #000;
     .title {
-      font-family: "SourceHanSansCN-Normal";
-      font-size: 47px;
       color: #fff;
-      margin-bottom: 5%;
+      font-size: 2.5vw;
+      margin-bottom: 40px;
       letter-spacing: 3px;
+      font-family: "SourceHanSansCN-Normal";
     }
-  }
-
-  .no-fullpage .contact-us {
-    margin-bottom: 70px;
-  }
-
-  .no-fullpage .partners {
-    margin-bottom: 40px;
-    padding-top: 10px;
-
   }
 
   .info {
@@ -169,8 +143,8 @@
     }
     .txt {
       float: left;
-      display: inline-block;
       margin-left: 20px;
+      display: inline-block;
       span {
         display: block;
         text-align: left;

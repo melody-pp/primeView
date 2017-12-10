@@ -99,19 +99,16 @@
   }
 
   .no-fullpage {
-    .page-2, .page-3, .page-4 {
+    .page-2, .page-3, .page-4, .page-6 {
       height: 600px
     }
 
-    .page-2, .page-4, .page-5 {
+    .page-2, .page-4, .page-5, .page-6 {
       padding-top: 0;
     }
 
     .button-group {
       display: none;
-    }
-    .page-6 .contact-us{
-      /*margin-bottom: 70px;*/
     }
   }
 
@@ -126,7 +123,7 @@
     height: 100%;
   }
 
-  .page-2, .page-4, .page-5 {
+  .page-2, .page-4, .page-5, .page-6 {
     padding-top: 65px;
   }
 
