@@ -85,7 +85,7 @@
     opacity: 1;
     width: 100%;
     height: 100%;
-    font-size: 100px;
+    font-size: 6vw;
     font-family: "SourceHanSansCN-ExtraLight";
     transition: all 500ms;
   }

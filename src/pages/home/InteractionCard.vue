@@ -1,6 +1,6 @@
 <template>
-  <b-col
-    cols="6" ref="box" :style="colStyle"
+  <div
+     ref="box" :style="colStyle"
     @mouseleave="mouseLeave"
     @mouseenter="mouseEnter">
 
@@ -9,7 +9,7 @@
       :leave-active-class="leaveClass">
       <div v-if="text" v-show="showModel" :style="modelStyle" v-text="text"></div>
     </transition>
-  </b-col>
+  </div>
 </template>
 
 <script>
@@ -27,6 +27,9 @@
           position: 'relative',
           backgroundSize: 'cover',
           backgroundImage: `url(${this.imgUrl})`,
+          width:'50%',
+          float:'left',
+
         },
         modelStyle: {
           bottom: 0,

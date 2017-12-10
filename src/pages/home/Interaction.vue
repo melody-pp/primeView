@@ -1,11 +1,11 @@
 <template>
-  <b-container :style="containerStyle">
-    <b-row :style="rowStyle">
+  <div :style="containerStyle">
+    <div class="clearfix" :style="rowStyle">
       <InteractionCard
         v-for="(item, index) in items" :key="index"
         :imgUrl="item.imgUrl" :text="item.text"/>
-    </b-row>
-  </b-container>
+    </div>
+  </div>
 </template>
 
 <script>

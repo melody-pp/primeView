@@ -57,6 +57,7 @@
     },
 
     mounted () {
+      setTimeout(this.setInfoHeight)
       window.onload = this.setInfoHeight
       window.addEventListener('resize', this.setInfoHeight)
 
@@ -115,7 +116,7 @@
     background-color: #000;
     .title {
       color: #fff;
-      font-size: 2.5vw;
+      font-size: 2.4vw;
       margin-bottom: 40px;
       letter-spacing: 3px;
       font-family: "SourceHanSansCN-Normal";

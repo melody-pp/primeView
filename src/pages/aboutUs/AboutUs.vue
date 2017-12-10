@@ -6,46 +6,37 @@
       <img src="../../assets/who/company_team.jpg" alt="">
     </div>
     <div class="liner"></div>
-    <div style="position:relative;">
-      <div class="container-fluid contact-us">
-        <div class="row no-gutters">
-          <div class="col-xs-4 col-md-4">
-            <p class="headTxt">联系我们</p>
-            <div class="row">
-              <div class="col-md-12 col-xs-12">
-                <img class="addressImg" src="../../assets/who/position.png" alt="">
-                <div class="addressIfo">
-                  <p>公司地址</p>
-                  <p>{{info.addr}}</p>
-                </div>
-              </div>
-              <div class="col-md-12 col-xs-12">
-                <img class="addressImg" src="../../assets/who/tel.png" alt="">
-                <div class="addressIfo">
-                  <p>办公电话</p>
-                  <p>{{info.tel}}</p>
-                </div>
-              </div>
-              <div class="col-md-12 col-xs-12">
-                <img class="addressImg" src="../../assets/who/email.png" alt="">
-                <div class="addressIfo">
-                  <p>EMAILS</p>
-                  <p>{{info.mail}}</p>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12 col-ms-12"></div>
-            </div>
+    <div class="contactUsBox clearfix" style="position:relative;">
+      <div class="contact-us">
+        <p class="headTxt">联系我们</p>
+        <div class="clearfix">
+          <img class="addressImg" src="../../assets/who/position.png" alt="">
+          <div class="addressIfo">
+            <p>公司地址</p>
+            <p>{{info.addr}}</p>
           </div>
-          <div class="col-xs-8 col-md-8" style="overflow: auto;">
-            <iframe src="/api/baiduMap.html" frameborder="0" width="100%" height="100%"></iframe>
+        </div>
+        <div class="clearfix">
+          <img class="addressImg" src="../../assets/who/tel.png" alt="">
+          <div class="addressIfo">
+            <p>办公电话</p>
+            <p>{{info.tel}}</p>
+          </div>
+        </div>
+        <div class="clearfix">
+          <img class="addressImg" src="../../assets/who/email.png" alt="">
+          <div class="addressIfo">
+            <p>EMAILS</p>
+            <p>{{info.mail}}</p>
           </div>
         </div>
       </div>
-
-      <FootBox class="caseFooter"/>
+      <div class="mapBox" style="overflow: auto;">
+        <iframe src="/api/baiduMap.html" frameborder="0" width="100%" height="240"></iframe>
+      </div>
     </div>
+
+    <FootBox class="caseFooter"/>
   </div>
 </template>
 
@@ -55,7 +46,7 @@
   import FootBox from '../../components/FootBox'
 
   export default {
-    data() {
+    data () {
       return {
         imgUrls: [],
         items: [],
@@ -71,12 +62,12 @@
     },
 
     computed: {
-      info() {
+      info () {
         return this.infos[0]
       }
     },
 
-    mounted() {
+    mounted () {
       this.axios.get('/api/getImgUrls')
         .then(res => {
           this.imgUrls = res.data.imgUrls
@@ -101,7 +92,7 @@
 <style scoped lang="scss">
   .company-team {
     width: 90%;
-    margin: 10% auto;
+    margin: 40px auto;
 
     img {
       width: 100%;
@@ -113,11 +104,19 @@
     height: 5px;
     background-color: rgb(240, 240, 240);
   }
-
-  .contact-us {
-    width: 90%;
-    padding: 2% 0;
+.contactUsBox{
+  width: 90%;
+  margin: 34px auto;
+  .mapBox{
+    width: 65%;
+    float: right;
   }
+  .contact-us {
+    width: 30%;
+    float: left;
+  }
+}
+
 
   .headTxt {
     margin: 2% 0;
@@ -128,13 +127,14 @@
 
   .addressImg {
     float: left;
-
+    display: inline-block;
   }
 
   .addressIfo {
     display: inline-block;
     margin-left: 20px;
     margin-bottom: 10px;
+    float: left;
     p:nth-child(1) {
       color: #98d4d5;
       font-size: 18px;

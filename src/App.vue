@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <keep-aliv>
+      <router-view></router-view>
+    </keep-aliv>
+
   </div>
 </template>
 
@@ -31,42 +34,47 @@
     font-weight: 100;
     font-style: normal;
   }
+
   @font-face {
     font-family: 'SourceHanSansCN-Medium';
     src: url('./font/SourceHanSansCN-Medium.otf');
     font-weight: 100;
     font-style: normal;
   }
+
   @font-face {
     font-family: 'SourceHanSansCN-Normal';
     src: url('./font/SourceHanSansCN-Normal.otf');
     font-weight: 100;
     font-style: normal;
   }
+
   @font-face {
     font-family: 'SourceHanSansCN-Bold';
     src: url('./font/SourceHanSansCN-Bold.otf');
     font-weight: 100;
     font-style: normal;
   }
- /* @media only screen and (max-width: 1024px) {
-    html{
-      font-size: 100px;
-    }
-  }
 
-  @media only screen and (max-width: 768px) {
-   html{
-     font-size: 10px;
+  /* @media only screen and (max-width: 1024px) {
+     html{
+       font-size: 100px;
+     }
    }
-  }*/
 
-  ul,li,p{
+   @media only screen and (max-width: 768px) {
+    html{
+      font-size: 10px;
+    }
+   }*/
+
+  ul, li, p {
     list-style: none;
-    margin:0;
+    margin: 0;
     padding: 0;
   }
-  .row{
+
+  .row {
     margin: 0;
   }
 </style>

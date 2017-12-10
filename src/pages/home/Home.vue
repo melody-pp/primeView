@@ -29,7 +29,6 @@
       <div class="page-5 page">
         <Experience></Experience>
       </div>
-
       <div class="page-6 page">
         <PartnerAndContact></PartnerAndContact>
       </div>

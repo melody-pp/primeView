@@ -97,7 +97,7 @@
   }
 
   .abstract .num {
-    font-size: 72px;
+    font-size:5.5vw;
     font-family: "SourceHanSansCN-ExtraLight";
   }
 

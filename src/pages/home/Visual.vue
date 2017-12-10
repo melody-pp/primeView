@@ -2,7 +2,7 @@
   <VueAccordion
     :items="showItems"
     @stopInterval="stopInterval"
-    @startInterval="startInterval"/>
+    @startInterval=""/>
 </template>
 
 <script>
@@ -30,7 +30,7 @@
 
     mounted () {
       this.showItems = this.allItems.slice(0, 3)
-      this.startInterval()
+      // this.startInterval()
     },
 
     destroyed () {
