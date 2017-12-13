@@ -71,7 +71,6 @@
 
     mounted() {
       const vm = this
-
       vm.getCases()
       window.addEventListener('scroll', function () {
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
