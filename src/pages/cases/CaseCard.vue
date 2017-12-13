@@ -1,8 +1,8 @@
 <template>
-  <b-card :title="title" :img-src="imgUrl" :img-alt="title" img-top @click="toDetail">
+  <b-card :title="ctitle" :img-src="surface" :img-alt="ctitle" img-top @click="toDetail">
     <div slot="footer">
       <small class="text-muted">
-        {{time}}
+        {{created_at}}
       </small>
     </div>
   </b-card>
@@ -14,7 +14,7 @@
       return {}
     },
 
-    props: ['title', 'time', 'imgUrl', 'id'],
+    props: ['ctitle', 'created_at', 'surface', 'id'],
 
     methods: {
       toDetail() {

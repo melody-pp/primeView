@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="mapBox" style="overflow: auto;">
-        <iframe src="/api/baiduMap.html" frameborder="0" width="100%" height="240"></iframe>
+        <iframe :src="mapSrc.addr" frameborder="0" width="100%" height="240"></iframe>
       </div>
     </div>
 
@@ -46,9 +46,10 @@
   import FootBox from '../../components/FootBox'
 
   export default {
-    data () {
+    data() {
       return {
         imgUrls: [],
+        mapSrc: [],
         items: [],
         infos: [{
           'id': 1,
@@ -62,27 +63,28 @@
     },
 
     computed: {
-      info () {
+      info() {
         return this.infos[0]
       }
     },
 
-    mounted () {
-      this.axios.get('/api/getImgUrls')
+    mounted() {
+      this.axios.get('/api/getAbhome')
         .then(res => {
-          this.imgUrls = res.data.imgUrls
-
+          this.imgUrls = res.data.abimg
         })
-
-      this.axios.get('api/getContact')
+      this.axios.get('/api/getAddr')
+        .then(res => {
+          this.mapSrc = res.data[0]
+          console.log(this.mapSrc);
+        })
+      this.axios.get('/api/getAbout')
         .then(res => {
           this.items = res.data
+
         })
 
-      this.axios.get('api/getContact')
-        .then(res => {
-          console.log(res.data)
-        })
+
     },
 
     components: {Banner, Introduce, FootBox}
@@ -104,19 +106,19 @@
     height: 5px;
     background-color: rgb(240, 240, 240);
   }
-.contactUsBox{
-  width: 90%;
-  margin: 34px auto;
-  .mapBox{
-    width: 65%;
-    float: right;
-  }
-  .contact-us {
-    width: 30%;
-    float: left;
-  }
-}
 
+  .contactUsBox {
+    width: 90%;
+    margin: 34px auto;
+    .mapBox {
+      width: 65%;
+      float: right;
+    }
+    .contact-us {
+      width: 30%;
+      float: left;
+    }
+  }
 
   .headTxt {
     margin: 2% 0;

@@ -20,8 +20,8 @@
 
         <WaterfallSlot
           v-for="(item, index) in showCases"
-          :width="item.width"
-          :height="item.height"
+          :width="itemWidth"
+          :height="itemHeight"
           :order="index"
           :key="index"
           move-class="item-move">
@@ -52,6 +52,8 @@
         isBusy: false,
         align: 'center',
         cases: [],
+        itemWidth:300,
+        itemHeight:Math.random() * 200 + 200,
         showCaseType: 'all'
       }
     },
@@ -88,9 +90,10 @@
         if (this.isBusy) return
 
         this.isBusy = true
-        this.axios.get('/api/getCases')
+        this.axios.get('/api/getCaseintro')
           .then(res => {
-            this.cases.push(...res.data.cases)
+            this.cases.push(...res.data)
+            console.log(res);
           })
       }
     },

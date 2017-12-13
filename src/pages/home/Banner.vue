@@ -9,7 +9,7 @@
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd">
 
-      <b-carousel-slide v-for="(imgUrl,index) in imgUrls" :img-src="imgUrl" :key="index"></b-carousel-slide>
+      <b-carousel-slide v-for="(imgUrl,index) in imgUrls" :img-src="imgUrl.kmedia" :key="index"></b-carousel-slide>
 
     </b-carousel>
 
@@ -47,9 +47,10 @@
     },
 
     mounted() {
-      this.axios.get('/api/getImgUrls')
+      this.axios.get('/api/getPagehome')
         .then(res => {
-          this.imgUrls = res.data.imgUrls
+          this.imgUrls = res.data
+          console.log(res);
         })
     },
 
