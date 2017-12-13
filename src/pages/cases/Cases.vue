@@ -9,6 +9,7 @@
       </div>
 
       <Waterfall
+        :style="{minHeight}"
         :align="align"
         :lineGap="200"
         :min-line-gap="100"
@@ -21,7 +22,7 @@
         <WaterfallSlot
           v-for="(item, index) in showCases"
           :width="itemWidth"
-          :height="itemHeight"
+          :height="itemHeight + Math.random() * 200"
           :order="index"
           :key="index"
           move-class="item-move">
@@ -47,19 +48,20 @@
   import FootBox from '../../components/FootBox'
 
   export default {
-    data() {
+    data () {
       return {
         isBusy: false,
+        minHeight: 0,
         align: 'center',
         cases: [],
-        itemWidth:300,
-        itemHeight:Math.random() * 200 + 200,
+        itemWidth: 300,
+        itemHeight: 200,
         showCaseType: 'all'
       }
     },
 
     computed: {
-      showCases() {
+      showCases () {
         switch (this.showCaseType) {
           case 'all':
             return this.cases
@@ -69,9 +71,11 @@
       }
     },
 
-    mounted() {
+    mounted () {
       const vm = this
+      vm.minHeight = window.innerHeight - 200 + 'px'
       vm.getCases()
+
       window.addEventListener('scroll', function () {
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
         if (scrollTop + window.innerHeight >= document.body.clientHeight) {
@@ -85,14 +89,13 @@
         this.isBusy = false
       },
 
-      getCases() {
+      getCases () {
         if (this.isBusy) return
 
         this.isBusy = true
         this.axios.get('/api/getCaseintro')
           .then(res => {
             this.cases.push(...res.data)
-            console.log(res);
           })
       }
     },
@@ -205,8 +208,9 @@
     font-family: "SourceHanSansCN-ExtraLight";
     text-decoration: none;
   }
-  .caseFooter{
-    color:#4a4a4a;
+
+  .caseFooter {
+    color: #4a4a4a;
     font-size: 14px;
     background-color: #000;
   }
