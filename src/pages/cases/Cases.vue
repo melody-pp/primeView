@@ -22,7 +22,7 @@
         <WaterfallSlot
           v-for="(item, index) in showCases"
           :width="itemWidth"
-          :height="itemHeight + Math.random() * 200"
+          :height="itemHeight + Math.floor(Math.random() * 200)"
           :order="index"
           :key="index"
           move-class="item-move">
@@ -54,7 +54,7 @@
         minHeight: 0,
         align: 'center',
         cases: [],
-        itemWidth: 300,
+        itemWidth: 400,
         itemHeight: 200,
         showCaseType: 'all'
       }

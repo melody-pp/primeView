@@ -50,7 +50,6 @@
       this.axios.get('/api/getPagehome')
         .then(res => {
           this.imgUrls = res.data
-          console.log(res);
         })
     },
 

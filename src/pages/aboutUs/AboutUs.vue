@@ -76,7 +76,6 @@
       this.axios.get('/api/getAddr')
         .then(res => {
           this.mapSrc = res.data[0]
-          console.log(this.mapSrc);
         })
       this.axios.get('/api/getAbout')
         .then(res => {

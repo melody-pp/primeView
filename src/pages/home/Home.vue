@@ -127,7 +127,7 @@
   }
 
   .page-2, .page-4, .page-5, .page-6 {
-    padding-top: 65px;
+    /*padding-top: 65px;*/
   }
 
   .button-group {

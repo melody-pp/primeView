@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="md" type="light" variant="info" fixed="top" class="b-ca">
+    <b-navbar toggleable="md" type="light" variant="info" fixed="top" class="b-ca" @mouseenter="">
       <b-navbar-brand to="/"><img src="../assets/logo.png" alt=""></b-navbar-brand>
 
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
@@ -44,7 +44,7 @@
   .navbar {
     margin: 0 auto;
     padding: 10px 10%;
-    border-bottom: 2px solid #e3e3e3;
+    /*border-bottom: 2px solid #e3e3e3;*/
     box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.6);
     -webkit-box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.6);
   }

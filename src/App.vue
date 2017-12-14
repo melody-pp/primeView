@@ -13,14 +13,15 @@
 <style>
   @font-face {
     font-family: 'SourceHanSansCN-ExtraLight';
-    src: url('./font/SourceHanSansCN-ExtraLight.otf'),
-    url('./font/SourceHanSansCN-ExtraLight.eot?#iefix?') format('embedded-opentype');
+    src: url('./font/SourceHanSansCN-ExtraLight.otf');
+    /*url('./font/SourceHanSansCN-ExtraLight.eot');*/
+    font-weight: 100;
   }
 
   @font-face {
     font-family: 'SourceHanSansCN-Light';
-    src: url('./font/SourceHanSansCN-Light.otf'),
-    url('./font/SourceHanSansCN-Light.eot?#iefix?') format('embedded-opentype');
+    src: url('./font/SourceHanSansCN-Light.otf');
+    /*url('./font/SourceHanSansCN-Light.eot?#iefix?') format('embedded-opentype');*/
   }
 
   @font-face {
@@ -45,9 +46,10 @@
 
   @font-face {
     font-family: 'SourceHanSansCN-Bold';
-    src: url('./font/SourceHanSansCN-Bold.otf'),
-    url('./font/SourceHanSansCN-Bold..eot?#iefix?') format('embedded-opentype');
-
+    src: url('./font/SourceHanSansCN-Bold.otf');
+    src: url('./font/SourceHanSansCN-Bold.eot?#iefix?') format('embedded-opentype'),
+    url('./font/SourceHanSansCN-Bold.woff') format('woff'),
+    url('./font/SourceHanSansCN-Bold.ttf') format('truetype');
   }
 
   ul, li, p {

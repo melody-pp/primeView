@@ -14,7 +14,7 @@
   import TypeCard from '../../components/TypeCard.vue'
 
   export default {
-    data () {
+    data() {
       return {
         keywords: [],
         colors: [
@@ -41,11 +41,12 @@
         },
       }
     },
-    mounted () {
+    mounted() {
       this.axios
         .get('/api/getKeywords')
         .then(res => {
-          this.keywords = res.data.keywords
+          this.keywords = res.data.map(item => item.title)
+          console.log(this.keywords);
         })
     },
     components: {TypeCard}

@@ -7,7 +7,13 @@
     <transition
       :enter-active-class="enterClass"
       :leave-active-class="leaveClass">
-      <div v-if="text" v-show="showModel" :style="modelStyle" v-text="text"></div>
+      <div v-if="text" v-show="showModel" :style="modelStyle" >
+        <transition
+          :enter-active-class="enterClass"
+          :leave-active-class="leaveClass">
+          <div v-text="text"></div>
+        </transition>
+      </div>
     </transition>
   </div>
 </template>
