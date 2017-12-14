@@ -1,17 +1,13 @@
 <template>
-  <div
-     ref="box" :style="colStyle"
-    @mouseleave="mouseLeave"
-    @mouseenter="mouseEnter">
-
+  <div ref="box" :style="colStyle" @mouseleave="mouseLeave" @mouseenter="mouseEnter">
     <transition
-      :enter-active-class="enterClass"
-      :leave-active-class="leaveClass">
-      <div v-if="text" v-show="showModel" :style="modelStyle" >
-        <transition
-          :enter-active-class="enterClass"
-          :leave-active-class="leaveClass">
-          <div v-text="text"></div>
+        :enter-active-class="enterClass"
+        @enter="enter"
+        :leave-active-class="leaveClass"
+        @after-leave="afterLeave">
+      <div v-if="text" v-show="showModel" :style="modelStyle">
+        <transition :enter-active-class="enterClass">
+          <div v-show="showText" v-text="text"></div>
         </transition>
       </div>
     </transition>
@@ -23,6 +19,7 @@
     data() {
       return {
         showModel: false,
+        showText: false,
         direction: 0,
         enterAnimates: ['slideInDown', 'slideInRight', 'slideInUp', 'slideInLeft'],
         leaveAnimates: ['slideOutUp', 'slideOutRight', 'slideOutDown', 'slideOutLeft'],
@@ -33,8 +30,8 @@
           position: 'relative',
           backgroundSize: 'cover',
           backgroundImage: `url(${this.imgUrl})`,
-          width:'50%',
-          float:'left',
+          width: '50%',
+          float: 'left',
 
         },
         modelStyle: {
@@ -80,6 +77,12 @@
       mouseEnter(event) {
         this.direction = this.getDirection(event)
         this.showModel = true
+      },
+      enter() {
+        setTimeout(() => this.showText = true, 300)
+      },
+      afterLeave() {
+        this.showText = false
       }
     }
   }

@@ -61,4 +61,8 @@
   .row {
     margin: 0;
   }
+
+  #app .animated {
+    animation-duration: 500ms;
+  }
 </style>
