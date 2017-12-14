@@ -14,7 +14,7 @@
 
 <script>
   export default {
-    data () {
+    data() {
       return {
         classMap: ['top', 'left', 'bottom'],
         items: [
@@ -25,12 +25,21 @@
       }
     },
 
-    mounted () {
+    mounted() {
+      document.addEventListener('mouseleave', () => {
+        const $container = this.$refs.container
+        const $top = $container.querySelector('.top')
+        const $left = $container.querySelector('.left')
+        const $bottom = $container.querySelector('.bottom')
 
+        this.changeActive($left, false)
+        this.changeActive($top, false)
+        this.changeActive($bottom, false)
+      })
     },
 
     methods: {
-      mousemove (event) {
+      mousemove(event) {
         const $container = this.$refs.container
         const $top = $container.querySelector('.top')
         const $left = $container.querySelector('.left')
@@ -42,7 +51,7 @@
         this.changeActive($bottom, (isLeft && !underL2) || (!isLeft && !underL1))
       },
 
-      getConditions (event) {
+      getConditions(event) {
         const $gather = this.$refs.gather
         const width = $gather.offsetWidth
         const height = $gather.offsetHeight
@@ -55,7 +64,7 @@
         }
       },
 
-      changeActive (el, isActive) {
+      changeActive(el, isActive) {
         isActive
           ? el.classList.add('active')
           : el.classList.remove('active')
