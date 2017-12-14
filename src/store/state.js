@@ -1,3 +1,5 @@
 export default {
-  keywords: []
+  path: '',
+  fpIndex: 0,
+  hoverNav: false
 }

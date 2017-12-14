@@ -49,7 +49,7 @@
   import PartnerAndContact from './PartnerAndContact'
 
   export default {
-    data () {
+    data() {
       const that = this
 
       return {
@@ -59,16 +59,19 @@
           dir: 'v',
           loop: false,
           duration: 300,
-          beforeChange (ele, current, next) {
+          beforeChange(ele, current, next) {
             that.index = next
+            that.$store.dispatch('changeFPIndex', that.index)
           },
-          afterChange (ele, current) {
+          afterChange(ele, current) {
             that.index = current
           }
         }
       }
     },
-    mounted () {
+    mounted() {
+      this.$store.dispatch('changeFPIndex', 0)
+
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         const classList = document.querySelector('.fullpage-container').classList
 
@@ -79,10 +82,10 @@
       }
     },
     methods: {
-      moveTo (index) {
+      moveTo(index) {
         this.$refs.fullpage.$fullpage.moveTo(index, true)
       },
-      handleResize () {
+      handleResize() {
         this.$refs.fullpage.$fullpage.moveTo(this.index, false)
       }
     },
@@ -106,10 +109,6 @@
       height: 600px
     }
 
-    .page-2, .page-4, .page-5, .page-6 {
-      padding-top: 0;
-    }
-
     .button-group {
       display: none;
     }
@@ -124,10 +123,6 @@
 
   .page-1 > div {
     height: 100%;
-  }
-
-  .page-2, .page-4, .page-5, .page-6 {
-    /*padding-top: 65px;*/
   }
 
   .button-group {

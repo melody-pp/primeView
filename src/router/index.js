@@ -10,7 +10,7 @@ import JoinUs from '@/pages/JoinUs'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
@@ -45,6 +45,12 @@ export default new Router({
         },
       ]
     },
-
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  router.app.$options.store.dispatch('changeView', to.path)
+  next()
+})
+
+export default router
