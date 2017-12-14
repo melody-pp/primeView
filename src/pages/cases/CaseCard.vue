@@ -27,7 +27,7 @@
 
 <style>
   .case-card {
-    height: calc(100% - 20px);
+    width: 150px;
     margin: 10px;
     border: 1px solid gray;
     cursor: pointer;

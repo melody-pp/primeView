@@ -8,32 +8,11 @@
         <a href="javascript:;">视觉表现(36)</a>
       </div>
 
-      <Waterfall
-        :style="{minHeight}"
-        :align="align"
-        :lineGap="200"
-        :min-line-gap="100"
-        :max-line-gap="220"
-        :single-max-width="300"
-        :watch="showCases"
-        @reflowed="reflowed"
-        ref="waterfall">
+      <div class="wf-container" :style="{minHeight}">
+        <CaseCard class="case-card" v-for="(item, index) in showCases" v-bind="item" :key="index"/>
+      </div>
 
-        <WaterfallSlot
-          v-for="(item, index) in showCases"
-          :width="itemWidth"
-          :height="itemHeight + Math.floor(Math.random() * 200)"
-          :order="index"
-          :key="index"
-          move-class="item-move">
-
-          <CaseCard class="case-card" v-bind="item"/>
-
-        </WaterfallSlot>
-
-      </Waterfall>
       <div v-show="isBusy" class="loader">Loading...</div>
-
     </div>
     <FootBox class="caseFooter"></FootBox>
 
@@ -42,13 +21,12 @@
 </template>
 
 <script>
+  import Waterfall from '../../lib/waterfall'
   import CaseCard from './CaseCard'
-  import Waterfall from 'vue-waterfall/lib/waterfall'
-  import WaterfallSlot from 'vue-waterfall/lib/waterfall-slot'
   import FootBox from '../../components/FootBox'
 
   export default {
-    data () {
+    data() {
       return {
         isBusy: false,
         minHeight: 0,
@@ -61,7 +39,7 @@
     },
 
     computed: {
-      showCases () {
+      showCases() {
         switch (this.showCaseType) {
           case 'all':
             return this.cases
@@ -71,36 +49,39 @@
       }
     },
 
-    mounted () {
+    mounted() {
       const vm = this
       vm.minHeight = window.innerHeight - 200 + 'px'
       vm.getCases()
 
-      window.addEventListener('scroll', function () {
+      window.addEventListener('scroll', function() {
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
         if (scrollTop + window.innerHeight >= document.body.clientHeight) {
           vm.getCases()
         }
       })
+
+      window.addEventListener('resize', () => Waterfall('.wf-container'))
     },
 
     methods: {
-      reflowed: function () {
-        this.isBusy = false
-      },
-
-      getCases () {
+      getCases() {
         if (this.isBusy) return
 
         this.isBusy = true
         this.axios.get('/api/getCaseintro')
           .then(res => {
             this.cases.push(...res.data)
+
+            this.$nextTick(() => {
+              Waterfall('.wf-container')
+              this.isBusy = false
+            })
           })
       }
     },
 
-    components: {Waterfall, WaterfallSlot, CaseCard, FootBox}
+    components: {CaseCard, FootBox}
   }
 </script>
 
