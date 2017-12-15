@@ -1,6 +1,7 @@
 export default function waterfall(container, mb = 15, mr = 15) {
   typeof(container) === 'string' && (container = document.querySelector(container))
 
+  container.style.position = 'relative'
   const els = [].map.call(container.children, el => {
     el.style.position = 'absolute'
     return el
