@@ -21,8 +21,8 @@
         showModel: false,
         showText: false,
         direction: 0,
-        enterAnimates: ['slideInDown', 'slideInRight', 'slideInUp', 'slideInLeft'],
-        leaveAnimates: ['slideOutUp', 'slideOutRight', 'slideOutDown', 'slideOutLeft'],
+        enterAnimates: ['fadeInDown', 'fadeInRight', 'fadeInUp', 'fadeInLeft'],
+        leaveAnimates: ['fadeOutUp', 'fadeOutRight', 'fadeOutDown', 'fadeOutLeft'],
         colStyle: {
           padding: 0,
           height: '100%',
@@ -87,3 +87,9 @@
     }
   }
 </script>
+
+<style scoped>
+  #app .animated {
+    animation-duration: 400ms;
+  }
+</style>

@@ -60,8 +60,6 @@
           vm.getCases()
         }
       })
-
-      window.addEventListener('resize', () => Waterfall('.wf-container'))
     },
 
     methods: {

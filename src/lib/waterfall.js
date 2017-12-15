@@ -9,7 +9,7 @@
    + Documentation: https://github.com/raphamorim/waterfall
 */
 
-function waterfall(container) {
+export default function waterfall(container) {
   if (typeof(container) === 'string')
     container = document.querySelector(container)
 
@@ -99,5 +99,3 @@ function waterfall(container) {
     document.body.onresize = resize
   }
 }
-
-export default waterfall
