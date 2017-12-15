@@ -69,9 +69,10 @@
         if (this.isBusy) return
 
         this.isBusy = true
-        this.axios.get('/api/getCaseintro')
+        this.axios.get('/api/getCase')
           .then(res => {
             this.cases.push(...res.data)
+            console.log(res.data);
 
             this.$nextTick(() => {
               Waterfall('.wf-container')

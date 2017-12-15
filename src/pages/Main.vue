@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import { mapState, mapActions } from 'vuex'
+  import {mapState, mapActions} from 'vuex'
 
   export default {
     data() {
@@ -57,16 +57,12 @@
     background-color: rgba(255, 255, 255, 0.3) !important;
   }
 
-  .navbar-brand img, .footerBox .logo img {
-    height: 34px !important;
-  }
-
   .navbar {
     margin: 0 auto;
-    padding: 10px 10%;
+    padding: 0 10%;
     transition: all 500ms;
-    box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
   }
 
   .navbar.hide {
@@ -82,7 +78,9 @@
     font-size: 18px;
     color: #333;
   }
-
+  .navbar-brand{
+    padding-bottom: 0;
+  }
   .nav-item {
     padding: 0 5px;
   }
