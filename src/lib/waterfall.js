@@ -14,7 +14,7 @@ export default function waterfall(container) {
     container = document.querySelector(container)
 
   // Freeze the list of nodes
-  var els = [].map.call(container.children, function(el) {
+  var els = [].map.call(container.children, function (el) {
     el.style.position = 'absolute'
     return el
   })
@@ -40,7 +40,7 @@ export default function waterfall(container) {
   function right(el) { return x(el) + width(el) + margin('Right', el) }
 
   function sort(l) {
-    l = l.sort(function(a, b) {
+    l = l.sort(function (a, b) {
       if (bottom(a) === bottom(b)) {
         return x(b) - x(a)
       } else {
@@ -82,20 +82,4 @@ export default function waterfall(container) {
   sort(boundary)
   var maxEl = boundary[0]
   container.style.height = px(bottom(maxEl) + margin('Bottom', maxEl))
-
-  // Responds to window resize
-  var containerWidth = width(container)
-
-  function resize(e) {
-    if (width(container) != containerWidth) {
-      e.target.removeEventListener(e.type, arguments.callee)
-      waterfall(container)
-    }
-  }
-
-  if (window.addEventListener) {
-    window.addEventListener('resize', resize)
-  } else {
-    document.body.onresize = resize
-  }
 }
