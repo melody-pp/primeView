@@ -2,8 +2,7 @@
   <div :style="containerStyle">
     <div class="clearfix" :style="rowStyle">
       <div class="titleCss">
-        <p>数据交互设计</p>
-        <p>移动优先，体验为领先</p>
+
       </div>
       <InteractionCard
         v-for="(item, index) in items" :key="index"
@@ -41,8 +40,7 @@
     mounted() {
       this.axios.get('/api/getSection')
         .then(res => {
-          this.items = res.data.experience
-          console.log(this.items);
+          this.items = res.data.data
         })
     },
   }
@@ -52,23 +50,7 @@
     height: 100%;
     width: 50%;
     float: left;
-    display: flex;
-    align-items: center;
-
-  p:nth-child(1) {
-    text-align: center;
-    width: 100%;
-    font-family: "SourceHanSansCN-ExtraLight";
-    font-size: 3vw;
-    color:#000;
-  }
-    p:nth-child(2) {
-    text-align: center;
-    width: 100%;
-    font-family: "SourceHanSansCN-Medium";
-    font-size: 1.4vw;
-    color:#000;
-  }
+    background: url("../../assets/index/it1.png") no-repeat;
 
   }
 </style>

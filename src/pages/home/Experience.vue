@@ -1,12 +1,12 @@
 <template>
   <div ref="container" class="ex-container">
-    <img ref="gather" class="gather" src="../../assets/index/gather.png"
+    <img ref="gather" class="gather" src="../../assets/index/gather.jpg"
          @mousemove="mousemove">
 
     <div v-for="(item, index) in items" :key="index" :class="[classMap[index]]">
-      <img :src="item.imgUrl">
+      <img :src="item.surface">
       <div class="introduce">
-        {{item.text}}
+        <router-link to="/deatil" @click="toDetail">{{item.ctitle}}</router-link>
       </div>
     </div>
   </div>
@@ -18,9 +18,9 @@
       return {
         classMap: ['top', 'left', 'bottom'],
         items: [
-          {imgUrl: require('../../assets/index/car.png'), text: '数字化营销'},
-          {imgUrl: require('../../assets/index/computer.png'), text: '数字化营销'},
-          {imgUrl: require('../../assets/index/exhibition.png'), text: '数字化营销'},
+          // {imgUrl: require('../../assets/index/car.png'), text: '数字化营销'},
+          // {imgUrl: require('../../assets/index/computer.png'), text: '数字化营销'},
+          // {imgUrl: require('../../assets/index/exhibition.png'), text: '数字化营销'},
         ]
       }
     },
@@ -36,7 +36,11 @@
         this.changeActive($top, false)
         this.changeActive($bottom, false)
       })
-
+      this.axios.get('/api/getSection')
+        .then(res => {
+          this.items = res.data.experience
+          console.log(res.data);
+        })
     },
 
     methods: {
@@ -69,13 +73,17 @@
         isActive
           ? el.classList.add('active')
           : el.classList.remove('active')
+      },
+      toDetail() {
+        this.$router.push({path: '/details', params:{caseId: id}})
+        // this.$nextTick(() => this.$router.go(0))
       }
     }
   }
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .ex-container {
     height: 100%;
     position: relative;
@@ -130,13 +138,16 @@
     top: 0;
     width: 100%;
     height: 100%;
-    color: #fff;
     position: absolute;
     background: rgba(0, 0, 0, .6);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: "SourceHanSansCN-Medium";
-    font-size: 30px;
+
+    a{
+      color: #fff;
+      font-family: "SourceHanSansCN-Medium";
+      font-size: 30px;
+    }
   }
 </style>

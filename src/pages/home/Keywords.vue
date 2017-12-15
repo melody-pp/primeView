@@ -46,7 +46,6 @@
         .get('/api/getKeywords')
         .then(res => {
           this.keywords = res.data.map(item => item.title)
-          console.log(this.keywords);
         })
     },
     components: {TypeCard}
