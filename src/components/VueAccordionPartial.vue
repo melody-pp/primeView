@@ -30,10 +30,10 @@
   }
 
   .accordion-container:hover .accordion-item {
-    width: 20%;
+    width: 16.66%;
   }
 
   .accordion-container:hover .accordion-item:hover {
-    width: 60%;
+    width: 66.66%;
   }
 </style>

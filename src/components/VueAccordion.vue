@@ -41,7 +41,7 @@
           el.style.width = '0'
         })
 
-        const width = window.innerWidth * 0.6 + 'px'
+        const width = window.innerWidth * 0.666 + 'px'
         switch (index) {
           case 0:
             return this.$refs.sp1.style.width = width

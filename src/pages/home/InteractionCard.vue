@@ -90,6 +90,6 @@
 
 <style scoped>
   #app .animated {
-    animation-duration: 400ms;
+    animation-duration: 600ms;
   }
 </style>

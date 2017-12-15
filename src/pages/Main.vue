@@ -65,8 +65,8 @@
     margin: 0 auto;
     padding: 10px 10%;
     transition: all 500ms;
-    box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.6);
-    -webkit-box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.4);
   }
 
   .navbar.hide {

@@ -36,6 +36,7 @@
         this.changeActive($top, false)
         this.changeActive($bottom, false)
       })
+
     },
 
     methods: {
