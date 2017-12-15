@@ -39,7 +39,6 @@
       this.axios.get('/api/getSection')
         .then(res => {
           this.items = res.data.experience
-          console.log(res.data);
         })
     },
 
@@ -148,6 +147,7 @@
       color: #fff;
       font-family: "SourceHanSansCN-Medium";
       font-size: 30px;
+      text-decoration: none;
     }
   }
 </style>
