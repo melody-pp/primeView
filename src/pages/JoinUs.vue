@@ -36,7 +36,14 @@
 
 </template>
 <script>
-  export default {}
+  export default {
+    mounted() {
+      this.axios.get('/api/getJoin')
+        .then(res => {
+          console.log(res.data);
+        })
+    },
+  }
 </script>
 <style scoped lang="scss">
   .joinUs-card {
