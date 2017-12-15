@@ -22,14 +22,20 @@
   import FootBox from '../../components/FootBox'
 
   export default {
-    data () {
+    data() {
       return {
         banner: {
           url: require('../../assets/detail_page/pic_1 (2).jpg')
-        }
+        },
+        caseId: this.$route.query.caseId
       }
     },
-    components: {Breadcrumb, DetailContent,FootBox}
+
+    mounted() {
+      console.log(this.$route)
+    },
+
+    components: {Breadcrumb, DetailContent, FootBox}
   }
 </script>
 <style scoped>
@@ -58,8 +64,9 @@
   .bannerCss {
     width: 100%;
   }
-  .caseFooter{
-    color:#4a4a4a;
+
+  .caseFooter {
+    color: #4a4a4a;
     font-size: 14px;
     background-color: #000;
   }

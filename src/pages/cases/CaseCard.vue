@@ -18,7 +18,7 @@
 
     methods: {
       toDetail() {
-        this.$router.push('/details')
+        this.$router.push('/details?caseId=' + this.id)
         this.$nextTick(() => this.$router.go(0))
       }
     }

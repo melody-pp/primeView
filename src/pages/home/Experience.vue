@@ -6,7 +6,7 @@
     <div v-for="(item, index) in items" :key="index" :class="[classMap[index]]">
       <img :src="item.surface">
       <div class="introduce">
-        <router-link to="/deatil" @click="toDetail">{{item.ctitle}}</router-link>
+        <router-link :to="'/details?caseId='+item.id">{{item.ctitle}}</router-link>
       </div>
     </div>
   </div>
@@ -18,9 +18,9 @@
       return {
         classMap: ['top', 'left', 'bottom'],
         items: [
-          // {imgUrl: require('../../assets/index/car.png'), text: '数字化营销'},
-          // {imgUrl: require('../../assets/index/computer.png'), text: '数字化营销'},
-          // {imgUrl: require('../../assets/index/exhibition.png'), text: '数字化营销'},
+          {surface: require('../../assets/index/car.png'), ctitle: '数字化营销', id: 1},
+          {surface: require('../../assets/index/computer.png'), ctitle: '数字化营销', id: 2},
+          {surface: require('../../assets/index/exhibition.png'), ctitle: '数字化营销', id: 3},
         ]
       }
     },
@@ -73,10 +73,6 @@
           ? el.classList.add('active')
           : el.classList.remove('active')
       },
-      toDetail() {
-        this.$router.push({path: '/details', params:{caseId: id}})
-        // this.$nextTick(() => this.$router.go(0))
-      }
     }
   }
 
@@ -143,7 +139,7 @@
     align-items: center;
     justify-content: center;
 
-    a{
+    a {
       color: #fff;
       font-family: "SourceHanSansCN-Medium";
       font-size: 30px;
