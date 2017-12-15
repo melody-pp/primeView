@@ -1,85 +1,46 @@
-/*!
-   --------------------------------
-   Waterfall.js
-   --------------------------------
-   + https://github.com/raphamorim/waterfall
-   + version 1.0.0
-   + Copyright 2015 Raphael Amorim
-   + Licensed under the MIT license
-   + Documentation: https://github.com/raphamorim/waterfall
-*/
+export default function waterfall(container, mb = 15, mr = 15) {
+  typeof(container) === 'string' && (container = document.querySelector(container))
 
-export default function waterfall(container) {
-  if (typeof(container) === 'string')
-    container = document.querySelector(container)
-
-  // Freeze the list of nodes
-  var els = [].map.call(container.children, function (el) {
+  const els = [].map.call(container.children, el => {
     el.style.position = 'absolute'
     return el
   })
-  container.style.position = 'relative'
 
-  function margin(name, el) {
-    var style = window.getComputedStyle(el)
-    return parseFloat(style['margin' + name]) || 0
+  if (!els.length) return
+  const elWidth = els[0].clientWidth
+
+  let cols = Math.floor(container.clientWidth / elWidth)
+  while ((container.clientWidth - cols * elWidth) / (cols - 1) < mr) {cols--}
+  mr = (container.clientWidth - cols * elWidth) / (cols - 1)
+
+  const tempHeights = new Array(cols)
+  const getMin = arr => {
+    let index = 0
+    let val = arr[0]
+
+    for (let i = 1, len = arr.length; i < len; i++) {
+      arr[i] < val && (index = i, val = arr[i])
+    }
+
+    return [val, index]
   }
 
-  function px(n) { return n + 'px' }
+  for (let i = 0; i < cols; i++) {
+    let el = els[i]
 
-  function y(el) { return parseFloat(el.style.top) }
-
-  function x(el) { return parseFloat(el.style.left) }
-
-  function width(el) { return el.clientWidth }
-
-  function height(el) { return el.clientHeight }
-
-  function bottom(el) { return y(el) + height(el) + margin('Bottom', el) }
-
-  function right(el) { return x(el) + width(el) + margin('Right', el) }
-
-  function sort(l) {
-    l = l.sort(function (a, b) {
-      if (bottom(a) === bottom(b)) {
-        return x(b) - x(a)
-      } else {
-        return bottom(b) - bottom(a)
-      }
-    })
+    el.style.top = '0'
+    el.style.left = i * (mr + elWidth) + 'px'
+    tempHeights[i] = el.clientHeight + mb
   }
 
-  var boundary = []
+  for (let i = cols, len = els.length; i < len; i++) {
+    let el = els[i]
+    let [val, index] = getMin(tempHeights)
 
-  // Deal with the first element.
-  if (els.length) {
-    els[0].style.top = '0px'
-    els[0].style.left = px(margin('Left', els[0]))
-    boundary.push(els[0])
+    el.style.top = val + 'px'
+    el.style.left = index * (mr + elWidth) + 'px'
+    tempHeights[index] += el.clientHeight + mb
   }
 
-  // Deal with the first line.
-  for (var i = 1; i < els.length; i++) {
-    var prev = els[i - 1],
-      el = els[i],
-      thereIsSpace = right(prev) + width(el) <= width(container)
-    if (!thereIsSpace) break
-    el.style.top = prev.style.top
-    el.style.left = px(right(prev) + margin('Left', el))
-    boundary.push(el)
-  }
-
-  // Place following elements at the bottom of the smallest column.
-  for (; i < els.length; i++) {
-    sort(boundary)
-    var el = els[i],
-      minEl = boundary.pop()
-    el.style.top = px(bottom(minEl) + margin('Top', el))
-    el.style.left = px(x(minEl))
-    boundary.push(el)
-  }
-
-  sort(boundary)
-  var maxEl = boundary[0]
-  container.style.height = px(bottom(maxEl) + margin('Bottom', maxEl))
+  container.style.height = Math.max(...tempHeights) + 'px'
 }
