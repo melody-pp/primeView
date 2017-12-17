@@ -40,13 +40,20 @@
           cbottom: '解决方案',
           csubbottom: 'aaan\nbbb',
           cbpage: require('../../assets/detail_page/pic_1 (7).jpg'),
-        }
+        },
+        allCase:[]
+      }
+    },
+
+    computed:{
+      caseInfo(){
+        return this.allCase.find(item => item.id === this.caseId)
       }
     },
 
     mounted() {
       this.axios.get('/api/getDetail', {params: {caseId: this.caseId}}).then(res => {
-        this.caseInfo = res.data
+        this.allCase = res.data
       })
     },
 

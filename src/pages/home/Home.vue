@@ -59,6 +59,7 @@
           dir: 'v',
           loop: false,
           duration: 300,
+          //why
           beforeChange(ele, current, next) {
             that.index = next
             that.$store.dispatch('changeFPIndex', that.index)
