@@ -7,10 +7,11 @@
       return {
         items: [
           {text: '全部', href: '#'},
-          {text: '全新高尔夫家略上市试驾活动', active: true}
+          {text: this.ctitle, active: true}
         ]
       }
-    }
+    },
+    props:['ctitle']
   }
 </script>
 <style scoped>

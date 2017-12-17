@@ -2,37 +2,29 @@
   <div class="detailContentBox">
     <div class="activity-detail">
       <div class="content">
-        <h3>活动背景</h3>
-        <p>
-          75台车中，25台来源于公关部，50台由市场推广部新借，6个区域根据区域需求分配车辆，其中2台
-          用于出发城市和终点城市的静态展75台车中，25台来源于公关部，50台由市场推广部新借，6个区域根据区域需求分配车辆，其中2台 用于出发城市和终点城市的静态展。
-        </p>
-        <p>
-          <span>活动时间：</span><span>4月10日——4月17日</span>
-        </p>
-        <p>
-          <span>活动地点：</span>
-          <span>东北区、华北区、华中区、华东区、华南区、西区</span>
-        </p>
+        <h3>{{caseInfo.cheading}}</h3>
+        <p v-for="text in caseInfo.csubheading.split('\n')" v-text="text"></p>
       </div>
-      <img src="../../assets/detail_page/pic_1 (4).jpg" alt="">
-      <img src="../../assets/detail_page/pic_1 (4).jpg" alt="">
+
+      <img :src="caseInfo.csubpage" alt="">
+      <img :src="caseInfo.csubpages" alt="">
     </div>
+
     <div class="clearfix exp-highlight">
       <div class="content">
-        <h3>体验亮点</h3>
-        <p>最嘉初体验：是说走就走的旅行，更是对旅行的重新认识</p>
-        <p>最嘉大搜索：是发现，将旅程中每一个角落翻个遍</p>
-        <p>最嘉初体验：是说走就走的旅行，更是对旅行的重新认识</p>
+        <h3>{{caseInfo.cmiddle}}</h3>
+        <p v-for="text in caseInfo.csubmiddle.split('\n')" v-text="text"></p>
       </div>
-      <img class="left-pic" src="../../assets/detail_page/pic_1 (6).jpg" alt="">
-      <img class="right-pic" src="../../assets/detail_page/pic_1 (5).jpg" alt="">
+
+      <img :src="caseInfo.cmpage" alt="" class="left-pic">
+      <img :src="caseInfo.cmpages" alt="" class="right-pic">
     </div>
+
     <div class="scheme">
       <div class="content">
-        <h3>解决方案</h3>
-        <p>qwerasdf</p>
-        <img src="../../assets/detail_page/pic_1 (7).jpg" alt="">
+        <h3>{{caseInfo.cbottom}}</h3>
+        <p v-for="text in caseInfo.csubbottom.split('\n')" v-text="text"></p>
+        <img :src="caseInfo.cbpage" alt="">
       </div>
     </div>
     <div class="similar-case">
@@ -40,14 +32,9 @@
         <h3>相似案例</h3>
         <p>qwerasdf</p>
         <div class="similar-case-pic clearfix">
-          <CaseCard class="left-top-pic" text="2015年梅赛德斯-奔驰F2
-安全驾驶培训" :imgUrl="require('../../assets/detail_page/pic_1 (8).jpg')"/>
-
-          <CaseCard class="left-bottom-pic" text="qwerasdf"
-                    :imgUrl="require('../../assets/detail_page/pic_1 (10).jpg')"/>
-
-          <CaseCard class="right-pic" text="qwerasdf"
-                    :imgUrl="require('../../assets/detail_page/pic_1 (9).jpg')"/>
+          <CaseCard class="left-top-pic" text="2015年梅赛德斯-奔驰F2安全驾驶培训" :imgUrl="require('../../assets/detail_page/pic_1 (8).jpg')"/>
+          <CaseCard class="left-bottom-pic" text="qwerasdf" :imgUrl="require('../../assets/detail_page/pic_1 (10).jpg')"/>
+          <CaseCard class="right-pic" text="qwerasdf" :imgUrl="require('../../assets/detail_page/pic_1 (9).jpg')"/>
         </div>
       </div>
     </div>
@@ -58,9 +45,7 @@
   import CaseCard from './CaseCard'
 
   export default {
-    data() {
-      return {}
-    },
+    props: ['caseInfo'],
     components: {CaseCard}
   }
 </script>

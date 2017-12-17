@@ -2,8 +2,8 @@
   <div class="case-card" @mouseleave="mouseLeave" @mouseenter="mouseEnter">
     <img :src="imgUrl" alt="">
     <transition
-      enter-active-class="animated bounceInDown"
-      leave-active-class="animated bounceOutDown">
+        enter-active-class="animated bounceInDown"
+        leave-active-class="animated bounceOutDown">
       <div class="model" v-show="showModel" v-text="text"></div>
     </transition>
   </div>
@@ -13,7 +13,7 @@
   export default {
     name: 'case-card',
 
-    data () {
+    data() {
       return {
         showModel: false
       }
@@ -22,10 +22,10 @@
     props: ['imgUrl', 'text'],
 
     methods: {
-      mouseLeave () {
+      mouseLeave() {
         this.showModel = false
       },
-      mouseEnter () {
+      mouseEnter() {
         this.showModel = true
       }
     },
