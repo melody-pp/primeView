@@ -28,6 +28,7 @@
   export default {
     data() {
       return {
+        page: 0,
         isBusy: false,
         minHeight: 0,
         align: 'center',
@@ -54,7 +55,7 @@
       vm.minHeight = window.innerHeight - 200 + 'px'
       vm.getCases()
 
-      window.addEventListener('scroll', function () {
+      window.addEventListener('scroll', function() {
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
         if (scrollTop + window.innerHeight >= document.body.clientHeight) {
           vm.getCases()
@@ -62,6 +63,8 @@
       })
 
       window.addEventListener('resize', () => Waterfall('.wf-container'))
+      window.addEventListener('load', () => console.log(1))
+
     },
 
     methods: {
@@ -69,12 +72,12 @@
         if (this.isBusy) return
 
         this.isBusy = true
-        this.axios.get('/api/getCase')
+        this.axios.get('/api/getCase', {params: {page: this.page}})
           .then(res => {
+            this.page += 1
             this.cases.push(...res.data)
-            console.log(res.data);
 
-            this.$nextTick(() => {
+            setTimeout(() => {
               Waterfall('.wf-container')
               this.isBusy = false
             })
