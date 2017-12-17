@@ -1,9 +1,16 @@
+/**
+ *
+ * @param container 容器
+ * @param mb margin bottom
+ * @param mr 最小 margin right
+ */
 export default function waterfall(container, mb = 15, mr = 15) {
   typeof(container) === 'string' && (container = document.querySelector(container))
 
   container.style.position = 'relative'
   const els = [].map.call(container.children, el => {
     el.style.position = 'absolute'
+    el.querySelector('img').onload = () => waterfall(container, mb, mr)
     return el
   })
 
