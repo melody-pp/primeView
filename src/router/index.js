@@ -6,7 +6,7 @@ import AboutUs from '@/pages/aboutUs/AboutUs'
 import Products from '@/pages/products/Products'
 import Cases from '@/pages/cases/Cases'
 import Details from '@/pages/details/Details'
-import JoinUs from '@/pages/JoinUs'
+import JoinUs from '@/pages/joinUs/JoinUs'
 
 Vue.use(Router)
 

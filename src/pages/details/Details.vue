@@ -27,12 +27,16 @@
         banner: {
           url: require('../../assets/detail_page/pic_1 (2).jpg')
         },
-        caseId: this.$route.query.caseId
+        caseId: this.$route.query.caseId,
+        caseInfo: {}
       }
     },
 
     mounted() {
-      console.log(this.$route)
+      this.axios.get('/api/getCaseInfo', {params: {caseId: this.caseId}}).then(res => {
+        this.caseInfo = res.data
+
+      })
     },
 
     components: {Breadcrumb, DetailContent, FootBox}
