@@ -159,7 +159,7 @@ class Fullpage {
     //****************************************//
     let isBusy = false
     const interval = 800
-    const mousewheelType = document.mozFullScreen !== undefined ? 'DOMMouseScroll' : 'mousewheel'
+    const mousewheelType = document.mozFullScreen !== undefined ? 'DOMMouseScroll' : 'wheel'
     addEventListener(el, mousewheelType, function(e) {
       if (_this.opts.isMoving) {
         return false
