@@ -24,6 +24,7 @@
       this.axios.get('/api/getSection')
         .then(res => {
           this.allItems = res.data.vision.map(item => ({image: item.surface}))
+          console.log(res.data);
         })
     },
 

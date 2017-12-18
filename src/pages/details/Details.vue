@@ -48,9 +48,7 @@
 <style scoped>
   .breadCrumb {
     width: 80%;
-    margin: 0 auto;
-    padding: 100px 0;
-
+    margin: 160px auto;
   }
 
   .breadCrumb .title {
@@ -70,6 +68,7 @@
 
   .bannerCss {
     width: 100%;
+    margin-top: 90px;
   }
 
   .caseFooter {

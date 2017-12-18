@@ -89,7 +89,7 @@
 
 <style scoped>
   .case-container {
-    padding: 65px 100px 50px 100px;
+    padding: 74px 100px 50px 100px;
     background-color: #ecebe9;
   }
 

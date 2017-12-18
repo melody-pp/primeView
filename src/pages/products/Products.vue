@@ -60,7 +60,7 @@
 
 <style scoped>
   .productsBox {
-    padding-top: 65px;
+    padding-top: 74px;
     position: relative;
     perspective: 3000px;
 

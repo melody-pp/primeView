@@ -6,60 +6,31 @@
     <p class="resume">简历投放：HR@jianli.com</p>
 
     <JobCard v-for="job in jobs" :job="job"/>
+    <FootBox class="caseFooter"></FootBox>
   </div>
 </template>
 <script>
   import JobCard from './JobCard'
+  import FootBox from '../../components/FootBox'
 
   export default {
     data() {
       return {
-        jobs: [
-          {
-            jcity: '北京-朝阳区',
-            jdemand: ['111', '222'],
-            jdescription: ['4444', '5555'],
-            jeducation: '本科',
-            jexperience: '三年',
-            jname: '架构师',
-            jwork: '全职',
-            jsalary: '10000-15000/月'
-          },
-          {
-            jcity: '北京-朝阳区',
-            jdemand: ['111', '222'],
-            jdescription: ['4444', '5555'],
-            jeducation: '本科',
-            jexperience: '三年',
-            jname: '架构师',
-            jwork: '全职',
-            jsalary: '10000-15000/月'
-          },
-          {
-            jcity: '北京-朝阳区',
-            jdemand: ['111', '222'],
-            jdescription: ['4444', '5555'],
-            jeducation: '本科',
-            jexperience: '三年',
-            jname: '架构师',
-            jwork: '全职',
-            jsalary: '10000-15000/月'
-          },
-
-        ]
+        jobs: []
       }
     },
     mounted() {
       this.axios.get('/api/getJoin').then(res => {
         this.jobs = res.data
+        console.log(this.jobs);
       })
     },
-    components: {JobCard}
+    components: {JobCard,FootBox}
   }
 </script>
 <style scoped lang="scss">
   .joinUs-card {
-    margin-top: 65px;
+    margin-top: 74px;
     img {
       width: 100%;
     }
@@ -73,5 +44,11 @@
     background-color: #f5f5f5;
     height: 172px;
     line-height: 172px;
+  }
+  .caseFooter {
+    margin-top: 120px;
+    color: #4a4a4a;
+    font-size: 14px;
+    background-color: #000;
   }
 </style>
