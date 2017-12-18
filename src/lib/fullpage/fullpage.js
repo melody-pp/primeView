@@ -1,7 +1,6 @@
 function broadcast(children, eventName, params) {
-  let context = void 0
   children && children.forEach(child => {
-    context = child.context
+    let context = child.context
     context && context.$emit.apply(context, [eventName].concat(params))
     broadcast(child.children, eventName, params)
   })
@@ -20,18 +19,18 @@ function noop() {}
 class Fullpage {
   constructor(el, options, vnode) {
     this.assignOpts(options)
-    this.vnode = vnode
-    this.curIndex = this.opts.start
-    this.startY = 0
-    this.opts.movingFlag = false
     this.el = el
-    this.el.classList.add('fullpage-wp')
+    this.startY = 0
+    this.direction = -1
+    this.vnode = vnode
+    this.opts.isMoving = false
+    this.curIndex = this.opts.start
     this.parentEle = this.el.parentNode
-    this.parentEle.classList.add('fullpage-container')
     this.pageEles = this.el.children
     this.total = this.pageEles.length
-    this.direction = -1
 
+    this.el.classList.add('fullpage-wp')
+    this.parentEle.classList.add('fullpage-container')
     this.initScrollDirection()
     this.initEvent(el)
 
@@ -50,15 +49,10 @@ class Fullpage {
     this.width = this.opts.width || this.el.offsetWidth
     this.height = this.opts.height || this.el.offsetHeight
 
-    let i = 0
-    let length = this.pageEles.length
-    let pageEle = void 0
-
-    for (; i < length; i++) {
-      pageEle = this.pageEles[i]
+    for (let i = 0, len = this.pageEles.length; i < len; i++) {
+      let pageEle = this.pageEles[i]
       pageEle.setAttribute('data-id', i)
       pageEle.classList.add('page')
-      //pageEle.style.width = this.width + 'px'
       pageEle.style.height = this.height + 'px'
     }
   }
@@ -89,7 +83,7 @@ class Fullpage {
     //****************************************//
     if ('ontouchstart' in document) {
       el.addEventListener('touchstart', function(e) {
-        if (_this.opts.movingFlag) {
+        if (_this.opts.isMoving) {
           return false
         }
 
@@ -97,7 +91,7 @@ class Fullpage {
         _this.startY = e.targetTouches[0].pageY
       })
       el.addEventListener('touchend', function(e) {
-        if (_this.opts.movingFlag) {
+        if (_this.opts.isMoving) {
           return false
         }
 
@@ -137,7 +131,7 @@ class Fullpage {
     //****************************************//
     let isMousedown = false
     addEventListener(el, 'mousedown', function(e) {
-      if (_this.opts.movingFlag) {
+      if (_this.opts.isMoving) {
         return false
       }
       isMousedown = true
@@ -148,7 +142,7 @@ class Fullpage {
       isMousedown = false
     })
     addEventListener(el, 'mousemove', function(e) {
-      if (_this.opts.movingFlag || !isMousedown) {
+      if (_this.opts.isMoving || !isMousedown) {
         return false
       }
 
@@ -168,7 +162,7 @@ class Fullpage {
     let debounce = true
     const mousewheelType = document.mozFullScreen !== undefined ? 'DOMMouseScroll' : 'mousewheel'
     addEventListener(el, mousewheelType, function(e) {
-      if (_this.opts.movingFlag) {
+      if (_this.opts.isMoving) {
         return false
       }
 
@@ -197,7 +191,7 @@ class Fullpage {
     addEventListener(el, 'webkitTransitionEnd', function() {
       _this.toggleAnimate(_this.curIndex)
       _this.opts.afterChange.call(_this, _this.pageEles[_this.curIndex], _this.curIndex)
-      _this.opts.movingFlag = false
+      _this.opts.isMoving = false
     })
 
     // resize
@@ -237,7 +231,7 @@ class Fullpage {
 
     const dist = this.opts.dir === 'v' ? curIndex * -this.height : curIndex * -this.width
     this.curIndex = curIndex
-    this.opts.movingFlag = true
+    this.opts.isMoving = true
 
     if (anim) {
       this.el.classList.add(this.opts.animateClass)
@@ -281,7 +275,7 @@ class Fullpage {
     loop: false,
     dir: 'v',
     der: 0.1,
-    movingFlag: false,
+    isMoving: false,
     /**
      * beforeChange
      * @params
@@ -315,7 +309,6 @@ class Fullpage {
 
 class Animate {
   constructor(el, binding, vnode) {
-    const that = this
     const vm = vnode.context
     const animate = binding.value
 
@@ -324,15 +317,15 @@ class Animate {
       const curPage = +el.parentNode.getAttribute('data-id')
 
       if (curIndex === curPage) {
-        that.addAnimated(el, animate)
+        Animate.addAnimated(el, animate)
       } else {
         el.style.opacity = '0'
-        that.removeAnimated(el, animate)
+        Animate.removeAnimated(el, animate)
       }
     })
   }
 
-  addAnimated(el, animate) {
+  static addAnimated(el, animate) {
     const delay = animate.delay || 0
     el.classList.add('animated')
 
@@ -342,7 +335,7 @@ class Animate {
     }, delay)
   }
 
-  removeAnimated(el, animate) {
+  static removeAnimated(el, animate) {
     const cls = el.getAttribute('class')
     cls && cls.includes('animated') && el.classList.remove(animate.value)
   }
