@@ -1,12 +1,12 @@
 <template>
-  <div class="accordion-item" :style="{backgroundImage: `url(${image})`}">
+  <div class="accordion-item" :style="{backgroundImage: `url(${surface})`}">
     <router-link :to="'/details?caseId='+id"></router-link>
   </div>
 </template>
 
 <script>
   export default {
-    props: ['image', 'id']
+    props: ['surface', 'id']
   }
 </script>
 

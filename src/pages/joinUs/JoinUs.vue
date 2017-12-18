@@ -22,7 +22,6 @@
     mounted() {
       this.axios.get('/api/getJoin').then(res => {
         this.jobs = res.data
-        console.log(this.jobs);
       })
     },
     components: {JobCard,FootBox}
