@@ -159,8 +159,7 @@ class Fullpage {
     //****************************************//
     let isBusy = false
     const interval = 800
-    const mousewheelType = document.mozFullScreen !== undefined ? 'DOMMouseScroll' : 'wheel'
-    addEventListener(el, mousewheelType, function(e) {
+    addEventListener(el, 'wheel', function(e) {
       if (_this.opts.isMoving) {
         return false
       }
@@ -171,12 +170,7 @@ class Fullpage {
 
       isBusy = true
       setTimeout(() => isBusy = false, interval)
-
-      // 兼容 DOMMouseScroll event.detail
-      if (!e.wheelDelta) {
-        e.deltaY = e.detail
-        e.deltaX = e.detail
-      }
+      
       const dir = _this.opts.dir
       const sub = _this.direction = dir === 'v' ? e.deltaY : e.deltaX
       const der = sub > 0 ? 1 : sub < 0 ? -1 : 0
