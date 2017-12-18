@@ -13,9 +13,9 @@
     </div>
     <div class="rightContent">
       <h3>职位描述：</h3>
-      <p v-for="demand in job.jdemand" v-text="demand" class="secondLevel"></p>
+      <p v-for="demand in job.jdemand.split('\n')" v-text="demand" class="secondLevel"></p>
       <p class="qualification">任职资格：</p>
-      <p v-for="descr in job.jdescription" v-text="descr" class="secondLevel"></p>
+      <p v-for="descr in job.jdescription.split('\n')" v-text="descr" class="secondLevel"></p>
     </div>
   </div>
 </template>

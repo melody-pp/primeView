@@ -6,7 +6,7 @@
       </div>
       <InteractionCard
         v-for="(item, index) in items" :key="index"
-        :imgUrl="item.surface" :text="item.ctitle"/>
+        :imgUrl="item.surface" :text="item.ctitle" :id="item.id"/>
     </div>
   </div>
 </template>

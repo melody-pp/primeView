@@ -44,5 +44,12 @@
   .card-img-top {
     height: calc(100% - 115px);
   }
-
+  .card-title{
+    font-size: 14px;
+    font-family: "SourceHanSansCN-Bold";
+    margin-bottom: 0;
+  }
+  h4{
+    margin-bottom: 0;
+  }
 </style>

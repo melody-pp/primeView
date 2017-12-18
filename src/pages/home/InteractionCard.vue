@@ -7,7 +7,8 @@
         @after-leave="afterLeave">
       <div v-if="text" v-show="showModel" :style="modelStyle">
         <transition :enter-active-class="enterClass">
-          <div v-show="showText" v-text="text"></div>
+          <router-link :to="'/details?caseId='+id" v-show="showText">{{text}}</router-link>
+          <!--<div v-show="showText" v-text="text"></div>-->
         </transition>
       </div>
     </transition>
@@ -58,7 +59,7 @@
       }
     },
 
-    props: ['imgUrl', 'text'],
+    props: ['imgUrl', 'text','id'],
 
     methods: {
       getDirection(event) {
@@ -91,5 +92,12 @@
 <style scoped>
   #app .animated {
     animation-duration: 600ms;
+  }
+
+  a {
+    color: #fff;
+    font-family: "SourceHanSansCN-Medium";
+    font-size: 30px;
+    text-decoration: none;
   }
 </style>
