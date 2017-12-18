@@ -2,14 +2,14 @@
   <div>
     <div class="case-container">
       <div class="chooseBtn">
-        <a class="active" href="javascript:;" @click="showCaseType = 'all'">全部案例({{cases.length}})</a>
-        <a href="javascript:;" @click="showCaseType = 'tyyx'">体验营销(12)</a>
-        <a href="javascript:;">数字交互设计(5)</a>
-        <a href="javascript:;">视觉表现(36)</a>
+        <a class="active" href="javascript:;" @click="showCases = cases">全部案例({{cases.length}})</a>
+        <a href="javascript:;" @click="showCases = caseType1">体验营销({{caseType1.length}})</a>
+        <a href="javascript:;" @click="showCases = caseType2">数字交互设计({{caseType2.length}})</a>
+        <a href="javascript:;" @click="showCases = caseType3">视觉表现({{caseType3.length}})</a>
       </div>
 
       <div class="wf-container" :style="{minHeight}">
-        <CaseCard class="case-card" v-for="(item, index) in showCases" v-bind="item" :key="index"/>
+        <CaseCard class="case-card" v-for="item in showCases" v-bind="item" :key="item.id"/>
       </div>
 
       <div v-show="isBusy" class="loader">Loading...</div>
@@ -29,25 +29,23 @@
     data() {
       return {
         page: 0,
-        isBusy: false,
-        minHeight: 0,
-        align: 'center',
         cases: [],
-        itemWidth: 400,
-        itemHeight: 200,
-        showCaseType: 'all'
+        minHeight: 0,
+        isBusy: false,
+        showCases: this.cases
       }
     },
 
     computed: {
-      showCases() {
-        switch (this.showCaseType) {
-          case 'all':
-            return this.cases
-          case 'tyyx':
-            return this.cases.filter(item => item.type = 'tiyan')
-        }
-      }
+      caseType1() {
+        return this.cases.filter(item => item.cid === 1)
+      },
+      caseType2() {
+        return this.cases.filter(item => item.cid === 2)
+      },
+      caseType3() {
+        return this.cases.filter(item => item.cid === 3)
+      },
     },
 
     mounted() {
@@ -55,7 +53,7 @@
       vm.minHeight = window.innerHeight - 200 + 'px'
       vm.getCases()
 
-      window.addEventListener('scroll', function () {
+      window.addEventListener('scroll', function() {
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
         if (scrollTop + window.innerHeight >= document.body.clientHeight) {
           vm.getCases()
