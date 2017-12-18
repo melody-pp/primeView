@@ -36,7 +36,7 @@ class Fullpage {
 
     window.setTimeout(() => {
       this.resize()
-      //The first page triggers the animation directly
+
       if (this.curIndex === 0) {
         this.toggleAnimate(this.curIndex)
       } else {
@@ -51,6 +51,7 @@ class Fullpage {
 
     for (let i = 0, len = this.pageEles.length; i < len; i++) {
       let pageEle = this.pageEles[i]
+
       pageEle.setAttribute('data-id', i)
       pageEle.classList.add('page')
       pageEle.style.height = this.height + 'px'
@@ -70,9 +71,7 @@ class Fullpage {
   }
 
   initScrollDirection() {
-    if (this.opts.dir !== 'v') {
-      this.el.classList.add('fullpage-wp-h')
-    }
+    this.opts.dir === 'v' || this.el.classList.add('fullpage-wp-h')
   }
 
   initEvent(el) {
@@ -112,10 +111,8 @@ class Fullpage {
           let currentTarget = e.target
 
           while (currentTarget) {
-            if (overflow === 'scroll' && currentTarget === currentPage || overflow !== 'scroll' && currentTarget !== currentPage) {
-              if (!Fullpage.iSWhetherEnds(currentTarget, _this.direction)) {
-                return
-              }
+            if (!(overflow === 'scroll' ^ currentTarget === currentPage) && !Fullpage.iSWhetherEnds(currentTarget, _this.direction)) {
+              return
             }
 
             currentTarget = currentTarget.parentNode
@@ -134,13 +131,12 @@ class Fullpage {
       if (_this.opts.isMoving) {
         return false
       }
+
       isMousedown = true
       _this.startX = e.pageX
       _this.startY = e.pageY
     })
-    addEventListener(el, 'mouseup', function(e) {
-      isMousedown = false
-    })
+    addEventListener(el, 'mouseup', () => isMousedown = false)
     addEventListener(el, 'mousemove', function(e) {
       if (_this.opts.isMoving || !isMousedown) {
         return false
