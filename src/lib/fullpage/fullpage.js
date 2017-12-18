@@ -170,7 +170,7 @@ class Fullpage {
 
       isBusy = true
       setTimeout(() => isBusy = false, interval)
-      
+
       const dir = _this.opts.dir
       const sub = _this.direction = dir === 'v' ? e.deltaY : e.deltaX
       const der = sub > 0 ? 1 : sub < 0 ? -1 : 0
@@ -178,7 +178,7 @@ class Fullpage {
 
       _this.moveTo(curIndex, true)
     })
-    addEventListener(el, 'webkitTransitionEnd', function() {
+    addEventListener(el, 'transitionend', function() {
       _this.toggleAnimate(_this.curIndex)
       _this.opts.afterChange.call(_this, _this.pageEles[_this.curIndex], _this.curIndex)
       _this.opts.isMoving = false
@@ -197,7 +197,7 @@ class Fullpage {
     let yPx = 0
     this.opts.dir === 'v' ? (yPx = dist) : (xPx = dist)
 
-    this.el.style.cssText += `;-webkit-transform: translate3d(${xPx}px, ${yPx}px, 0px); transform: translate3d(${xPx}px, ${yPx}px, 0px);`
+    this.el.style.cssText += `;transform: translate3d(${xPx}px, ${yPx}px, 0px);`
   }
 
   moveTo(curIndex, anim) {
