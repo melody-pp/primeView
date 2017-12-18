@@ -6,8 +6,8 @@
         <p v-for="text in caseInfo.csubheading.split('\n')" v-text="text"></p>
       </div>
 
-      <img :src="caseInfo.csubpage" alt="">
-      <img :src="caseInfo.csubpages" alt="">
+      <img :src="caseInfo.cheadpage" alt="">
+      <img :src="caseInfo.cheadpages" alt="">
     </div>
 
     <div class="clearfix exp-highlight">
@@ -64,6 +64,7 @@
       font-size: 36px;
       font-family: "SourceHanSansCN-Bold";
       line-height: 86px;
+      margin-bottom: 60px;
     }
     p {
       font-size: 14px;
@@ -74,14 +75,13 @@
   .activity-detail {
     > div {
       width: 88%;
-      margin-top: 2%;
       margin-left: 2%;
-      margin-bottom: 4%;
+      margin-bottom: 190px;
     }
 
     img {
       width: 100%;
-      margin-bottom: 40px;
+      margin-bottom: 120px;
     }
   }
 
@@ -101,6 +101,9 @@
 
   .exp-highlight {
     position: relative;
+    p{
+      width: 90%;
+    }
     > div {
       width: 50%;
       float: left;
@@ -142,5 +145,8 @@
       float: right;
       width: 60%;
     }
+  }
+  h3{
+    margin: 0;
   }
 </style>

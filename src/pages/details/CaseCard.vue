@@ -2,9 +2,11 @@
   <div class="case-card" @mouseleave="mouseLeave" @mouseenter="mouseEnter">
     <img :src="imgUrl" alt="">
     <transition
-        enter-active-class="animated bounceInDown"
-        leave-active-class="animated bounceOutDown">
-      <div class="model" v-show="showModel" v-text="text"></div>
+      enter-active-class="animated bounceInDown"
+      leave-active-class="animated bounceOutDown">
+      <div class="model" v-show="showModel">
+        <router-link :to="'/details?caseId='+id">{{text}}</router-link>
+      </div>
     </transition>
   </div>
 </template>
@@ -57,5 +59,10 @@
     }
   }
 
-
+  a {
+    color: #fff;
+    font-family: "SourceHanSansCN-Medium";
+    font-size: 30px;
+    text-decoration: none;
+  }
 </style>
