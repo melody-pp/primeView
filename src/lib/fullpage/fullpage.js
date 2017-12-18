@@ -157,24 +157,20 @@ class Fullpage {
     //****************************************//
     //          deal wheel event              //
     //****************************************//
-    let debounceTimer = void 0
-    let interval = 1200
-    let debounce = true
+    let isBusy = false
+    const interval = 800
     const mousewheelType = document.mozFullScreen !== undefined ? 'DOMMouseScroll' : 'mousewheel'
     addEventListener(el, mousewheelType, function(e) {
       if (_this.opts.isMoving) {
         return false
       }
 
-      if (!debounce) {
+      if (isBusy) {
         return
       }
 
-      debounce = false
-      clearTimeout(debounceTimer)
-      debounceTimer = setTimeout(function() {
-        debounce = true
-      }, interval)
+      isBusy = true
+      setTimeout(() => isBusy = false, interval)
 
       // 兼容 DOMMouseScroll event.detail
       if (!e.wheelDelta) {
