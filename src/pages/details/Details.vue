@@ -39,7 +39,6 @@
     mounted() {
       this.axios.get('/api/getCase').then(res => {
         this.allCase = res.data
-        console.log(this.caseId);
       })
     },
 

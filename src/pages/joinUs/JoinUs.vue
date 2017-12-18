@@ -4,9 +4,9 @@
       <img :src="require('../../assets/joinUs.jpg')" alt="">
     </div>
     <p class="resume">简历投放：HR@jianli.com</p>
+
     <JobCard v-for="job in jobs" :job="job"/>
   </div>
-
 </template>
 <script>
   import JobCard from './JobCard'
@@ -52,7 +52,6 @@
     mounted() {
       this.axios.get('/api/getJoin').then(res => {
         this.jobs = res.data
-        console.log(res.data);
       })
     },
     components: {JobCard}
@@ -63,7 +62,6 @@
     margin-top: 65px;
     img {
       width: 100%;
-
     }
   }
 
@@ -76,6 +74,4 @@
     height: 172px;
     line-height: 172px;
   }
-
-
 </style>

@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    props: ['image', 'url']
+    props: ['image', 'id']
   }
 </script>
 

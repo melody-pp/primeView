@@ -55,7 +55,7 @@
       vm.minHeight = window.innerHeight - 200 + 'px'
       vm.getCases()
 
-      window.addEventListener('scroll', function() {
+      window.addEventListener('scroll', function () {
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
         if (scrollTop + window.innerHeight >= document.body.clientHeight) {
           vm.getCases()
@@ -63,8 +63,6 @@
       })
 
       window.addEventListener('resize', () => Waterfall('.wf-container'))
-      window.addEventListener('load', () => console.log(1))
-
     },
 
     methods: {

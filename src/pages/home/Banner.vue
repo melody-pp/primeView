@@ -9,8 +9,7 @@
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd">
 
-      <b-carousel-slide v-for="(imgUrl,index) in imgUrls" :img-src="imgUrl.kmedia" :key="index"></b-carousel-slide>
-
+      <b-carousel-slide v-for="item in cases" :img-src="item.kmedia" :key="item.id" @click.native="toDetail(item.id)"/>
     </b-carousel>
 
     <div class="abstract">
@@ -42,14 +41,14 @@
       return {
         slide: 0,
         sliding: null,
-        imgUrls: []
+        cases: []
       }
     },
 
     mounted() {
       this.axios.get('/api/getPagehome')
         .then(res => {
-          this.imgUrls = res.data
+          this.cases = res.data
         })
     },
 
@@ -59,7 +58,10 @@
       },
       onSlideEnd(slide) {
         this.sliding = false
-      }
+      },
+      toDetail(caseId) {
+        this.$router.push('/details?caseId=' + caseId)
+      },
     }
   }
 </script>
@@ -97,7 +99,7 @@
   }
 
   .abstract .num {
-    font-size:5.5vw;
+    font-size: 5.5vw;
     font-family: "SourceHanSansCN-ExtraLight";
   }
 
