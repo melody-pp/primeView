@@ -278,20 +278,17 @@ class Fullpage {
     isMoving: false,
     /**
      * beforeChange
-     * @params
-     *     element {Element} current element
-     *     currenIndex {Number} current number
-     *     next    {Number}  next nummober
-     *
+     * @params element      {Element} current element
+     * @params currentIndex {Number}  current number
+     * @params next         {Number}  next number
      * @type {Boolean}
      */
     beforeChange: noop,
     /**
      * afterChange
      * @params
-     *     element {Element} current element
-     *     currenIndex {Number} current number
-     *
+     * @params element      {Element} current element
+     * @params currentIndex {Number}  current number
      * @type {Boolean}
      */
     afterChange: noop,
@@ -301,6 +298,7 @@ class Fullpage {
      *    `auto` Detect any element in page
      *    `scroll` Only detect current page
      *    `hidden` ignores the scroll bar in the page
+     *
      *   @default hidden
      */
     overflow: 'hidden'
@@ -369,4 +367,3 @@ export default {
     })
   }
 }
-
