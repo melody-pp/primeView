@@ -32,14 +32,14 @@
 
     computed: {
       caseInfo() {
-        return this.allCase.find(item => item.id === this.caseId)
+        return this.allCase.find(item => item.id == this.caseId)
       }
     },
 
     mounted() {
       this.axios.get('/api/getCase').then(res => {
         this.allCase = res.data
-        console.log(res.data);
+        console.log(this.caseId);
       })
     },
 

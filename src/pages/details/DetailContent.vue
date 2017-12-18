@@ -31,8 +31,10 @@
       <div class="content">
         <h3>相似案例</h3>
         <div class="similar-case-pic clearfix">
-          <CaseCard class="left-top-pic" text="2015年梅赛德斯-奔驰F2安全驾驶培训" :imgUrl="require('../../assets/detail_page/pic_1 (8).jpg')"/>
-          <CaseCard class="left-bottom-pic" text="qwerasdf" :imgUrl="require('../../assets/detail_page/pic_1 (10).jpg')"/>
+          <CaseCard class="left-top-pic" text="2015年梅赛德斯-奔驰F2安全驾驶培训"
+                    :imgUrl="require('../../assets/detail_page/pic_1 (8).jpg')"/>
+          <CaseCard class="left-bottom-pic" text="qwerasdf"
+                    :imgUrl="require('../../assets/detail_page/pic_1 (10).jpg')"/>
           <CaseCard class="right-pic" text="qwerasdf" :imgUrl="require('../../assets/detail_page/pic_1 (9).jpg')"/>
         </div>
       </div>
@@ -58,7 +60,7 @@
 
   .content {
     h3 {
-      margin-top: 5%;
+      margin-top: 120px;
       font-size: 36px;
       font-family: "SourceHanSansCN-Bold";
       line-height: 86px;
@@ -83,9 +85,18 @@
     }
   }
 
-  .scheme img {
-    width: 100%;
-    margin-bottom: 40px;
+  .scheme {
+    h3 {
+      margin-top: 120px;
+    }
+    img {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    p {
+      margin-top: 60px;
+      margin-bottom: 190px;
+    }
   }
 
   .exp-highlight {
@@ -103,6 +114,13 @@
       position: absolute;
       left: 0;
       bottom: 0;
+    }
+  }
+
+  .similar-case {
+    h3 {
+      margin-bottom: 190px;
+      margin-top: 120px;
     }
   }
 
