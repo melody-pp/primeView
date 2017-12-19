@@ -4,13 +4,19 @@
  * @param mb margin bottom
  * @param mr 最小 margin right
  */
-export default function waterfall(container, mb = 15, mr = 15) {
+export default function waterfall (container, mb = 15, mr = 15) {
   typeof(container) === 'string' && (container = document.querySelector(container))
 
+  let debounceTimer = null
   container.style.position = 'relative'
+
   const els = [].map.call(container.children, el => {
     el.style.position = 'absolute'
-    el.querySelector('img').onload = () => waterfall(container, mb, mr)
+    el.querySelector('img').onload = () => {
+      clearTimeout(debounceTimer)
+      debounceTimer = setTimeout(() => {waterfall(container, mb, mr)}, 200)
+    }
+
     return el
   })
 
