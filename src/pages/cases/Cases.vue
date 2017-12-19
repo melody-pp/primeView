@@ -2,10 +2,10 @@
   <div>
     <div class="case-container">
       <div class="chooseBtn">
-        <a class="active" href="javascript:;" @click="showCases = cases">全部案例({{cases.length}})</a>
-        <a href="javascript:;" @click="showCases = caseType1">体验营销({{caseType1.length}})</a>
-        <a href="javascript:;" @click="showCases = caseType2">数字交互设计({{caseType2.length}})</a>
-        <a href="javascript:;" @click="showCases = caseType3">视觉表现({{caseType3.length}})</a>
+        <a class="active" href="javascript:;" @click="showType(0)">全部案例({{cases.length}})</a>
+        <a href="javascript:;" @click="showType(1)">体验营销({{caseType1.length}})</a>
+        <a href="javascript:;" @click="showType(2)">数字交互设计({{caseType2.length}})</a>
+        <a href="javascript:;" @click="showType(3)">视觉表现({{caseType3.length}})</a>
       </div>
 
       <div class="wf-container" :style="{minHeight}">
@@ -30,13 +30,16 @@
       return {
         page: 0,
         cases: [],
+        caseType: 0,
         minHeight: 0,
         isBusy: false,
-        showCases: this.cases
       }
     },
 
     computed: {
+      showCases() {
+        return this.caseType ? this.cases.filter(item => item.cid === this.caseType) : this.cases
+      },
       caseType1() {
         return this.cases.filter(item => item.cid === 1)
       },
@@ -53,7 +56,7 @@
       vm.minHeight = window.innerHeight - 200 + 'px'
       vm.getCases()
 
-      window.addEventListener('scroll', function() {
+      window.addEventListener('scroll', function () {
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
         if (scrollTop + window.innerHeight >= document.body.clientHeight) {
           vm.getCases()
@@ -72,13 +75,22 @@
           .then(res => {
             this.page += 1
             this.cases.push(...res.data)
-            console.log(this.cases);
 
             setTimeout(() => {
               Waterfall('.wf-container')
               this.isBusy = false
             })
           })
+      },
+
+      showType(type) {
+        this.caseType = type
+
+        this.isBusy = true
+        setTimeout(() => {
+          Waterfall('.wf-container')
+          this.isBusy = false
+        })
       }
     },
 
