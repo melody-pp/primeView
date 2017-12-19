@@ -2,10 +2,10 @@
   <div>
     <div class="case-container">
       <div class="chooseBtn">
-        <a :class="{active:}" href="javascript:;" @click="showType(0)">全部案例({{cases.length}})</a>
-        <a href="javascript:;" @click="showType(1)">体验营销({{caseType1.length}})</a>
-        <a href="javascript:;" @click="showType(2)">数字交互设计({{caseType2.length}})</a>
-        <a href="javascript:;" @click="showType(3)">视觉表现({{caseType3.length}})</a>
+        <a :class="{active: caseType ===0}" href="javascript:;" @click="showType(0)">全部案例({{cases.length}})</a>
+        <a :class="{active: caseType ===1}" href="javascript:;" @click="showType(1)">体验营销({{caseType1.length}})</a>
+        <a :class="{active: caseType ===2}" href="javascript:;" @click="showType(2)">数字交互设计({{caseType2.length}})</a>
+        <a :class="{active: caseType ===3}" href="javascript:;" @click="showType(3)">视觉表现({{caseType3.length}})</a>
       </div>
 
       <div class="wf-container" :style="{minHeight}">
