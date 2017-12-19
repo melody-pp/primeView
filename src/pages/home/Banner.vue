@@ -75,6 +75,10 @@
     height: 100%;
   }
 
+  .carousel-item {
+    cursor: pointer;
+  }
+
   .abstract {
     bottom: 0;
     width: 100%;

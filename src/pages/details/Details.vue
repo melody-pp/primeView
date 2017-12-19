@@ -55,11 +55,12 @@
     font-size: 40px;
     font-family: "SourceHanSansCN-Bold";
     float: left;
+    margin-right: 40px;
+
   }
 
   .breadCrumb .Breadcrumb {
     float: left;
-    margin-left: 40px;
     font-size: 30px;
     font-family: "SourceHanSansCN-Bold";
     padding: 8px 0;
