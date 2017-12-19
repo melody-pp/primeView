@@ -2,7 +2,7 @@
   <div>
     <div class="case-container">
       <div class="chooseBtn">
-        <a class="active" href="javascript:;" @click="showType(0)">全部案例({{cases.length}})</a>
+        <a :class="{active:}" href="javascript:;" @click="showType(0)">全部案例({{cases.length}})</a>
         <a href="javascript:;" @click="showType(1)">体验营销({{caseType1.length}})</a>
         <a href="javascript:;" @click="showType(2)">数字交互设计({{caseType2.length}})</a>
         <a href="javascript:;" @click="showType(3)">视觉表现({{caseType3.length}})</a>
