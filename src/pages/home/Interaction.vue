@@ -50,7 +50,11 @@
     height: 100%;
     width: 50%;
     float: left;
-    background: url("../../assets/index/it1.png") no-repeat;
+    background-size: cover;
+    background-image: url("../../assets/index/it1.png");
+    padding: 0px;
+    overflow: hidden;
+    position: relative;
 
   }
 </style>
