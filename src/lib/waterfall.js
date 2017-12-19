@@ -20,9 +20,10 @@ export default function waterfall (container, mb = 15, mr = 15) {
     return el
   })
 
-  if (!els.length) return
-  const elWidth = els[0].clientWidth
+  const elNums = els.length
+  if (elNums === 0) return
 
+  const elWidth = els[0].clientWidth
   let cols = Math.floor(container.clientWidth / elWidth)
   while ((container.clientWidth - cols * elWidth) / (cols - 1) < mr) {cols--}
   mr = (container.clientWidth - cols * elWidth) / (cols - 1)
@@ -39,7 +40,7 @@ export default function waterfall (container, mb = 15, mr = 15) {
     return [val, index]
   }
 
-  for (let i = 0; i < cols; i++) {
+  for (let i = 0; i < cols && i < elNums; i++) {
     let el = els[i]
 
     el.style.top = '0'
@@ -47,7 +48,7 @@ export default function waterfall (container, mb = 15, mr = 15) {
     tempHeights[i] = el.clientHeight + mb
   }
 
-  for (let i = cols, len = els.length; i < len; i++) {
+  for (let i = cols; i < elNums; i++) {
     let el = els[i]
     let [val, index] = getMin(tempHeights)
 
