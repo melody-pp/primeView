@@ -72,6 +72,7 @@
           .then(res => {
             this.page += 1
             this.cases.push(...res.data)
+            console.log(this.cases);
 
             setTimeout(() => {
               Waterfall('.wf-container')

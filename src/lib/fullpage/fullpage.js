@@ -154,7 +154,7 @@ class Fullpage {
     //          deal wheel event              //
     //****************************************//
     let isBusy = false
-    const interval = 800
+    const interval = 400
     addEventListener(el, 'wheel', function(e) {
       if (_this.opts.isMoving) {
         return false
