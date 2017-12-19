@@ -9,7 +9,7 @@
 
     <img class="bannerCss" :src="caseInfo.csignpage" alt="">
 
-    <DetailContent :caseInfo="caseInfo"/>
+    <DetailContent :caseInfo="caseInfo" :allCase="allCase"/>
 
     <div style="position:relative;">
       <FootBox class="caseFooter"></FootBox>

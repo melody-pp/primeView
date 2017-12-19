@@ -31,11 +31,9 @@
       <div class="content">
         <h3>相似案例</h3>
         <div class="similar-case-pic clearfix">
-          <CaseCard class="left-top-pic" text="2015年梅赛德斯-奔驰F2安全驾驶培训"
-                    :imgUrl="require('../../assets/detail_page/pic_1 (8).jpg')"/>
-          <CaseCard class="left-bottom-pic" text="qwerasdf"
-                    :imgUrl="require('../../assets/detail_page/pic_1 (10).jpg')"/>
-          <CaseCard class="right-pic" text="qwerasdf" :imgUrl="require('../../assets/detail_page/pic_1 (9).jpg')"/>
+          <CaseCard class="left-top-pic" :text="allCase[similar[0]].text" :imgUrl="allCase[similar[0]].imgUrl"/>
+          <CaseCard class="left-bottom-pic" :text="allCase[similar[1]].text" :imgUrl="allCase[similar[1]].imgUrl"/>
+          <CaseCard class="right-pic" :text="allCase[similar[2]].text" :imgUrl="allCase[similar[2]].imgUrl"/>
         </div>
       </div>
     </div>
@@ -45,8 +43,24 @@
 <script>
   import CaseCard from './CaseCard'
 
+  const getRandom3 = n => {
+    const res = []
+
+    while (res.length < 3) {
+      const random = Math.floor(Math.random() * n)
+      res.includes(random) || res.push(random)
+    }
+
+    return res
+  }
+
   export default {
-    props: ['caseInfo'],
+    data() {
+      return {
+        similar: getRandom3(this.allCase.length)
+      }
+    },
+    props: ['caseInfo', 'allCase'],
     components: {CaseCard}
   }
 </script>
@@ -101,7 +115,7 @@
 
   .exp-highlight {
     position: relative;
-    p{
+    p {
       width: 90%;
     }
     > div {
@@ -146,7 +160,8 @@
       width: 60%;
     }
   }
-  h3{
+
+  h3 {
     margin: 0;
   }
 </style>
