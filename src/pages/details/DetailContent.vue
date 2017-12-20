@@ -31,9 +31,9 @@
       <div class="content">
         <h3>相似案例</h3>
         <div class="similar-case-pic clearfix">
-          <CaseCard class="left-top-pic" :text="allCase[similar[0]].ctitle" :imgUrl="allCase[similar[0]].conform" :id="allCase[similar[0]].id"/>
-          <CaseCard class="left-bottom-pic" :text="allCase[similar[1]].ctitle" :imgUrl="allCase[similar[1]].conform" :id="allCase[similar[1]].id"/>
-          <CaseCard class="right-pic" :text="allCase[similar[2]].ctitle" :imgUrl="allCase[similar[2]].conforms" :id="allCase[similar[2]].id"/>
+          <CaseCard class="left-top-pic" :text="similar[0].ctitle" :imgUrl="similar[0].conform" :id="similar[0].id"/>
+          <CaseCard class="left-bottom-pic" :text="similar[1].ctitle" :imgUrl="similar[1].conform" :id="similar[1].id"/>
+          <CaseCard class="right-pic" :text="similar[2].ctitle" :imgUrl="similar[2].conforms" :id="similar[2].id"/>
         </div>
       </div>
     </div>
@@ -42,22 +42,23 @@
 
 <script>
   import CaseCard from './CaseCard'
-
-  const getRandom3 = n => {
-    const res = []
-
-    while (res.length < 3) {
-      const random = Math.floor(Math.random() * n)
-      res.includes(random) || res.push(random)
-    }
-
-    return res
-  }
+  import {sample} from '../../utils'
 
   export default {
-    data() {
-      return {
-        similar: getRandom3(this.allCase.length)
+    computed: {
+      similar() {
+        const res = []
+        const ids = [this.caseInfo.id]
+
+        while (res.length < 3) {
+          const randomCase = sample(this.allCase)
+          if (!ids.includes(randomCase.id)) {
+            res.push(randomCase)
+            ids.push(randomCase.id)
+          }
+        }
+
+        return res
       }
     },
     props: ['caseInfo', 'allCase'],
