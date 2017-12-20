@@ -12,7 +12,7 @@
           <b-nav-item to="aboutUs">我们是谁</b-nav-item>
           <b-nav-item to="products">我们的产品</b-nav-item>
           <b-nav-item to="cases">案例介绍</b-nav-item>
-          <b-nav-item v-model="lang">EN/中文</b-nav-item>
+          <!--<b-nav-item v-model="lang">EN/中文</b-nav-item>-->
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
