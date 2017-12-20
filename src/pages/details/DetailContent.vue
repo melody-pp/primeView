@@ -50,6 +50,10 @@
         const res = []
         const ids = [this.caseInfo.id]
 
+        if (this.allCase.length < 4) {
+          return this.allCase.filter(item => item.id !== ids[0])
+        }
+
         while (res.length < 3) {
           const randomCase = sample(this.allCase)
           if (!ids.includes(randomCase.id)) {
