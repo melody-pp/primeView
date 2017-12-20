@@ -3,7 +3,8 @@
     <div class="breadCrumb">
       <div class="title">案例介绍</div>
       <div class="Breadcrumb">
-        全部 / {{caseInfo.ctitle}}
+        <router-link to="cases">全部</router-link>
+        / {{caseInfo.ctitle}}
       </div>
     </div>
 
@@ -60,6 +61,14 @@
     font-family: "SourceHanSansCN-Bold";
     padding: 8px 0;
 
+  }
+
+  .breadCrumb .Breadcrumb a {
+    float: left;
+    font-size: 30px;
+    font-family: "SourceHanSansCN-Bold";
+    color: #000;
+    text-decoration: none;
   }
 
   .bannerCss {
