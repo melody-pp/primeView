@@ -66,8 +66,7 @@
     margin: 0 auto;
     padding: 0 10%;
     transition: all 500ms;
-    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
+
   }
 
   .navbar.hide {
@@ -75,7 +74,7 @@
   }
 
   .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
-    color: rgb(52, 152, 219);
+    color: #99d4d5;
   }
 
   .navbar-light .navbar-nav .nav-link {
