@@ -96,6 +96,7 @@
     float: left;
     width: 25%;
     text-align: center;
+    padding: 74px 0;
   }
 
   .abstract span {
@@ -103,13 +104,14 @@
   }
 
   .abstract .num {
-    font-size: 5.5vw;
+    font-size: 72px;
     font-family: "SourceHanSansCN-ExtraLight";
   }
 
   .abstract .unit {
     font-size: 16px;
     font-family: "SourceHanSansCN-Medium";
+    opacity: 0.5;
   }
 
 </style>

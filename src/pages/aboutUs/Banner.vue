@@ -38,7 +38,7 @@
 
 <style>
   #carousel-about-us .img-fluid {
-    height: 500px;
+    /*height: 100%;*/
   }
 
 

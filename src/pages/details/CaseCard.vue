@@ -21,7 +21,7 @@
       }
     },
 
-    props: ['imgUrl', 'text'],
+    props: ['imgUrl', 'text','id'],
 
     methods: {
       mouseLeave() {

@@ -12,11 +12,11 @@
         <tbody>
         <tr>
           <td class="sp" ref="sp1"></td>
-          <td>视</td>
-          <td>觉</td>
+          <td align="right">视</td>
+          <td><span style="width:33%;display: inline-block">&nbsp;</span>觉</td>
           <td class="sp" ref="sp2"></td>
-          <td>表</td>
-          <td>现</td>
+          <td>表<span style="width:33%;display: inline-block">&nbsp;</span></td>
+          <td align="left">现</td>
           <td class="sp" ref="sp3"></td>
         </tr>
         </tbody>
@@ -85,7 +85,7 @@
     opacity: 1;
     width: 100%;
     height: 100%;
-    font-size: 6vw;
+    font-size: 100px;
     font-family: "SourceHanSansCN-ExtraLight";
     transition: all 500ms;
   }
