@@ -196,10 +196,9 @@
   .chooseBtn a {
     display: inline-block;
     padding: 7px 10px;
-    background-color: #49494e;
-    color: #fefefe;
+    color: #000;
     font-size: 16px;
-    font-family: "SourceHanSansCN-ExtraLight";
+    font-family: "SourceHanSansCN-Bold";
     text-decoration: none;
   }
 
