@@ -95,7 +95,7 @@
     float: left;
     width: 25%;
     text-align: center;
-    padding: 74px 0;
+    padding: 30px 0;
   }
 
   .abstract span {

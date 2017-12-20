@@ -78,6 +78,7 @@
       font-family: "SourceHanSansCN-Normal";
       font-size: 14px;
       color: #313131;
+      line-height: 26px;
     }
   }
 </style>

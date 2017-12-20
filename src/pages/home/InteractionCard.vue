@@ -40,7 +40,7 @@
           width: '100%',
           height: '100%',
           position: 'absolute',
-          background: 'rgba(0, 0, 0, .8)',
+          background: 'rgba(0, 0, 0, 0.5)',
           fontSize: '30px',
           fontFamily: 'SourceHanSansCN-Medium',
           display: 'flex',

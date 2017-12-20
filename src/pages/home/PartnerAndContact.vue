@@ -122,7 +122,7 @@
   .infoBox {
     display: inline-block;
     .key {
-      color: #0ead82;
+      color: #98d4d5;
       font-size: 18px;
       font-family: "SourceHanSansCN-Bold";
     }

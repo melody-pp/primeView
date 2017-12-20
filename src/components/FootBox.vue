@@ -43,16 +43,16 @@
     margin-left: 5px;
     line-height: 45px;
     color: #333;
-    font-family: "SourceHanSansCN-Medium";
-    font-size: 15px;
+    font-family: "SourceHanSansCN-Normal";
+    font-size: 14px;
   }
   .joinUs a{
     float: left;
     margin-left: 5px;
     line-height: 45px;
     color: #333;
-    font-family: "SourceHanSansCN-Medium";
-    font-size: 15px;
+    font-family: "SourceHanSansCN-Normal";
+    font-size: 14px;
     display: inline-block;
     text-decoration: none;
   }

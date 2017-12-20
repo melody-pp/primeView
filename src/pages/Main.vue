@@ -57,7 +57,7 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .bg-info {
     background-color: rgba(255, 255, 255, 0.3) !important;
   }
@@ -66,6 +66,9 @@
     margin: 0 auto;
     padding: 0 10%;
     transition: all 500ms;
+    img{
+      height: 3.4rem;
+    }
 
   }
 
