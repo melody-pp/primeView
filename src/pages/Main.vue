@@ -32,6 +32,11 @@
         lang: 'cn'
       }
     },
+    mounted() {
+      this.axios.post('/api/getCase').then(res => {
+        this.setAllCase(res.data)
+      })
+    },
     computed: {
       ...mapState(['path', 'fpIndex', 'hoverNav']),
       hideNav() {
@@ -39,7 +44,7 @@
       }
     },
     methods: {
-      ...mapActions(['changeHoverNav']),
+      ...mapActions(['changeHoverNav', 'setAllCase']),
 
       mouseenter() {
         this.changeHoverNav(true)
@@ -78,9 +83,11 @@
     font-size: 18px;
     color: #333;
   }
-  .navbar-brand{
+
+  .navbar-brand {
     padding-bottom: 0;
   }
+
   .nav-item {
     padding: 0 5px;
   }

@@ -18,6 +18,7 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
   import Breadcrumb from './Breadcrumb'
   import DetailContent from './DetailContent'
   import FootBox from '../../components/FootBox'
@@ -25,22 +26,15 @@
   export default {
     data() {
       return {
-        caseId: null,
-        allCase: []
+        caseId: this.$route.query.caseId,
       }
     },
 
     computed: {
+      ...mapState(['allCase']),
       caseInfo() {
         return this.allCase.find(item => item.id == this.caseId) || {}
       }
-    },
-
-    mounted() {
-      this.caseId = this.$route.query.caseId
-      this.axios.get('/api/getCase').then(res => {
-        this.allCase = res.data
-      })
     },
 
     components: {Breadcrumb, DetailContent, FootBox}

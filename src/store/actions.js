@@ -10,4 +10,8 @@ export default {
   changeHoverNav({commit}, status) {
     commit('changeHoverNav', status)
   },
+
+  setAllCase({commit}, allCase) {
+    commit('setAllCase', allCase)
+  },
 }

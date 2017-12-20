@@ -10,4 +10,8 @@ export default {
   changeHoverNav(state, status) {
     state.hoverNav = status
   },
+
+  setAllCase(state, allCase) {
+    state.allCase = allCase
+  },
 }
