@@ -3,7 +3,7 @@
     <div class="breadCrumb">
       <div class="title">案例介绍</div>
       <div class="Breadcrumb">
-        <Breadcrumb :ctitle="caseInfo.ctitle"></Breadcrumb>
+        全部 / {{caseInfo.ctitle}}
       </div>
     </div>
 
