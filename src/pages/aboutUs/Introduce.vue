@@ -4,7 +4,7 @@
       <template v-if="index%2">
         <div class="introduceTxt" style="padding-right: 5%;">
           <h6>{{item.atitle}}</h6>
-          <p>{{item.acon}}</p>
+          <p ref="introduceTxt">{{item.acon}}</p>
         </div>
         <div style="width: 51%;">
           <img :src="item.amedia" alt="">
@@ -17,7 +17,7 @@
         </div>
         <div class="introduceTxt" style="padding-left: 5%;">
           <h6>{{item.atitle}}</h6>
-          <p>{{item.acon}}</p>
+          <p ref="introduceTxt">{{item.acon}}</p>
         </div>
       </template>
     </div>
@@ -26,8 +26,10 @@
 
 <script>
   export default {
-    data () {
-      return {}
+    data() {
+      return {
+        introduceTxt: this.$ref.introduceTxt.innerHtml = item.acon
+      }
     },
 
     props: {
