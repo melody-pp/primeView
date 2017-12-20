@@ -25,7 +25,7 @@
   export default {
     data() {
       return {
-        caseId: this.$route.query.caseId,
+        caseId: null,
         allCase: []
       }
     },
@@ -37,6 +37,7 @@
     },
 
     mounted() {
+      this.caseId = this.$route.query.caseId
       this.axios.get('/api/getCase').then(res => {
         this.allCase = res.data
       })

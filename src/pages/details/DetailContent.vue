@@ -45,6 +45,9 @@
   import {sample} from '../../utils'
 
   export default {
+    mounted() {
+      console.log(this.caseInfo);
+    },
     computed: {
       similar() {
         const res = []
