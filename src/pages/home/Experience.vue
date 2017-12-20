@@ -17,11 +17,7 @@
     data() {
       return {
         classMap: ['top', 'left', 'bottom'],
-        items: [
-          // {surface: require('../../assets/index/car.png'), ctitle: '数字化营销', id: 1},
-          // {surface: require('../../assets/index/computer.png'), ctitle: '数字化营销', id: 2},
-          // {surface: require('../../assets/index/exhibition.png'), ctitle: '数字化营销', id: 3},
-        ]
+        items: []
       }
     },
 

@@ -29,14 +29,7 @@
   export default {
     data() {
       return {
-        infos: [{
-          'id': 1,
-          'addr': '\u96c5\u6210\u4e00\u91cc\u7532\u4e09\u53f7',
-          'tel': '85988521',
-          'mail': 'sjxh@pview.com',
-          'created_at': '2017-11-28 17:46:38',
-          'updated_at': '2017-11-28 17:47:56'
-        }],
+        infos: [{}],
       }
     },
 
@@ -58,11 +51,9 @@
       window.onload = this.setInfoHeight
       window.addEventListener('resize', this.setInfoHeight)
 
-      this.axios.get('/api/getContact')
-        .then(res => {
-          this.infos = res.data
-          console.log(this.infos);
-        })
+      this.axios.get('/api/getContact').then(res => {
+        this.infos = res.data
+      })
     },
 
     methods: {

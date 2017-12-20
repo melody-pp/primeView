@@ -45,9 +45,6 @@
   import {sample} from '../../utils'
 
   export default {
-    mounted() {
-      console.log(this.caseInfo);
-    },
     computed: {
       similar() {
         const res = []
@@ -68,7 +65,9 @@
         return res
       }
     },
+
     props: ['caseInfo', 'allCase'],
+
     components: {CaseCard}
   }
 </script>
