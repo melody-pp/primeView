@@ -27,7 +27,7 @@
   import FootBox from '../../components/FootBox'
 
   export default {
-    data () {
+    data() {
       return {
         slide: 0,
         sliding: null,
@@ -44,10 +44,10 @@
     },
 
     computed: {
-      info () {
+      info() {
         return this.infos[0]
       },
-      contactInfo () {
+      contactInfo() {
         return [
           {key: '办公电话', val: this.info.tel, icon: require('../../assets/logo/tel.png')},
           {key: '办公地址 ', val: this.info.addr, icon: require('../../assets/logo/pos.png')},
@@ -56,7 +56,7 @@
       },
     },
 
-    mounted () {
+    mounted() {
       setTimeout(this.setInfoHeight)
       window.onload = this.setInfoHeight
       window.addEventListener('resize', this.setInfoHeight)
@@ -68,13 +68,13 @@
     },
 
     methods: {
-      onSlideStart (slide) {
+      onSlideStart(slide) {
         this.sliding = true
       },
-      onSlideEnd (slide) {
+      onSlideEnd(slide) {
         this.sliding = false
       },
-      setInfoHeight () {
+      setInfoHeight() {
         const $page = document.querySelector('.page-6')
         const pageStyle = window.getComputedStyle($page, null)
         const pageHeight = parseFloat(pageStyle.height) - parseFloat(pageStyle.paddingTop)
@@ -126,6 +126,8 @@
   .info {
     display: flex;
     justify-content: space-around;
+    width: 78%;
+    margin: 0 auto;
   }
 
   .infoBox {
