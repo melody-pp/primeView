@@ -87,7 +87,7 @@
         const $info = $contactUs.querySelector('.info')
 
         const totalHeight = pageHeight - partnersHeight - 65 - 40
-        const padding = totalHeight - $info.offsetHeight - $title.offsetHeight - 40
+        const padding = totalHeight - $info.offsetHeight - $title.offsetHeight - 100
 
         $contactUs.style.height = totalHeight + 'px'
         $contactUs.style.paddingTop = padding / 2 + 'px'
@@ -117,7 +117,7 @@
     .title {
       color: #fff;
       font-size: 2.4vw;
-      margin-bottom: 40px;
+      margin-bottom: 100px;
       letter-spacing: 3px;
       font-family: "SourceHanSansCN-Normal";
     }

@@ -34,11 +34,12 @@
 
   .card-body {
     padding: 10px;
-    text-align: center;
+    text-align: left;
   }
 
   .card-footer {
-    padding: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 0.3rem 1.25rem;
   }
 
   .card-img-top {

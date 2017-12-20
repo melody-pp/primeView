@@ -48,6 +48,8 @@
   .it-row {
     overflow: hidden;
     margin: 5% 0;
+    display: flex;
+    align-items: center;
     > div {
       float: left;
     }
