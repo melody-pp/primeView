@@ -137,7 +137,7 @@
 
     a {
       color: #fff;
-      font-family: "SourceHanSansCN-Medium";
+      font-family: "SourceHanSansCN-Heavy";
       font-size: 30px;
       text-decoration: none;
     }

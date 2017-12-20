@@ -44,6 +44,11 @@
     src: url('./font/SourceHanSansCN-Bold.otf');
 
   }
+  @font-face {
+    font-family: 'SourceHanSansCN-Heavy';
+    src: url('./font/SourceHanSansCN-Heavy.otf');
+
+  }
 
   ul, li, p {
     list-style: none;

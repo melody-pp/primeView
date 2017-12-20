@@ -51,7 +51,7 @@
     width: 50%;
     float: left;
     background-size: cover;
-    background-image: url("../../assets/index/it1.png");
+    background-image: url("../../assets/index/it1.jpg");
     padding: 0px;
     overflow: hidden;
     position: relative;
