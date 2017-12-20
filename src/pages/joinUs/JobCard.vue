@@ -64,9 +64,6 @@
         font-size: 16px;
         line-height: 36px;
       }
-      .secondLevel {
-        text-indent: 1em;
-      }
     }
   }
 </style>
