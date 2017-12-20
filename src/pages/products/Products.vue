@@ -2,12 +2,24 @@
   <div class="productsBox">
     <div class="topPic" ref="pic" :style="topPicStyle">
       <img src="../../assets/products_top.jpg" width="100%">
-      <img src="../../assets/products_01.png" alt="">
-      <img src="../../assets/products_02.png" alt="">
-      <img src="../../assets/products_03.png" alt="">
-      <img src="../../assets/products_04.png" alt="">
-      <img src="../../assets/products_05.png" alt="">
-      <img src="../../assets/products_06.png" alt="">
+      <transition enter-active-class="animated fadeIn">
+        <img v-show="showImg[1]" src="../../assets/products_01.png" alt="">
+      </transition>
+      <transition enter-active-class="animated fadeIn">
+        <img v-show="showImg[2]" src="../../assets/products_02.png" alt="">
+      </transition>
+      <transition enter-active-class="animated fadeIn">
+        <img v-show="showImg[3]" src="../../assets/products_03.png" alt="">
+      </transition>
+      <transition enter-active-class="animated fadeIn">
+        <img v-show="showImg[4]" src="../../assets/products_04.png" alt="">
+      </transition>
+      <transition enter-active-class="animated fadeIn">
+        <img v-show="showImg[5]" src="../../assets/products_05.png" alt="">
+      </transition>
+      <transition enter-active-class="animated fadeIn">
+        <img v-show="showImg[0]" src="../../assets/products_06.png" alt="">
+      </transition>
     </div>
     <img src="../../assets/products_middle.jpg" width="100%">
     <img src="../../assets/products_bottom.jpg" width="100%">
@@ -21,18 +33,24 @@
   import FootBox from '../../components/FootBox'
 
   export default {
-    data () {
+    data() {
       return {
         topPicStyle: {
           position: 'relative',
           transition: 'transform .1s',
           boxShadow: '0 0 15px rgba(0, 0, 0, .25)',
           transform: ''
-        }
+        },
+        showImg: []
+      }
+    },
+    mounted() {
+      for (let i = 1; i < 7; i++) {
+        setTimeout(() => this.showImg.push(1), i * 1000)
       }
     },
     methods: {
-      mousemove (event) {
+      mousemove(event) {
         const $pic = this.$refs.pic
 
         const x = event.pageX - $pic.offsetLeft
@@ -50,7 +68,7 @@
         this.topPicStyle.transform = `rotateX(${deg * -percentY}deg) rotateY(${deg * percentX}deg)`
       },
 
-      mouseleave () {
+      mouseleave() {
         this.topPicStyle.transform = ''
       }
     },
@@ -107,8 +125,9 @@
     margin-top: 12%;
     margin-left: -8%;
   }
-  .caseFooter{
-    color:#4a4a4a;
+
+  .caseFooter {
+    color: #4a4a4a;
     font-size: 14px;
     background-color: #000;
   }
