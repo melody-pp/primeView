@@ -4,7 +4,7 @@
       <template v-if="index%2">
         <div class="introduceTxt" style="padding-right: 5%;">
           <h6>{{item.atitle}}</h6>
-          <p v-html="item.acon"></p>
+          <p v-html="decode(item.acon)"></p>
         </div>
         <div style="width: 51%;">
           <img :src="item.amedia" alt="">
@@ -17,7 +17,7 @@
         </div>
         <div class="introduceTxt" style="padding-left: 5%;">
           <h6>{{item.atitle}}</h6>
-          <p v-html="item.acon"></p>
+          <p v-html="decode(item.acon)"></p>
         </div>
       </template>
     </div>
@@ -25,10 +25,12 @@
 </template>
 
 <script>
+  import decode from 'decode-html'
+
   export default {
     data() {
       return {
-        // introduceTxt: this.$ref.introduceTxt.innerHtml = item.acon
+        decode
       }
     },
 
