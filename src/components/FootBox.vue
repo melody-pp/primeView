@@ -9,6 +9,7 @@
       <span>贰零肆捌+</span>
       <span>|</span>
       <span>四维空间</span>
+      <span style="margin-left: 20px;">京ICP备17001316号-1</span>
     </div>
 
     <div class="share clearfix">
