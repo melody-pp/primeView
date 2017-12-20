@@ -26,13 +26,13 @@
     data() {
       return {
         caseId: this.$route.query.caseId,
-        allCase: [{}]
+        allCase: []
       }
     },
 
     computed: {
       caseInfo() {
-        return this.allCase.find(item => item.id == this.caseId)
+        return this.allCase.find(item => item.id == this.caseId) || {}
       }
     },
 
