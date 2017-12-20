@@ -32,8 +32,8 @@
         <h3>相似案例</h3>
         <div class="similar-case-pic clearfix">
           <CaseCard class="left-top-pic" :text="allCase[similar[0]].ctitle" :imgUrl="allCase[similar[0]].conform" :id="allCase[similar[0]].id"/>
-          <CaseCard class="left-bottom-pic" :text="allCase[similar[1]].ctitle" :imgUrl="allCase[similar[1]].conform" :id="allCase[similar[0]].id"/>
-          <CaseCard class="right-pic" :text="allCase[similar[2]].ctitle" :imgUrl="allCase[similar[2]].conforms" :id="allCase[similar[0]].id"/>
+          <CaseCard class="left-bottom-pic" :text="allCase[similar[1]].ctitle" :imgUrl="allCase[similar[1]].conform" :id="allCase[similar[1]].id"/>
+          <CaseCard class="right-pic" :text="allCase[similar[2]].ctitle" :imgUrl="allCase[similar[2]].conforms" :id="allCase[similar[2]].id"/>
         </div>
       </div>
     </div>
