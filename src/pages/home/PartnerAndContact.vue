@@ -29,9 +29,6 @@
   export default {
     data() {
       return {
-        slide: 0,
-        sliding: null,
-        imgUrls: [],
         infos: [{
           'id': 1,
           'addr': '\u96c5\u6210\u4e00\u91cc\u7532\u4e09\u53f7',
@@ -61,9 +58,10 @@
       window.onload = this.setInfoHeight
       window.addEventListener('resize', this.setInfoHeight)
 
-      this.axios.get('/api/getImgUrls')
+      this.axios.get('/api/getContact')
         .then(res => {
-          this.imgUrls = res.data.imgUrls
+          this.infos = res.data
+          console.log(this.infos);
         })
     },
 

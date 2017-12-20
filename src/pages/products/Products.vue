@@ -1,6 +1,6 @@
 <template>
   <div class="productsBox">
-    <div class="topPic" ref="pic" :style="topPicStyle" @mousemove="mousemove" @mouseleave="mouseleave">
+    <div class="topPic" ref="pic" :style="topPicStyle">
       <img src="../../assets/products_top.jpg" width="100%">
       <img src="../../assets/products_01.png" alt="">
       <img src="../../assets/products_02.png" alt="">
