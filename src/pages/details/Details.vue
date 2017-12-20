@@ -26,7 +26,7 @@
     data() {
       return {
         caseId: this.$route.query.caseId,
-        allCase: []
+        allCase: [{}]
       }
     },
 

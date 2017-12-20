@@ -5,7 +5,7 @@
     </div>
     <p class="resume">简历投放：HR@jianli.com</p>
 
-    <JobCard v-for="job in jobs" :job="job"/>
+    <JobCard v-for="job in jobs" :job="job" :key="job.jname"/>
     <FootBox class="caseFooter"></FootBox>
   </div>
 </template>
