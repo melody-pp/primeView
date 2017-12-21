@@ -68,6 +68,10 @@
       },
 
       changeActive(el, isActive) {
+        if (!el) {
+          return
+        }
+
         isActive
           ? el.classList.add('active')
           : el.classList.remove('active')

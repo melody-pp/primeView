@@ -38,7 +38,6 @@
       },
 
       caseList() {
-        console.log(this.source)
         return this.source == 2 ? this.secase : this.allCase
       },
 
