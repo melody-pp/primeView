@@ -39,7 +39,7 @@
 <style scoped lang="scss">
 
 .carousel-item{
-  height: 1000px;
+  /*height: 1000px;*/
 }
 
 </style>
