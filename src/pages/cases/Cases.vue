@@ -71,7 +71,7 @@
         if (this.isBusy) return
 
         this.isBusy = true
-        this.axios.get('/api/getCase', {params: {page: this.page}})
+        this.axios.post('/api/getCase', {page: this.page})
           .then(res => {
             const data = res.data
 
