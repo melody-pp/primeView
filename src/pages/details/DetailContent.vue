@@ -92,6 +92,7 @@
       font-family: "SourceHanSansCN-ExtraLight";
       width: 60%;
       line-height: 32px;
+      color: #000;
     }
   }
 
@@ -119,15 +120,13 @@
     p {
       margin-top: 32px;
       margin-bottom: 190px;
-      width: 60%;
-      line-height: 32px;
     }
   }
 
   .exp-highlight {
     position: relative;
     p {
-      width: 90%;
+      width: 80%;
     }
     > div {
       width: 50%;

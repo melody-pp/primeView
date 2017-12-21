@@ -36,10 +36,10 @@
   }
 </script>
 
-<style>
-  #carousel-about-us .img-fluid {
-    /*height: 100%;*/
-  }
+<style scoped lang="scss">
 
+.carousel-item{
+  height: 1000px;
+}
 
 </style>

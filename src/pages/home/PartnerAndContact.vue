@@ -139,7 +139,10 @@
       span {
         display: block;
         text-align: left;
-        margin-bottom: 5px;
+      }
+      span:nth-child(1){
+        margin-bottom: 15px;
+
       }
     }
   }
