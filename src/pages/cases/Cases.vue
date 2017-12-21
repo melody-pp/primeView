@@ -24,6 +24,7 @@
   import Waterfall from '../../lib/waterfall'
   import CaseCard from './CaseCard'
   import FootBox from '../../components/FootBox'
+  import { throttle } from '../../utils'
 
   export default {
     data() {
@@ -56,12 +57,12 @@
       vm.minHeight = window.innerHeight - 200 + 'px'
       vm.getCases()
 
-      window.addEventListener('wheel', function () {
+      window.addEventListener('wheel', throttle(() => {
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
         if (scrollTop + window.innerHeight >= document.body.clientHeight) {
           vm.getCases()
         }
-      })
+      }, 200))
 
       window.addEventListener('resize', () => Waterfall('.wf-container'))
     },
@@ -76,8 +77,7 @@
             const data = res.data
 
             if (!data || !data.length) {
-              this.isBusy = false
-              return alert('没有更多案例啦！')
+              return this.isBusy = false
             }
 
             this.page += 1

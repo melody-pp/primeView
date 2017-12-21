@@ -28,6 +28,7 @@
   .case-card {
     width: 200px;
     cursor: pointer;
+    transition: all 500ms;
   }
 
   .card-body {
