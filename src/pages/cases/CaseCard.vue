@@ -19,7 +19,6 @@
     methods: {
       toDetail() {
         this.$router.push('/details/' + this.id)
-        this.$nextTick(() => this.$router.go(0))
       }
     }
   }
