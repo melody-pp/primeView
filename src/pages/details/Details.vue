@@ -28,15 +28,19 @@
     data() {
       return {
         caseId: this.$route.params.caseId,
-        // caseSource: this.$route.querys.caseSource,
-
+        source: this.$route.querys.caseSource,
       }
     },
 
     computed: {
-      ...mapState(['allCase']),
+      ...mapState(['allCase', 'secase']),
+
+      caseList() {
+        return this.source == 2 ? this.secase : this.allCase
+      },
+      
       caseInfo() {
-        return this.allCase.find(item => item.id == this.caseId) || {}
+        return this.caseList.find(item => item.id == this.caseId) || {}
       }
     },
 
