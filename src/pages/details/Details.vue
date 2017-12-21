@@ -25,17 +25,20 @@
   import FootBox from '../../components/FootBox'
 
   export default {
-    data() {
-      return {
-        caseId: this.$route.params.caseId,
-        source: this.$route.query.caseSource
-      }
-    },
 
     computed: {
       ...mapState(['allCase', 'secase']),
 
+      caseId() {
+        return this.$route.params.caseId
+      },
+
+      source() {
+        return this.$route.query.caseSource
+      },
+
       caseList() {
+        console.log(this.source)
         return this.source == 2 ? this.secase : this.allCase
       },
 

@@ -33,8 +33,8 @@ module.exports = {
         // target: 'http://localhost:3000',
         changeOrigin: true
       },
-      '/uploads':{
-        target:'http://192.168.0.236',
+      '/sy/public':{
+        target:'http://2048j.century-galaxy.com/',
         changeOrigin: true
       }
     },
