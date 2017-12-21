@@ -207,4 +207,8 @@
     font-size: 14px;
     background-color: #000;
   }
+
+  .card {
+    border: none;
+  }
 </style>

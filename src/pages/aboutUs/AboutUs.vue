@@ -101,7 +101,7 @@
     width: 80%;
     margin: 0 auto;
     margin-top: 74px;
-    margin-bottom: 114px;
+    margin-bottom: 30px;
 
     .mapBox {
       width: 65%;

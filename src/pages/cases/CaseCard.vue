@@ -38,7 +38,7 @@
 
   .card-footer {
     border-top: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 0.3rem 1.25rem;
+    padding: 0.3rem 10px;
   }
 
   .card-img-top {
