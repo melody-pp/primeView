@@ -7,7 +7,7 @@
       @after-leave="afterLeave">
       <div v-if="text" v-show="showModel" :style="modelStyle">
         <transition :enter-active-class="enterClass">
-          <router-link :to="`/details/${id}`" v-show="showText">{{text}}</router-link>
+          <router-link :to="`/details/${id}?caseSource=2`" v-show="showText">{{text}}</router-link>
         </transition>
       </div>
     </transition>
