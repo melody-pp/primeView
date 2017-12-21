@@ -9,7 +9,7 @@
       </div>
 
       <div class="wf-container" :style="{minHeight}">
-        <CaseCard class="case-card" v-for="item in showCases" v-bind="item" :key="item.id"/>
+        <CaseCard class="case-card" v-for="(item, index) in showCases" v-bind="item" :key="index"/>
       </div>
 
       <div v-show="isBusy" class="loader">Loading...</div>
@@ -38,16 +38,16 @@
 
     computed: {
       showCases() {
-        return this.caseType ? this.cases.filter(item => item.cid === this.caseType) : this.cases
+        return this.caseType ? this.cases.filter(item => item.cid == this.caseType) : this.cases
       },
       caseType1() {
-        return this.cases.filter(item => item.cid === 1)
+        return this.cases.filter(item => item.cid == 1)
       },
       caseType2() {
-        return this.cases.filter(item => item.cid === 2)
+        return this.cases.filter(item => item.cid == 2)
       },
       caseType3() {
-        return this.cases.filter(item => item.cid === 3)
+        return this.cases.filter(item => item.cid == 3)
       },
     },
 
@@ -73,6 +73,13 @@
         this.isBusy = true
         this.axios.get('/api/getCase', {params: {page: this.page}})
           .then(res => {
+            const data = res.data
+
+            if (!data || !data.length) {
+              this.isBusy = false
+              return alert('没有更多案例啦！')
+            }
+
             this.page += 1
             this.cases.push(...res.data)
 
