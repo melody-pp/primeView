@@ -40,10 +40,10 @@
       this.axios.post('/api/getSecase').then(res => {
         this.setSecase(res.data)
       })
-
     },
     computed: {
       ...mapState(['path', 'fpIndex', 'hoverNav']),
+
       hideNav() {
         return this.path === '/home' && this.fpIndex > 0 && (!this.hoverNav)
       }
