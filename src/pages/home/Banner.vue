@@ -59,7 +59,7 @@
         this.sliding = false
       },
       toDetail(caseId) {
-        this.$router.push('/details?caseId=' + caseId)
+        this.$router.push(`/details/${caseId}?caseSource=2`)
       },
     }
   }
