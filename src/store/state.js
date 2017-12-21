@@ -1,6 +1,11 @@
 export default {
   path: '',
+
   fpIndex: 0,
+
   hoverNav: false,
-  allCase:[]
+
+  allCase: [],
+
+  secase: [],
 }

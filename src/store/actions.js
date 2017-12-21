@@ -14,4 +14,8 @@ export default {
   setAllCase({commit}, allCase) {
     commit('setAllCase', allCase)
   },
+
+  setSecase({commit}, secase) {
+    commit('setSecase', secase)
+  },
 }

@@ -29,7 +29,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://192.168.0.236',
+        target: 'http://2048j.century-galaxy.com/',
         // target: 'http://localhost:3000',
         changeOrigin: true
       },

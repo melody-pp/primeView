@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import {mapState, mapActions} from 'vuex'
+  import { mapState, mapActions } from 'vuex'
 
   export default {
     data() {
@@ -36,6 +36,11 @@
       this.axios.post('/api/getCase').then(res => {
         this.setAllCase(res.data)
       })
+
+      this.axios.post('/api/getSecase').then(res => {
+        this.setSecase(res.data)
+      })
+
     },
     computed: {
       ...mapState(['path', 'fpIndex', 'hoverNav']),
@@ -44,7 +49,7 @@
       }
     },
     methods: {
-      ...mapActions(['changeHoverNav', 'setAllCase']),
+      ...mapActions(['changeHoverNav', 'setAllCase', 'setSecase']),
 
       mouseenter() {
         this.changeHoverNav(true)
@@ -66,7 +71,7 @@
     margin: 0 auto;
     padding: 0.3% 10%;
     transition: all 500ms;
-    img{
+    img {
       height: 3.4rem;
     }
 

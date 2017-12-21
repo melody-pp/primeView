@@ -14,4 +14,8 @@ export default {
   setAllCase(state, allCase) {
     state.allCase = allCase
   },
+
+  setSecase(state, seCase) {
+    state.seCase = seCase
+  },
 }
