@@ -11,6 +11,9 @@
 </script>
 
 <style>
+  body{
+    line-height: unset;
+  }
   @font-face {
     font-family: 'SourceHanSansCN-ExtraLight';
     src: url('./font/SourceHanSansCN-ExtraLight.otf');

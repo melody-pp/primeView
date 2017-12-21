@@ -60,7 +60,7 @@
   }
 
   .introduceBox {
-    width: 90%;
+    width: 80%;
     margin: 10px auto;
   }
 
@@ -69,7 +69,7 @@
 
     h6 {
       font-family: "SourceHanSansCN-ExtraLight";
-      font-size: 30px;
+      font-size: 36px;
       color: #313131;
       margin-bottom: 3%;
     }

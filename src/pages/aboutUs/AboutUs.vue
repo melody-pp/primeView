@@ -9,7 +9,7 @@
     <div class="contactUsBox clearfix" style="position:relative;">
       <div class="contact-us">
         <p class="headTxt">联系我们</p>
-        <div class="clearfix" v-for="info in contactInfo">
+        <div class="contact-us-info clearfix" v-for="info in contactInfo">
           <img class="addressImg" :src="info.icon">
           <div class="addressIfo">
             <p>{{info.key}}</p>
@@ -18,8 +18,8 @@
         </div>
 
       </div>
-      <div class="mapBox" style="overflow: auto;">
-        <iframe :src="mapSrc.addr" frameborder="0" width="100%" height="240"></iframe>
+      <div class="mapBox" style="overflow: auto;height:400px;">
+        <iframe :src="mapSrc.addr" frameborder="0" width="100%" height="394"></iframe>
       </div>
     </div>
 
@@ -48,8 +48,8 @@
       },
       contactInfo() {
         return [
-          {key: '办公电话', val: this.info.tel, icon: require('../../assets/who/tel.png')},
           {key: '办公地址 ', val: this.info.addr, icon: require('../../assets/who/position.png')},
+          {key: '办公电话', val: this.info.tel, icon: require('../../assets/who/tel.png')},
           {key: 'EMAILS', val: this.info.mail, icon: require('../../assets/who/email.png')},
         ]
       },
@@ -82,8 +82,9 @@
 
 <style scoped lang="scss">
   .company-team {
-    width: 90%;
-    margin: 40px auto;
+    width: 100%;
+    margin: 112px auto;
+    margin-top: 170px;
 
     img {
       width: 100%;
@@ -97,8 +98,11 @@
   }
 
   .contactUsBox {
-    width: 90%;
-    margin: 34px auto;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 74px;
+    margin-bottom: 114px;
+
     .mapBox {
       width: 65%;
       float: right;
@@ -106,11 +110,14 @@
     .contact-us {
       width: 30%;
       float: left;
+      .contact-us-info {
+        margin-top: 40px;
+      }
     }
   }
 
   .headTxt {
-    margin: 2% 0;
+    margin-bottom: 64px;
     color: #313131;
     font-size: 30px;
     font-family: "SourceHanSansCN-ExtraLight";
@@ -124,12 +131,12 @@
   .addressIfo {
     display: inline-block;
     margin-left: 20px;
-    margin-bottom: 10px;
     float: left;
     p:nth-child(1) {
       color: #98d4d5;
       font-size: 18px;
       font-family: 'SourceHanSansCN-Light';
+      margin-bottom: 16px;
     }
     p:nth-child(2) {
       color: #2c2b2a;

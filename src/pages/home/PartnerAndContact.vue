@@ -114,7 +114,7 @@
   .info {
     display: flex;
     justify-content: space-around;
-    width: 78%;
+    width: 60%;
     margin: 0 auto;
   }
 

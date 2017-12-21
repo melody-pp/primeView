@@ -1,6 +1,6 @@
 <template>
   <footer class="clearfix">
-    <b-link to="/" class="logo"><img src="../assets/logo.png"></b-link>
+    <b-link to="/" class="logo"><img src="../assets/footerLogo.png"></b-link>
     <div class="joinUs clearfix">
       <b-link to="joinUs"><span>加入我们</span></b-link>
       <span>|</span>
@@ -29,6 +29,7 @@
   footer .logo img {
     float: left;
     height: 34px !important;
+    margin-top: 5px;
   }
 
   .joinUs {
@@ -41,7 +42,7 @@
     float: left;
     margin: 0 4px;
     line-height: 45px;
-    color: #333;
+    color: #4a4a4a;
     font-family: "SourceHanSansCN-Normal";
     font-size: 14px;
   }
@@ -49,7 +50,7 @@
     float: left;
     margin: 0 4px;
     line-height: 45px;
-    color: #333;
+    color: #4a4a4a;
     font-family: "SourceHanSansCN-Normal";
     font-size: 14px;
     display: inline-block;
