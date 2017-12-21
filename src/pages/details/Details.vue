@@ -28,7 +28,7 @@
     data() {
       return {
         caseId: this.$route.params.caseId,
-        source: this.$route.querys.caseSource,
+        source: this.$route.query.caseSource
       }
     },
 
@@ -38,7 +38,7 @@
       caseList() {
         return this.source == 2 ? this.secase : this.allCase
       },
-      
+
       caseInfo() {
         return this.caseList.find(item => item.id == this.caseId) || {}
       }
