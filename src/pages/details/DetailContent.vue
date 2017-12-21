@@ -85,11 +85,13 @@
       font-size: 36px;
       font-family: "SourceHanSansCN-Bold";
       line-height: 86px;
-      margin-bottom: 60px;
+      margin-bottom: 38px;
     }
     p {
       font-size: 14px;
       font-family: "SourceHanSansCN-ExtraLight";
+      width: 60%;
+      line-height: 32px;
     }
   }
 
@@ -115,8 +117,10 @@
       margin-bottom: 40px;
     }
     p {
-      margin-top: 60px;
+      margin-top: 32px;
       margin-bottom: 190px;
+      width: 60%;
+      line-height: 32px;
     }
   }
 
