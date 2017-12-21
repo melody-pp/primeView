@@ -8,10 +8,10 @@
 
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav class="ml-auto">
-          <b-nav-item to="home">首页</b-nav-item>
-          <b-nav-item to="aboutUs">我们是谁</b-nav-item>
-          <b-nav-item to="products">我们的产品</b-nav-item>
-          <b-nav-item to="cases">案例介绍</b-nav-item>
+          <b-nav-item to="/home">首页</b-nav-item>
+          <b-nav-item to="/aboutUs">我们是谁</b-nav-item>
+          <b-nav-item to="/products">我们的产品</b-nav-item>
+          <b-nav-item to="/cases">案例介绍</b-nav-item>
           <!--<b-nav-item v-model="lang">EN/中文</b-nav-item>-->
         </b-navbar-nav>
       </b-collapse>
