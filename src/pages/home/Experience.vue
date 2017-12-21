@@ -1,7 +1,10 @@
 <template>
   <div ref="container" class="ex-container">
-    <img ref="gather" class="gather" src="../../assets/index/gather.jpg"
+    <img ref="gather" class="gather" src="../../assets/index/gather.png"
          @mousemove="mousemove">
+    <div class="gatherTitle">
+      <img ref="gatherTitle" src="../../assets/index/gatherTitle.png">
+    </div>
 
     <div v-for="(item, index) in items" :key="index" :class="[classMap[index]]">
       <img :src="item.surface">
@@ -78,6 +81,13 @@
   .ex-container {
     height: 100%;
     position: relative;
+    .gatherTitle {
+      position: absolute;
+      left: 76%;
+      top: 44%;
+      width: 15%;
+      z-index: 1000;
+    }
   }
 
   img {
@@ -98,6 +108,7 @@
     height: 50%;
     position: absolute;
     transition: all 2000ms;
+    transform: scale(0);
   }
 
   .left {
@@ -123,6 +134,7 @@
   .active {
     z-index: 3;
     opacity: 1;
+    transform: scale(1);
   }
 
   .introduce {
@@ -130,7 +142,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background: rgba(0, 0, 0, .5);
+    background: rgba(169, 169, 169, .3);
     display: flex;
     align-items: center;
     justify-content: center;

@@ -107,7 +107,7 @@
 
   .no-fullpage {
     .page-2, .page-3, .page-4, .page-6 {
-      height: 600px
+      height: 620px;
     }
 
     .button-group {

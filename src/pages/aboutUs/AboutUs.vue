@@ -9,27 +9,14 @@
     <div class="contactUsBox clearfix" style="position:relative;">
       <div class="contact-us">
         <p class="headTxt">联系我们</p>
-        <div class="clearfix">
-          <img class="addressImg" src="../../assets/who/position.png" alt="">
+        <div class="clearfix" v-for="info in contactInfo">
+          <img class="addressImg" :src="info.icon">
           <div class="addressIfo">
-            <p>公司地址</p>
-            <p>{{info.addr}}</p>
+            <p>{{info.key}}</p>
+            <p>{{info.val}}</p>
           </div>
         </div>
-        <div class="clearfix">
-          <img class="addressImg" src="../../assets/who/tel.png" alt="">
-          <div class="addressIfo">
-            <p>办公电话</p>
-            <p>{{info.tel}}</p>
-          </div>
-        </div>
-        <div class="clearfix">
-          <img class="addressImg" src="../../assets/who/email.png" alt="">
-          <div class="addressIfo">
-            <p>EMAILS</p>
-            <p>{{info.mail}}</p>
-          </div>
-        </div>
+
       </div>
       <div class="mapBox" style="overflow: auto;">
         <iframe :src="mapSrc.addr" frameborder="0" width="100%" height="240"></iframe>
@@ -51,21 +38,21 @@
         imgUrls: [],
         mapSrc: [],
         items: [],
-        infos: [{
-          'id': 1,
-          'addr': '\u96c5\u6210\u4e00\u91cc\u7532\u4e09\u53f7',
-          'tel': '85988521',
-          'mail': 'sjxh@pview.com',
-          'created_at': '2017-11-28 17:46:38',
-          'updated_at': '2017-11-28 17:47:56'
-        }]
+        infos: [{}]
       }
     },
 
     computed: {
       info() {
         return this.infos[0]
-      }
+      },
+      contactInfo() {
+        return [
+          {key: '办公电话', val: this.info.tel, icon: require('../../assets/who/tel.png')},
+          {key: '办公地址 ', val: this.info.addr, icon: require('../../assets/who/position.png')},
+          {key: 'EMAILS', val: this.info.mail, icon: require('../../assets/who/email.png')},
+        ]
+      },
     },
 
     mounted() {
@@ -83,6 +70,9 @@
 
         })
 
+      this.axios.get('/api/getContact').then(res => {
+        this.infos = res.data
+      })
 
     },
 

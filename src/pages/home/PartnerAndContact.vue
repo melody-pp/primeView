@@ -80,6 +80,7 @@
 
         $contactUs.style.height = totalHeight + 'px'
         $contactUs.style.paddingTop = padding / 2 + 'px'
+        $contactUs.style.paddingBottom = padding / 2 + 'px'
       }
     },
 

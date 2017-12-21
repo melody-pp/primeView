@@ -13,8 +13,7 @@
     </div>
 
     <div class="share clearfix">
-      <a href="javascript:;"><img src="../assets/logo/wx.png" alt=""></a>
-      <a href="javascript:;"><img src="../assets/logo/cream.png" alt=""></a>
+      <a href="https://wx.qq.com/"><img src="../assets/logo/wx.png" alt=""></a>
     </div>
   </footer>
 </template>
@@ -40,7 +39,7 @@
 
   .joinUs span {
     float: left;
-    margin-left: 5px;
+    margin: 0 4px;
     line-height: 45px;
     color: #333;
     font-family: "SourceHanSansCN-Normal";
@@ -48,7 +47,7 @@
   }
   .joinUs a{
     float: left;
-    margin-left: 5px;
+    margin: 0 4px;
     line-height: 45px;
     color: #333;
     font-family: "SourceHanSansCN-Normal";
@@ -60,10 +59,11 @@
   .share {
     float: right;
     display: inline-block;
+    margin-top: 5px;
   }
 
   .share a {
     float: left;
-    margin: 0 10px;
+    /*margin: 0 10px;*/
   }
 </style>

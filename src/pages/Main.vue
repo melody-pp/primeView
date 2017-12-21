@@ -64,7 +64,7 @@
 
   .navbar {
     margin: 0 auto;
-    padding: 0 10%;
+    padding: 0.3% 10%;
     transition: all 500ms;
     img{
       height: 3.4rem;
