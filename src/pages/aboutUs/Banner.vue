@@ -1,6 +1,7 @@
 <template>
   <b-carousel
     id="carousel-about-us"
+    ref="carousel"
     style="text-shadow: 1px 1px 2px #333;"
     indicators
     :interval="2000"
@@ -25,12 +26,25 @@
     props: {
       imgUrls: Array
     },
+
+    mounted() {
+      this.suitImgHeight()
+      window.addEventListener('resize', this.suitImgHeight.bind(this))
+    },
+
     methods: {
       onSlideStart(slide) {
         this.sliding = true
       },
+
       onSlideEnd(slide) {
         this.sliding = false
+      },
+
+      suitImgHeight() {
+        for (let img of this.$refs.carousel.$el.querySelectorAll('img')) {
+          img.style.height = window.innerHeight + 'px'
+        }
       }
     }
   }
@@ -38,8 +52,5 @@
 
 <style scoped lang="scss">
 
-.carousel-item{
-  /*height: 1000px;*/
-}
 
 </style>

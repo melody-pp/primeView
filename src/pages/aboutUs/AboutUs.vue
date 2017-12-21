@@ -1,11 +1,15 @@
 <template>
   <div>
     <Banner :imgUrls="imgUrls"/>
+
     <Introduce :items="items"/>
+
     <div class="company-team">
       <img src="../../assets/who/company_team.jpg" alt="">
     </div>
+
     <div class="liner"></div>
+
     <div class="contactUsBox clearfix" style="position:relative;">
       <div class="contact-us">
         <p class="headTxt">联系我们</p>
@@ -16,7 +20,6 @@
             <p>{{info.val}}</p>
           </div>
         </div>
-
       </div>
       <div class="mapBox" style="overflow: auto;height:400px;">
         <iframe :src="mapSrc.addr" frameborder="0" width="100%" height="394"></iframe>
