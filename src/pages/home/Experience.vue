@@ -9,7 +9,7 @@
     <div v-for="(item, index) in items" :key="index" :class="[classMap[index]]">
       <img :src="item.surface">
       <div class="introduce">
-        <router-link :to="'/details?caseId='+item.id+'&caseSource=2'">{{item.ctitle}}</router-link>
+        <router-link :to="`/details/${item.id}?caseSource=2`">{{item.ctitle}}</router-link>
       </div>
     </div>
   </div>

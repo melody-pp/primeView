@@ -5,7 +5,7 @@
       enter-active-class="animated bounceInDown"
       leave-active-class="animated bounceOutDown">
       <div class="model" v-show="showModel">
-        <router-link :to="'/details?caseId='+id">{{text}}</router-link>
+        <router-link :to="`/details/${id}`">{{text}}</router-link>
       </div>
     </transition>
   </div>
@@ -21,7 +21,7 @@
       }
     },
 
-    props: ['imgUrl', 'text','id'],
+    props: ['imgUrl', 'text', 'id'],
 
     methods: {
       mouseLeave() {

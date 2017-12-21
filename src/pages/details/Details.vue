@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import {mapState} from 'vuex'
+  import { mapState } from 'vuex'
   import Breadcrumb from './Breadcrumb'
   import DetailContent from './DetailContent'
   import FootBox from '../../components/FootBox'
@@ -27,7 +27,7 @@
   export default {
     data() {
       return {
-        caseId: this.$route.query.caseId,
+        caseId: this.$route.params.caseId,
         // caseSource: this.$route.querys.caseSource,
 
       }

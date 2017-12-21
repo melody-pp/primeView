@@ -1,6 +1,6 @@
 <template>
   <div class="accordion-item" :style="{backgroundImage: `url(${surface})`}">
-    <router-link :to="'/details?caseId='+id"></router-link>
+    <router-link :to="`/details/${id}`"></router-link>
   </div>
 </template>
 

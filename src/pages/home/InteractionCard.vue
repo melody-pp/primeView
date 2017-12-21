@@ -1,14 +1,13 @@
 <template>
   <div ref="box" :style="colStyle" @mouseleave="mouseLeave" @mouseenter="mouseEnter">
     <transition
-        :enter-active-class="enterClass"
-        @enter="enter"
-        :leave-active-class="leaveClass"
-        @after-leave="afterLeave">
+      :enter-active-class="enterClass"
+      @enter="enter"
+      :leave-active-class="leaveClass"
+      @after-leave="afterLeave">
       <div v-if="text" v-show="showModel" :style="modelStyle">
         <transition :enter-active-class="enterClass">
-          <router-link :to="'/details?caseId='+id" v-show="showText">{{text}}</router-link>
-          <!--<div v-show="showText" v-text="text"></div>-->
+          <router-link :to="`/details/${id}`" v-show="showText">{{text}}</router-link>
         </transition>
       </div>
     </transition>
@@ -59,7 +58,7 @@
       }
     },
 
-    props: ['imgUrl', 'text','id'],
+    props: ['imgUrl', 'text', 'id'],
 
     methods: {
       getDirection(event) {
