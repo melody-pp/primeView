@@ -108,7 +108,6 @@
     height: 50%;
     position: absolute;
     transition: all 1000ms;
-    transform: scale(0);
   }
 
   .left {
@@ -134,7 +133,6 @@
   .active {
     z-index: 3;
     opacity: 1;
-    transform: scale(1);
   }
 
   .introduce {
