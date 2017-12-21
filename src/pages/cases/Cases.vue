@@ -182,7 +182,7 @@
   }
 
   .chooseBtn {
-    border-bottom: 2px dashed #bdbcba;
+    border-bottom: 1px dashed #bdbcba;
     display: flex;
     justify-content: space-between;
     padding: 32px 0;

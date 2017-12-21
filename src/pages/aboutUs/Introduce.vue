@@ -70,7 +70,7 @@
     h6 {
       font-family: "SourceHanSansCN-ExtraLight";
       font-size: 36px;
-      color: #313131;
+      color: #000;
       margin-bottom: 3%;
     }
 
@@ -78,7 +78,7 @@
       font-family: "SourceHanSansCN-Normal";
       font-size: 14px;
       color: #313131;
-      line-height: 26px;
+      line-height: 32px;
     }
   }
 </style>

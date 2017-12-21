@@ -28,7 +28,7 @@
     data() {
       return {
         caseId: this.$route.query.caseId,
-        caseSource: this.$route.querys.caseSource,
+        // caseSource: this.$route.querys.caseSource,
 
       }
     },

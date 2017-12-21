@@ -106,6 +106,7 @@
     .mapBox {
       width: 65%;
       float: right;
+      margin-top: -20px;
     }
     .contact-us {
       width: 30%;
