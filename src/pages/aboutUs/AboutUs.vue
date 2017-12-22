@@ -10,7 +10,7 @@
 
     <div class="liner"></div>
 
-    <div class="contactUsBox clearfix" style="position:relative;">
+    <div :class="{mobile:isMobile}" class="contactUsBox clearfix" style="position:relative;">
       <div class="contact-us">
         <p class="headTxt">联系我们</p>
         <div class="contact-us-info clearfix" v-for="info in contactInfo">
@@ -41,7 +41,8 @@
         imgUrls: [],
         mapSrc: [],
         items: [],
-        infos: [{}]
+        infos: [{}],
+        isMobile:false,
       }
     },
 
@@ -76,7 +77,10 @@
       this.axios.get('/api/getContact').then(res => {
         this.infos = res.data
       })
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        this.isMobile = true
 
+      }
     },
 
     components: {Banner, Introduce, FootBox}
@@ -117,6 +121,15 @@
       .contact-us-info {
         margin-top: 40px;
       }
+    }
+  }
+.contactUsBox.mobile {
+    .mapBox {
+      width: 100%;
+    }
+    .contact-us {
+      width: 100%;
+      margin-bottom: 30px;
     }
   }
 
