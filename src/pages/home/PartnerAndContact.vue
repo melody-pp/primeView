@@ -128,6 +128,8 @@
     .val {
       font-size: 14px;
       font-family: "SourceHanSansCN-Normal";
+    }
+    .val:nth-child(2){
       width: 70%;
     }
     .icon {

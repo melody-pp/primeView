@@ -30,7 +30,7 @@
 <style scoped lang="scss">
   .positionBox {
     width: 80%;
-    margin: 0;
+    margin: 0 auto;
     margin-top: 160px;
     > div {
       float: left;
