@@ -29,11 +29,14 @@
       imgUrls: Array
     },
 
+    computed: {
+      isMobile() {
+        return this.$store.state.isMobile
+      }
+    },
+
     mounted() {
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) return false
-
       window.addEventListener('resize', this.suitImgHeight.bind(this))
-
     },
 
     methods: {
@@ -46,6 +49,8 @@
       },
 
       suitImgHeight() {
+        if (this.isMobile) return
+
         for (let img of this.$refs.carousel.$el.querySelectorAll('img')) {
           img.style.height = window.innerHeight + 'px'
         }
