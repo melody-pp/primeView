@@ -42,7 +42,7 @@
       },
 
       suitImgHeight() {
-        for (let img of this.$refs.carousel.$el.querySelectorAll('.carousel-item')) {
+        for (let img of this.$refs.carousel.$el.querySelectorAll('img')) {
           img.style.height = window.innerHeight + 'px'
         }
       }
