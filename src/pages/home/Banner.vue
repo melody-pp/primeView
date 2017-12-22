@@ -20,23 +20,12 @@
     </b-carousel>
 
     <div class="abstract">
-      <div class="abstractBox">
+      <div class="abstractBox" v-for="item in abstractInfo">
         <div>
-          <span class="num">120</span>
-          <span class="unit">名员工</span>
+          <span class="num">{{item.val}}</span>
+          <span class="unit">{{item.key}}</span>
         </div>
-        <div>
-          <span class="num">500</span>
-          <span class="unit">强企业服务经验</span>
-        </div>
-        <div>
-          <span class="num">28590</span>
-          <span class="unit">次效率支付</span>
-        </div>
-        <div>
-          <span class="num">123</span>
-          <span class="unit">家客户合作</span>
-        </div>
+
       </div>
     </div>
   </div>
@@ -49,8 +38,22 @@
         slide: 0,
         sliding: null,
         cases: [],
-        abstract: [],
+        abstracts: [{}],
       }
+    },
+
+    computed: {
+      abstract() {
+        return this.abstracts[0]
+      },
+      abstractInfo() {
+        return [
+          {key: '名员工', val: this.abstract.employee},
+          {key: '强企业服务经验 ', val: this.abstract.experience},
+          {key: '次效率支付', val: this.abstract.deliver},
+          {key: '家客户合作', val: this.abstract.customer},
+        ]
+      },
     },
 
     mounted() {
@@ -59,7 +62,7 @@
       })
 
       this.axios.get('/api/getData').then(res => {
-        this.abstract = res.data
+        this.abstracts = res.data
       })
     },
 
