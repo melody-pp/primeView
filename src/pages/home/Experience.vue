@@ -6,32 +6,15 @@
       <img ref="gatherTitle" src="../../assets/index/gatherTitle.png">
     </div>
 
-    <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
-      <div :class="{top: true, active: showImg=== 'top'}" v-show="showImg=== 'top'">
-        <img :src="items[0].surface">
-        <div class="introduce">
-          <router-link :to="`/details/${items[0].id}?caseSource=2`">{{items[0].ctitle}}</router-link>
+    <div v-for="(item, index) in items" :key="index" :class="[classMap[index],{active: showImg === classMap[index]}]">
+      <img :src="item.surface">
+      <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
+        <div class="introduce" v-show="showImg=== classMap[index]">
+          <router-link :to="`/details/${item.id}?caseSource=2`">{{item.ctitle}}</router-link>
         </div>
-      </div>
-    </transition>
+      </transition>
+    </div>
 
-    <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
-      <div :class="{left: true, active: showImg=== 'left'}" v-show="showImg=== 'left'">
-        <img :src="items[1].surface">
-        <div class="introduce">
-          <router-link :to="`/details/${items[1].id}?caseSource=2`">{{items[1].ctitle}}</router-link>
-        </div>
-      </div>
-    </transition>
-
-    <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
-      <div :class="{bottom: true, active: showImg=== 'bottom'}" v-show="showImg=== 'bottom'">
-        <img :src="items[2].surface">
-        <div class="introduce">
-          <router-link :to="`/details/${items[2].id}?caseSource=2`">{{items[2].ctitle}}</router-link>
-        </div>
-      </div>
-    </transition>
   </div>
 </template>
 
@@ -127,7 +110,7 @@
     width: 50%;
     height: 100%;
     position: absolute;
-    transition: all 2000ms;
+    transition: all 1000ms;
   }
 
   .bottom {
@@ -137,7 +120,7 @@
     width: 100%;
     height: 50%;
     position: absolute;
-    transition: all 2000ms;
+    transition: all 1000ms;
   }
 
   .active {
