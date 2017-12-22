@@ -49,20 +49,18 @@
         slide: 0,
         sliding: null,
         cases: [],
-        abstract:[],
+        abstract: [],
       }
     },
 
     mounted() {
-      this.axios.get('/api/getPagehome')
-        .then(res => {
-          this.cases = res.data
-        })
-      this.axios.get('/api/getData')
-        .then(res => {
-          this.abstract = res.data
-          console.log(this.abstract);
-        })
+      this.axios.get('/api/getPagehome').then(res => {
+        this.cases = res.data
+      })
+
+      this.axios.get('/api/getData').then(res => {
+        this.abstract = res.data
+      })
     },
 
     methods: {

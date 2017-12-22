@@ -40,8 +40,6 @@
       this.axios.post('/api/getSecase').then(res => {
         this.setSecase(res.data)
       })
-
-      this.setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
     },
     computed: {
       ...mapState(['path', 'fpIndex', 'hoverNav']),
@@ -51,7 +49,7 @@
       }
     },
     methods: {
-      ...mapActions(['changeHoverNav', 'setAllCase', 'setSecase', 'setIsMobile']),
+      ...mapActions(['changeHoverNav', 'setAllCase', 'setSecase']),
 
       mouseenter() {
         this.changeHoverNav(true)

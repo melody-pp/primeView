@@ -42,17 +42,13 @@
         mapSrc: [],
         items: [],
         infos: [{}],
-        isMobile: false,
+        isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
       }
     },
 
     computed: {
       info() {
         return this.infos[0]
-      },
-
-      isMobile() {
-        return this.$store.state.isMobile
       },
 
       contactInfo() {

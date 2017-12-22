@@ -8,6 +8,4 @@ export default {
   allCase: [],
 
   secase: [],
-
-  isMobile: false,
 }

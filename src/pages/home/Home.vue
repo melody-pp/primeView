@@ -54,6 +54,7 @@
 
       return {
         index: 0,
+        isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
         opts: {
           start: 0,
           dir: 'v',
@@ -72,8 +73,7 @@
     },
     mounted() {
       this.$store.dispatch('changeFPIndex', 0)
-
-      if (this.$store.state.isMobile) {
+      if (this.isMobile) {
         const classList = document.querySelector('.fullpage-container').classList
 
         classList.remove('fullpage-container')

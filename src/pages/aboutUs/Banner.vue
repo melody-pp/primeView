@@ -22,17 +22,12 @@
       return {
         slide: 0,
         sliding: null,
+        isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
       }
     },
 
     props: {
       imgUrls: Array
-    },
-
-    computed: {
-      isMobile() {
-        return this.$store.state.isMobile
-      }
     },
 
     mounted() {
