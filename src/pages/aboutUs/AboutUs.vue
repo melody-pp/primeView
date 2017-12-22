@@ -76,6 +76,9 @@
       this.axios.get('/api/getContact').then(res => {
         this.infos = res.data
       })
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        this.isMobile = true
+      }
     },
 
     components: {Banner, Introduce, FootBox}

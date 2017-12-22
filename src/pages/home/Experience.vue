@@ -72,7 +72,7 @@
 
 <style scoped lang="scss">
   .animated {
-    animation-duration: 600ms;
+    animation-duration: 2s;
   }
 
   .ex-container {
@@ -104,7 +104,7 @@
     width: 100%;
     height: 50%;
     position: absolute;
-    transition: all 1000ms;
+    transition: all 6s;
   }
 
   .left {
@@ -114,7 +114,7 @@
     width: 50%;
     height: 100%;
     position: absolute;
-    transition: all 1000ms;
+    transition: all 6s;
   }
 
   .bottom {
@@ -124,7 +124,7 @@
     width: 100%;
     height: 50%;
     position: absolute;
-    transition: all 1000ms;
+    transition: all 6s;
   }
 
   .active {
@@ -137,7 +137,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background: rgba(169, 169, 169, .3);
+    background: rgba(169, 169, 169, .5);
     display: flex;
     align-items: center;
     justify-content: center;
