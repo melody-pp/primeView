@@ -117,7 +117,7 @@
 
   .info {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 65%;
     margin: 0 auto;
   }
@@ -128,6 +128,7 @@
 
   .infoBox {
     display: inline-block;
+    flex: 1;
     .key {
       color: #98d4d5;
       font-size: 18px;
@@ -144,6 +145,7 @@
       float: left;
       margin-left: 20px;
       display: inline-block;
+      width: 65%;
       span {
         display: block;
         text-align: left;

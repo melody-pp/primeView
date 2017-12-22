@@ -4,7 +4,7 @@
     <div class="joinUs clearfix">
       <b-link to="joinUs">加入我们</b-link>
       <span>|</span>
-      <span>首页映像旗下机构：</span><a href="http://www.century-galaxy.com/">世纪星瀚</a>
+      <span>首页映像旗下机构：</span><a href="http://www.century-galaxy.com/" target="_blank">世纪星瀚</a>
       <span>|</span>
       <span>贰零肆捌+</span>
       <span>|</span>
@@ -13,7 +13,7 @@
     </div>
 
     <div class="share clearfix">
-      <a href="https://wx.qq.com/"><img src="../assets/logo/wx.png" alt=""></a>
+      <a href="https://wx.qq.com/" target="_blank"><img src="../assets/logo/wx.png" alt=""></a>
     </div>
   </footer>
 </template>
@@ -50,13 +50,15 @@
     float: left;
     margin: 0 4px;
     line-height: 45px;
-    color: #98d4d5;
+    color: #4a4a4a;
     font-family: "SourceHanSansCN-Normal";
     font-size: 14px;
     display: inline-block;
     text-decoration: none;
   }
-
+  .joinUs a:hover{
+    color: #98d4d5;
+  }
   .share {
     float: right;
     display: inline-block;

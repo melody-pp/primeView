@@ -13,6 +13,7 @@
       </div>
 
       <div v-show="isBusy" class="loader">Loading...</div>
+      <div v-show="!isBusy" class="Done">---&nbsp;&nbsp;我是有底线的&nbsp;&nbsp;---</div>
     </div>
     <FootBox class="caseFooter"></FootBox>
 
@@ -24,7 +25,7 @@
   import Waterfall from '../../lib/waterfall'
   import CaseCard from './CaseCard'
   import FootBox from '../../components/FootBox'
-  import { throttle } from '../../utils'
+  import {throttle} from '../../utils'
 
   export default {
     data() {
@@ -130,6 +131,12 @@
     -webkit-transform: translateZ(0);
     -ms-transform: translateZ(0);
     transform: translateZ(0);
+  }
+
+  .Done {
+    text-align: center;
+    margin-top: 60px;
+    color: #b5b4b4;
   }
 
   @-webkit-keyframes load4 {
