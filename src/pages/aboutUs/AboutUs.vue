@@ -54,6 +54,7 @@
       isMobile() {
         return this.$store.state.isMobile
       },
+
       contactInfo() {
         return [
           {key: '办公地址 ', val: this.info.addr, icon: require('../../assets/who/position.png')},
