@@ -57,7 +57,7 @@
       vm.minHeight = window.innerHeight - 200 + 'px'
       vm.getCases()
 
-      window.addEventListener('wheel', throttle(() => {
+      window.addEventListener('wheel touchmove', throttle(() => {
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
         if (scrollTop + window.innerHeight >= document.body.clientHeight) {
           vm.getCases()
