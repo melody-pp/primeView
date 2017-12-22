@@ -9,7 +9,9 @@
     @sliding-start="onSlideStart"
     @sliding-end="onSlideEnd">
 
-    <b-carousel-slide v-for="(imgUrl,index) in imgUrls" :img-src="imgUrl" :key="index"></b-carousel-slide>
+    <b-carousel-slide v-for="(imgUrl,index) in imgUrls" :key="index">
+      <img slot="img" class="img-fluid w-100 d-block" :src="imgUrl" @load="suitImgHeight()">
+    </b-carousel-slide>
 
   </b-carousel>
 </template>
@@ -28,7 +30,6 @@
     },
 
     mounted() {
-      this.suitImgHeight()
       window.addEventListener('resize', this.suitImgHeight.bind(this))
     },
 
