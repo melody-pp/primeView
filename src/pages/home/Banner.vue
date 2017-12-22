@@ -7,8 +7,16 @@
       v-model="slide"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd">
+      <template v-for="item in cases">
+        <b-carousel-slide v-if="item.kmedia.endsWith('.mp4')" class="video"
+                          :key="item.id" @click.native="toDetail(item.id)">
+          <video autoplay>
+            <source :src="item.kmedia" type="video/mp4">
+          </video>
+        </b-carousel-slide>
 
-      <b-carousel-slide v-for="item in cases" :img-src="item.kmedia" :key="item.id" @click.native="toDetail(item.id)"/>
+        <b-carousel-slide v-else :img-src="item.kmedia" :key="item.id" @click.native="toDetail(item.id)"/>
+      </template>
     </b-carousel>
 
     <div class="abstract">
@@ -40,7 +48,7 @@
       return {
         slide: 0,
         sliding: null,
-        cases: []
+        cases: [],
       }
     },
 
@@ -65,9 +73,26 @@
   }
 </script>
 
-<style>
-  #carousel-home, .carousel-inner, .carousel-item {
+<style lang="scss">
+  #carousel-home,
+  .carousel-inner,
+  .carousel-item {
     height: 100%;
+  }
+
+  .video {
+    .carousel-caption {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      video {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 
   .img-fluid {
@@ -83,34 +108,28 @@
     width: 100%;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
-
+    span {
+      display: block;
+    }
+    .num {
+      font-size: 72px;
+      font-family: "SourceHanSansCN-ExtraLight";
+    }
+    .unit {
+      font-size: 16px;
+      font-family: "SourceHanSansCN-Medium";
+      opacity: 0.5;
+    }
   }
 
   .abstractBox {
     width: 90%;
     margin: 0 auto;
+    div {
+      float: left;
+      width: 25%;
+      text-align: center;
+      padding: 30px 0;
+    }
   }
-
-  .abstractBox div {
-    float: left;
-    width: 25%;
-    text-align: center;
-    padding: 30px 0;
-  }
-
-  .abstract span {
-    display: block;
-  }
-
-  .abstract .num {
-    font-size: 72px;
-    font-family: "SourceHanSansCN-ExtraLight";
-  }
-
-  .abstract .unit {
-    font-size: 16px;
-    font-family: "SourceHanSansCN-Medium";
-    opacity: 0.5;
-  }
-
 </style>
