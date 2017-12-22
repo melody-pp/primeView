@@ -40,6 +40,10 @@
       this.axios.post('/api/getSecase').then(res => {
         this.setSecase(res.data)
       })
+
+      this.axios.post('/api/getPagecase').then(res => {
+        this.setPagecase(res.data)
+      })
     },
     computed: {
       ...mapState(['path', 'fpIndex', 'hoverNav']),
@@ -49,7 +53,7 @@
       }
     },
     methods: {
-      ...mapActions(['changeHoverNav', 'setAllCase', 'setSecase']),
+      ...mapActions(['changeHoverNav', 'setAllCase', 'setSecase', 'setPagecase']),
 
       mouseenter() {
         this.changeHoverNav(true)

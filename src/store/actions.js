@@ -19,7 +19,7 @@ export default {
     commit('setSecase', secase)
   },
 
-  setIsMobile({commit}, isMobile) {
-    commit('setIsMobile', isMobile)
+  setPagecase({commit}, pagecase) {
+    commit('setPagecase', pagecase)
   },
 }

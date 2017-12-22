@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import {mapState} from 'vuex'
   import Breadcrumb from './Breadcrumb'
   import DetailContent from './DetailContent'
   import FootBox from '../../components/FootBox'
@@ -27,7 +27,7 @@
   export default {
 
     computed: {
-      ...mapState(['allCase', 'secase']),
+      ...mapState(['allCase', 'secase', 'pagecase']),
 
       caseId() {
         return this.$route.params.caseId
@@ -38,7 +38,14 @@
       },
 
       caseList() {
-        return this.source == 2 ? this.secase : this.allCase
+        switch (+this.source) {
+          case 2:
+            return this.secase
+          case 3:
+            return this.pagecase
+          default:
+            return this.allCase
+        }
       },
 
       caseInfo() {

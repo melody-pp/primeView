@@ -8,4 +8,6 @@ export default {
   allCase: [],
 
   secase: [],
+
+  pagecase: [],
 }

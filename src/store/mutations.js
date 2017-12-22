@@ -19,7 +19,7 @@ export default {
     state.secase = secase
   },
 
-  setIsMobile(state, isMobile) {
-    state.isMobile = isMobile
+  setPagecase(state, pagecase) {
+    state.secase = pagecase
   },
 }
