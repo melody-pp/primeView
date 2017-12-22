@@ -11,7 +11,7 @@
         <b-carousel-slide v-if="item.kmedia.endsWith('.mp4')" class="video"
                           :key="item.id" @click.native="toDetail(item.id)">
           <video autoplay>
-            <source :src="item.kmedia" type="video/mp4">
+            <source :src="item.kmedia" type="video/webm">
           </video>
         </b-carousel-slide>
 
@@ -49,6 +49,7 @@
         slide: 0,
         sliding: null,
         cases: [],
+        abstract:[],
       }
     },
 
@@ -56,6 +57,11 @@
       this.axios.get('/api/getPagehome')
         .then(res => {
           this.cases = res.data
+        })
+      this.axios.get('/api/getData')
+        .then(res => {
+          this.abstract = res.data
+          console.log(this.abstract);
         })
     },
 
