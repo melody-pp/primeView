@@ -7,7 +7,7 @@
       <div class="contact-us">
         <div class="title">联系我们</div>
 
-        <div class="info">
+        <div :class="{mobile:isMobile}" class="info">
           <div class="infoBox clearfix" v-for="info in contactInfo">
             <img class="icon" :src="info.icon">
             <div class="txt">
@@ -30,6 +30,7 @@
     data() {
       return {
         infos: [{}],
+        isMobile: false,
       }
     },
 
@@ -54,6 +55,9 @@
       this.axios.get('/api/getContact').then(res => {
         this.infos = res.data
       })
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        this.isMobile = true
+      }
     },
 
     methods: {
@@ -118,6 +122,10 @@
     margin: 0 auto;
   }
 
+  .info.mobile {
+    width: 80%;
+  }
+
   .infoBox {
     display: inline-block;
     .key {
@@ -128,9 +136,6 @@
     .val {
       font-size: 14px;
       font-family: "SourceHanSansCN-Normal";
-    }
-    .val:nth-child(2){
-      width: 70%;
     }
     .icon {
       float: left;
@@ -143,10 +148,15 @@
         display: block;
         text-align: left;
       }
-      span:nth-child(1){
+      span:nth-child(1) {
         margin-bottom: 15px;
 
       }
     }
   }
+
+  .infoBox:nth-child(2) .val {
+    width: 70%;
+  }
+
 </style>

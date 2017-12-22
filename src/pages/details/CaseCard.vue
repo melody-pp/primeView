@@ -2,8 +2,8 @@
   <div class="case-card" @mouseleave="mouseLeave" @mouseenter="mouseEnter">
     <img :src="imgUrl" alt="">
     <transition
-      enter-active-class="animated bounceInDown"
-      leave-active-class="animated bounceOutDown">
+      enter-active-class="animated zoomIn"
+      leave-active-class="animated zoomOut">
       <div class="model" v-show="showModel">
         <router-link :to="`/details/${id}`">{{text}}</router-link>
       </div>
@@ -50,19 +50,20 @@
       width: 100%;
       height: 100%;
       color: #fff;
-      background: rgba(0, 0, 0, .6);
+      background: rgba(0, 0, 0, .4);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: "SourceHanSansCN-Bold";
       font-size: 36px;
+      a {
+        color: #fff;
+        font-family: "SourceHanSansCN-Medium";
+        font-size: 30px;
+        text-decoration: none;
+      }
     }
   }
 
-  a {
-    color: #fff;
-    font-family: "SourceHanSansCN-Medium";
-    font-size: 30px;
-    text-decoration: none;
-  }
+
 </style>
