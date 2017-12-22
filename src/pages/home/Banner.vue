@@ -74,7 +74,7 @@
         this.sliding = false
       },
       toDetail(caseId) {
-        this.$router.push(`/details/${caseId}?caseSource=2`)
+        this.$router.push(`/details/${caseId}?caseSource=3`)
       },
     }
   }
