@@ -86,7 +86,7 @@
 
 <style>
   .kywd{
-    font-size: 2vw;
+    font-size: 1.9vw;
   }
   .ityped-cursor {
     opacity: 1;
