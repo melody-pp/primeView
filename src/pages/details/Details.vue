@@ -3,7 +3,7 @@
     <div class="breadCrumb">
       <div class="title">案例介绍</div>
       <div class="Breadcrumb">
-        <router-link to="cases">全部</router-link>
+        <router-link to="/cases">全部</router-link>
         / {{caseInfo.ctitle}}
       </div>
     </div>
