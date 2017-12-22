@@ -5,7 +5,7 @@
       @enter="enter"
       :leave-active-class="leaveClass"
       @after-leave="afterLeave">
-      <div v-if="text" v-show="showModel" :style="modelStyle">
+      <div class="modelStyle" v-if="text" v-show="showModel" :style="modelStyle">
         <transition :enter-active-class="enterClass">
           <router-link :to="`/details/${id}?caseSource=2`" v-show="showText">{{text}}</router-link>
         </transition>
@@ -88,15 +88,18 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   #app .animated {
     animation-duration: 600ms;
   }
 
-  a {
-    color: #fff;
-    font-family: "SourceHanSansCN-Heavy";
-    font-size: 30px;
-    text-decoration: none;
+  .modelStyle {
+    a {
+      color: #fff;
+      font-family: "SourceHanSansCN-Heavy";
+      font-size: 30px;
+      text-decoration: none;
+    }
   }
+
 </style>
