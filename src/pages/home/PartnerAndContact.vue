@@ -114,7 +114,7 @@
   .info {
     display: flex;
     justify-content: space-around;
-    width: 60%;
+    width: 65%;
     margin: 0 auto;
   }
 
@@ -128,6 +128,7 @@
     .val {
       font-size: 14px;
       font-family: "SourceHanSansCN-Normal";
+      width: 70%;
     }
     .icon {
       float: left;

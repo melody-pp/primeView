@@ -129,7 +129,7 @@
     }
     .contact-us {
       width: 100%;
-      margin-bottom: 30px;
+      margin-bottom: 60px;
     }
   }
 

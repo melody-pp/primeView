@@ -30,7 +30,10 @@
     },
 
     mounted() {
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) return false
+
       window.addEventListener('resize', this.suitImgHeight.bind(this))
+
     },
 
     methods: {
