@@ -104,7 +104,7 @@
     width: 100%;
     height: 50%;
     position: absolute;
-    transition: all 6s;
+    transition: all 3s;
   }
 
   .left {
@@ -114,7 +114,7 @@
     width: 50%;
     height: 100%;
     position: absolute;
-    transition: all 6s;
+    transition: all 3s;
   }
 
   .bottom {
@@ -124,7 +124,7 @@
     width: 100%;
     height: 50%;
     position: absolute;
-    transition: all 6s;
+    transition: all 3s;
   }
 
   .active {
