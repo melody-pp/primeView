@@ -4,7 +4,7 @@
     :leave-active-class="`animated ${outClass}`">
 
     <div v-show="show" ref="card" :style="cardStyle">
-      <span ref="span"></span>
+      <span class="kywd" ref="span"></span>
     </div>
   </transition>
 </template>
@@ -85,6 +85,9 @@
 </script>
 
 <style>
+  .kywd{
+    font-size: 2vw;
+  }
   .ityped-cursor {
     opacity: 1;
     font-size: 2.2rem;
