@@ -18,4 +18,8 @@ export default {
   setSecase(state, secase) {
     state.secase = secase
   },
+
+  setIsMobile(state, isMobile) {
+    state.isMobile = isMobile
+  },
 }

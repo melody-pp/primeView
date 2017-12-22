@@ -18,4 +18,8 @@ export default {
   setSecase({commit}, secase) {
     commit('setSecase', secase)
   },
+
+  setIsMobile({commit}, isMobile) {
+    commit('setIsMobile', isMobile)
+  },
 }

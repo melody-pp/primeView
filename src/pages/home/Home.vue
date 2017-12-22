@@ -73,7 +73,7 @@
     mounted() {
       this.$store.dispatch('changeFPIndex', 0)
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      if (this.$store.state.isMobile) {
         const classList = document.querySelector('.fullpage-container').classList
 
         classList.remove('fullpage-container')

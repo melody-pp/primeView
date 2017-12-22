@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import { mapState, mapActions } from 'vuex'
+  import {mapState, mapActions} from 'vuex'
 
   export default {
     data() {
@@ -40,6 +40,8 @@
       this.axios.post('/api/getSecase').then(res => {
         this.setSecase(res.data)
       })
+
+      this.setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
     },
     computed: {
       ...mapState(['path', 'fpIndex', 'hoverNav']),
@@ -49,7 +51,7 @@
       }
     },
     methods: {
-      ...mapActions(['changeHoverNav', 'setAllCase', 'setSecase']),
+      ...mapActions(['changeHoverNav', 'setAllCase', 'setSecase', 'setIsMobile']),
 
       mouseenter() {
         this.changeHoverNav(true)

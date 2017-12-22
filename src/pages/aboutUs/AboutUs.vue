@@ -42,13 +42,17 @@
         mapSrc: [],
         items: [],
         infos: [{}],
-        isMobile:false,
+        isMobile: false,
       }
     },
 
     computed: {
       info() {
         return this.infos[0]
+      },
+
+      isMobile() {
+        return this.$store.state.isMobile
       },
       contactInfo() {
         return [
@@ -60,27 +64,21 @@
     },
 
     mounted() {
-      this.axios.get('/api/getAbhome')
-        .then(res => {
-          this.imgUrls = res.data.abimg
-        })
-      this.axios.get('/api/getAddr')
-        .then(res => {
-          this.mapSrc = res.data[0]
-        })
-      this.axios.get('/api/getAbout')
-        .then(res => {
-          this.items = res.data
+      this.axios.get('/api/getAbhome').then(res => {
+        this.imgUrls = res.data.abimg
+      })
 
-        })
+      this.axios.get('/api/getAddr').then(res => {
+        this.mapSrc = res.data[0]
+      })
+
+      this.axios.get('/api/getAbout').then(res => {
+        this.items = res.data
+      })
 
       this.axios.get('/api/getContact').then(res => {
         this.infos = res.data
       })
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        this.isMobile = true
-
-      }
     },
 
     components: {Banner, Introduce, FootBox}
@@ -123,7 +121,8 @@
       }
     }
   }
-.contactUsBox.mobile {
+
+  .contactUsBox.mobile {
     .mapBox {
       width: 100%;
     }
