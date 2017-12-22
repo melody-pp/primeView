@@ -29,12 +29,11 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://2048j.century-galaxy.com/',
-        // target: 'http://localhost:3000',
+        target: 'http://47.104.4.171/',
         changeOrigin: true
       },
-      '/sy/public':{
-        target:'http://2048j.century-galaxy.com/',
+      '/sy/public': {
+        target: 'http://47.104.4.171/',
         changeOrigin: true
       }
     },
