@@ -20,6 +20,6 @@ export default {
   },
 
   setPagecase(state, pagecase) {
-    state.secase = pagecase
+    state.pagecase = pagecase
   },
 }
