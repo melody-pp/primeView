@@ -50,7 +50,8 @@
   }
 </script>
 
-<style scoped lang="scss">
-
-
+<style lang="scss">
+  .carousel-indicators > li {
+    outline: none;
+  }
 </style>
