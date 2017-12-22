@@ -1,12 +1,10 @@
 <template>
   <div :style="containerStyle">
     <div class="clearfix" :style="rowStyle">
-      <div class="titleCss">
+      <div class="titleCss"></div>
 
-      </div>
-      <InteractionCard
-        v-for="(item, index) in items" :key="index"
-        :imgUrl="item.surface" :text="item.ctitle" :id="item.id"/>
+      <InteractionCard v-for="(item, index) in items" :key="index"
+                       :imgUrl="item.surface" :text="item.ctitle" :id="item.id"/>
     </div>
   </div>
 </template>
@@ -28,12 +26,7 @@
           margin: 0,
           height: '50%',
         },
-        items: [
-          // {surface: require('../../assets/index/it1.png'), ctitle: ''},
-          // {imgUrl: require('../../assets/index/it2.png'), text: '交互体验解决方案'},
-          // {imgUrl: require('../../assets/index/it3.jpg'), text: '交互体验解决方案'},
-          // {imgUrl: require('../../assets/index/it4.jpg'), text: '交互体验解决方案'},
-        ]
+        items: []
       }
     },
     components: {InteractionCard},

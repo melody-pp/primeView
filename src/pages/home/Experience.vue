@@ -6,12 +6,32 @@
       <img ref="gatherTitle" src="../../assets/index/gatherTitle.png">
     </div>
 
-    <div v-for="(item, index) in items" :key="index" :class="[classMap[index]]">
-      <img :src="item.surface">
-      <div class="introduce">
-        <router-link :to="`/details/${item.id}?caseSource=2`">{{item.ctitle}}</router-link>
+    <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
+      <div :class="{top: true, active: showImg=== 'top'}" v-show="showImg=== 'top'">
+        <img :src="items[0].surface">
+        <div class="introduce">
+          <router-link :to="`/details/${items[0].id}?caseSource=2`">{{items[0].ctitle}}</router-link>
+        </div>
       </div>
-    </div>
+    </transition>
+
+    <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
+      <div :class="{left: true, active: showImg=== 'left'}" v-show="showImg=== 'left'">
+        <img :src="items[1].surface">
+        <div class="introduce">
+          <router-link :to="`/details/${items[1].id}?caseSource=2`">{{items[1].ctitle}}</router-link>
+        </div>
+      </div>
+    </transition>
+
+    <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
+      <div :class="{bottom: true, active: showImg=== 'bottom'}" v-show="showImg=== 'bottom'">
+        <img :src="items[2].surface">
+        <div class="introduce">
+          <router-link :to="`/details/${items[2].id}?caseSource=2`">{{items[2].ctitle}}</router-link>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -20,38 +40,34 @@
     data() {
       return {
         classMap: ['top', 'left', 'bottom'],
-        items: []
+        showImg: null,
+        items: [{}, {}, {}]
       }
     },
 
     mounted() {
       document.addEventListener('mouseleave', () => {
-        const $container = this.$refs.container
-        const $top = $container.querySelector('.top')
-        const $left = $container.querySelector('.left')
-        const $bottom = $container.querySelector('.bottom')
-
-        this.changeActive($left, false)
-        this.changeActive($top, false)
-        this.changeActive($bottom, false)
+        this.showImg = null
       })
-      this.axios.get('/api/getSection')
-        .then(res => {
-          this.items = res.data.experience
-        })
+
+      this.axios.get('/api/getSection').then(res => {
+        this.items = res.data.experience
+      })
     },
 
     methods: {
       mousemove(event) {
-        const $container = this.$refs.container
-        const $top = $container.querySelector('.top')
-        const $left = $container.querySelector('.left')
-        const $bottom = $container.querySelector('.bottom')
         const {isLeft, underL1, underL2} = this.getConditions(event)
 
-        this.changeActive($left, isLeft && underL2 && !underL1)
-        this.changeActive($top, (isLeft && underL1) || (!isLeft && underL2))
-        this.changeActive($bottom, (isLeft && !underL2) || (!isLeft && !underL1))
+        if (isLeft && underL2 && !underL1) {
+          this.showImg = 'left'
+        } else if ((isLeft && underL1) || (!isLeft && underL2)) {
+          this.showImg = 'top'
+        } else if ((isLeft && !underL2) || (!isLeft && !underL1)) {
+          this.showImg = 'bottom'
+        } else {
+          this.showImg = null
+        }
       },
 
       getConditions(event) {
@@ -65,16 +81,6 @@
           underL1: width * offsetY < height * offsetX,
           underL2: height * offsetX < width * (height - offsetY),
         }
-      },
-
-      changeActive(el, isActive) {
-        if (!el) {
-          return
-        }
-
-        isActive
-          ? el.classList.add('active')
-          : el.classList.remove('active')
       },
     }
   }
