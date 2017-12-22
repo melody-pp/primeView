@@ -8,7 +8,7 @@
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd">
       <template v-for="item in cases">
-        <b-carousel-slide v-if="item.kmedia.endsWith('.mp4')" class="video"
+        <b-carousel-slide v-if="item.kmedia.endsWith('.webm')" class="video"
                           :key="item.id" @click.native="toDetail(item.id)">
           <video autoplay>
             <source :src="item.kmedia" type="video/webm">

@@ -104,7 +104,7 @@
     width: 100%;
     height: 50%;
     position: absolute;
-    transition: all 12s;
+    transition: all 6s;
   }
 
   .left {
@@ -114,7 +114,7 @@
     width: 50%;
     height: 100%;
     position: absolute;
-    transition: all 12s;
+    transition: all 6s;
   }
 
   .bottom {
