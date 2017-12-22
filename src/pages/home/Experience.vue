@@ -71,6 +71,10 @@
 </script>
 
 <style scoped lang="scss">
+  .animated {
+    animation-duration: 600ms;
+  }
+
   .ex-container {
     height: 100%;
     position: relative;
