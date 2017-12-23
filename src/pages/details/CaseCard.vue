@@ -59,7 +59,7 @@
       a {
         color: #fff;
         font-family: "SourceHanSansCN-Medium";
-        font-size: 30px;
+        font-size: 1.6vw;
         text-decoration: none;
       }
     }

@@ -94,9 +94,9 @@
     opacity: 1;
     width: 100%;
     height: 100%;
-    font-size: 100px;
+    font-size: 5.2vw;
     font-family: "SourceHanSansCN-ExtraLight";
-    transition: all 500ms;
+    transition: all 1s;
   }
 
   .accordionModel table {
@@ -121,6 +121,9 @@
   }
 
   td, th {
-    border: none !important;
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+
   }
 </style>
