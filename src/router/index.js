@@ -19,37 +19,15 @@ const router = new Router({
       component: Main,
       children: [
         {path: '/', redirect: '/home'},
-        {
-          path: '/home',
-          component: Home
-        },
-
-        {
-          path: '/aboutUs',
-          component: AboutUs
-        },
-        {
-          path: '/products',
-          component: Products
-        },
-        {
-          path: '/cases',
-          component: Cases
-        },
-        {
-          path: '/details/:caseId',
-          component: Details
-        },
-        {
-          path: '/joinUs',
-          component: JoinUs
-        },
+        {path: '/home', component: Home},
+        {path: '/aboutUs', component: AboutUs},
+        {path: '/products', component: Products},
+        {path: '/cases', component: Cases},
+        {path: '/details/:caseId', component: Details},
+        {path: '/joinUs', component: JoinUs},
       ]
     },
-    {
-      path: '*',
-      component: Error
-    }
+    {path: '*', component: Error}
   ],
   scrollBehavior(to, from, savedPosition) {
     return {x: 0, y: 0}
