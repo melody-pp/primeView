@@ -13,7 +13,7 @@
       </div>
 
       <div v-show="isBusy" class="loader">Loading...</div>
-      <div v-show="!isBusy" class="Done">---&nbsp;&nbsp;我是有底线的&nbsp;&nbsp;---</div>
+      <div v-show="noMoreCase" class="Done">---&nbsp;&nbsp;我是有底线的&nbsp;&nbsp;---</div>
     </div>
     <FootBox class="caseFooter"></FootBox>
 
@@ -25,7 +25,7 @@
   import Waterfall from '../../lib/waterfall'
   import CaseCard from './CaseCard'
   import FootBox from '../../components/FootBox'
-  import {throttle} from '../../utils'
+  import { throttle } from '../../utils'
 
   export default {
     data() {
@@ -35,6 +35,8 @@
         caseType: 0,
         minHeight: 0,
         isBusy: false,
+        noMoreCase: false,
+        lastY: null
       }
     },
 
@@ -51,44 +53,51 @@
       caseType3() {
         return this.cases.filter(item => item.cid == 3)
       },
+      scrollHandler() {
+        return throttle(() => {
+          const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+
+          if (scrollTop + window.innerHeight >= document.body.clientHeight) {
+            this.getCases()
+          }
+        }, 200)
+      }
     },
 
     mounted() {
       const vm = this
-      vm.minHeight = window.innerHeight - 200 + 'px'
+
       vm.getCases()
+      vm.minHeight = window.innerHeight - 200 + 'px'
 
-      window.addEventListener('wheel touchmove', throttle(() => {
-        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-        if (scrollTop + window.innerHeight >= document.body.clientHeight) {
-          vm.getCases()
-        }
-      }, 200))
-
+      window.addEventListener('wheel', event => event.deltaY > 0 && this.scrollHandler())
+      window.addEventListener('touchstart', event => this.lastY = event.touches[0].clientY)
+      window.addEventListener('touchend', event => this.lastY > event.changedTouches[0].clientY + 5 && this.scrollHandler())
       window.addEventListener('resize', () => Waterfall('.wf-container'))
     },
 
     methods: {
       getCases() {
-        if (this.isBusy) return
+        if (this.isBusy || this.noMoreCase) return
 
         this.isBusy = true
-        this.axios.post('/api/getCase', {page: this.page})
-          .then(res => {
-            const data = res.data
+        this.axios.post('/api/getCase', {page: this.page}).then(res => {
+          const data = res.data
 
-            if (!data || !data.length) {
-              return this.isBusy = false
-            }
+          if (!data || !data.length) {
+            this.isBusy = false
+            this.noMoreCase = true
+            return
+          }
 
-            this.page += 1
-            this.cases.push(...res.data)
+          this.page += 1
+          this.cases.push(...res.data)
 
-            setTimeout(() => {
-              Waterfall('.wf-container')
-              this.isBusy = false
-            })
+          setTimeout(() => {
+            Waterfall('.wf-container')
+            this.isBusy = false
           })
+        })
       },
 
       showType(type) {
