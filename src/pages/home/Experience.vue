@@ -33,6 +33,10 @@
         this.showImg = null
       })
 
+      document.addEventListener('touchstart', () => {
+        this.showImg = null
+      })
+
       this.axios.get('/api/getSection').then(res => {
         this.items = res.data.experience
       })
