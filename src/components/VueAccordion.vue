@@ -1,10 +1,8 @@
 <template>
   <div class="vue-accordion">
-    <div class="accordion-container" @mouseleave="mouseLeave()">
-      <partialAccordion
-        v-for="(item,index) in items"
-        v-bind="item" :key="index"
-        @mouseenter.native="mouseEnter(index)"/>
+    <div ref="aContainer" class="accordion-container">
+      <partialAccordion v-for="(item,index) in items" @enteritem="enterItem"
+                        v-bind="item" :key="index" :data-index="index"/>
     </div>
 
     <div class="accordionModel">
@@ -27,14 +25,25 @@
 
 <script>
   import partialAccordion from './VueAccordionPartial.vue'
-  import index from '../router/index'
 
   export default {
+    data: () => ({isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)}),
+    mounted() {
+      if (this.isMobile) {
+        document.addEventListener('touchstart', event => {
+          const $target = event.target
+          const $container = this.$refs.aContainer
+          $target !== $container && !$container.contains($target) && this.mouseLeave()
+        })
+      } else {
+        this.$refs.aContainer.addEventListener('mouseleave', this.mouseLeave.bind(this))
+      }
+    },
     name: 'vue-accordion',
     props: {items: Array,},
     components: {partialAccordion},
     methods: {
-      mouseEnter(index) {
+      enterItem(index) {
         this.$emit('stopInterval')
 
         ;[...this.$refs.table.querySelectorAll('.sp')].forEach(el => {
@@ -42,7 +51,7 @@
         })
 
         const width = window.innerWidth * 0.666 + 'px'
-        switch (index) {
+        switch (+index) {
           case 0:
             return this.$refs.sp1.style.width = width
           case 1:

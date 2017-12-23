@@ -21,10 +21,10 @@
     mounted() {
       this.showItems = this.allItems.slice(0, 3)
       this.startInterval()
-      this.axios.get('/api/getSection')
-        .then(res => {
-          this.allItems = res.data.vision
-        })
+
+      this.axios.get('/api/getSection').then(res => {
+        this.allItems = res.data.vision
+      })
     },
 
     destroyed() {
