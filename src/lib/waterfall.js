@@ -4,7 +4,7 @@
  * @param mb margin bottom
  * @param mr 最小 margin right
  */
-export default function waterfall (container, mb = 15, mr = 15) {
+export default function waterfall(container, mb = 15, mr = 15) {
   typeof(container) === 'string' && (container = document.querySelector(container))
 
   let debounceTimer = null
@@ -25,7 +25,7 @@ export default function waterfall (container, mb = 15, mr = 15) {
 
   const elWidth = els[0].clientWidth
   let cols = Math.floor(container.clientWidth / elWidth)
-  while ((container.clientWidth - cols * elWidth) / (cols - 1) < mr) {cols--}
+  if (cols > 1) {while ((container.clientWidth - cols * elWidth) / (cols - 1) < mr) {cols--}}
   mr = (container.clientWidth - cols * elWidth) / (cols - 1)
 
   const tempHeights = new Array(cols)
