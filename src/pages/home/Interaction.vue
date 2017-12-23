@@ -31,10 +31,9 @@
     },
     components: {InteractionCard},
     mounted() {
-      this.axios.get('/api/getSection')
-        .then(res => {
-          this.items = res.data.data
-        })
+      this.axios.get('/api/getSection').then(res => {
+        this.items = res.data.data
+      })
     },
   }
 </script>

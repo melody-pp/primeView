@@ -1,10 +1,10 @@
 <template>
-  <div ref="box" :style="colStyle" @mouseleave="mouseLeave" @mouseenter="mouseEnter">
+  <div ref="box" :style="colStyle">
     <transition
-      :enter-active-class="enterClass"
-      @enter="enter"
-      :leave-active-class="leaveClass"
-      @after-leave="afterLeave">
+        :enter-active-class="enterClass"
+        @enter="enter"
+        :leave-active-class="leaveClass"
+        @after-leave="afterLeave">
       <div class="modelStyle" v-if="text" v-show="showModel" :style="modelStyle">
         <transition :enter-active-class="enterClass">
           <router-link :to="`/details/${id}?caseSource=2`" v-show="showText">{{text}}</router-link>
@@ -21,6 +21,7 @@
         showModel: false,
         showText: false,
         direction: 0,
+        isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
         enterAnimates: ['fadeInDown', 'fadeInRight', 'fadeInUp', 'fadeInLeft'],
         leaveAnimates: ['fadeOutUp', 'fadeOutRight', 'fadeOutDown', 'fadeOutLeft'],
         colStyle: {
@@ -46,6 +47,21 @@
           alignItems: 'center',
           justifyContent: 'center'
         }
+      }
+    },
+
+    mounted() {
+      if (this.isMobile) {
+        document.addEventListener('touchstart', event => {
+          if (event.target === this.$refs.box || this.$refs.box.contains(event.target)) {
+            this.mouseEnter(event)
+          } else {
+            this.mouseLeave(event)
+          }
+        })
+      } else {
+        this.$refs.box.addEventListener('mouseenter', this.mouseEnter.bind(this))
+        this.$refs.box.addEventListener('mouseleave', this.mouseLeave.bind(this))
       }
     },
 
