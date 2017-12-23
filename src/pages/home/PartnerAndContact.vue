@@ -8,12 +8,13 @@
         <div class="title">联系我们</div>
 
         <div :class="{mobile:isMobile}" class="info">
-          <div class="infoBox clearfix" v-for="info in contactInfo">
-            <img class="icon" :src="info.icon">
+          <div class="infoBox clearfix" v-for="(info, index) in contactInfo" :key="index">
+            <img v-if="index<2" class="icon" :src="info.icon">
             <div class="txt">
               <span class="key">{{info.key}}</span>
               <span class="val">{{info.val}}</span>
             </div>
+            <img v-if="index===2" class="icon" :src="info.icon">
           </div>
         </div>
       </div>
@@ -129,6 +130,14 @@
   .infoBox {
     display: inline-block;
     flex: 1;
+    &:nth-child(3) {
+      img {
+        float: right;
+      }
+      div {
+        float: right;
+      }
+    }
     .key {
       color: #98d4d5;
       font-size: 18px;
@@ -145,19 +154,17 @@
       float: left;
       margin-left: 20px;
       display: inline-block;
-      width: 65%;
       span {
         display: block;
         text-align: left;
       }
       span:nth-child(1) {
         margin-bottom: 15px;
-
       }
     }
   }
 
-  .infoBox:nth-child(2) .val {
+  .infoBox:nth-child(2) .txt {
     width: 70%;
   }
 
