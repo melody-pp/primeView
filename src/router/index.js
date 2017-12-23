@@ -7,6 +7,7 @@ import Products from '@/pages/products/Products'
 import Cases from '@/pages/cases/Cases'
 import Details from '@/pages/details/Details'
 import JoinUs from '@/pages/joinUs/JoinUs'
+import Error from '@/pages/Error'
 
 Vue.use(Router)
 
@@ -45,9 +46,13 @@ const router = new Router({
         },
       ]
     },
+    {
+      path: '*',
+      component: Error
+    }
   ],
-  scrollBehavior (to, from, savedPosition) {
-    return { x: 0, y: 0 }
+  scrollBehavior(to, from, savedPosition) {
+    return {x: 0, y: 0}
   }
 })
 
