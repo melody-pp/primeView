@@ -119,11 +119,11 @@
       display: block;
     }
     .num {
-      font-size: 72px;
+      font-size: 3.8vw;
       font-family: "SourceHanSansCN-ExtraLight";
     }
     .unit {
-      font-size: 16px;
+      font-size: 0.8vw;
       font-family: "SourceHanSansCN-Medium";
       opacity: 0.5;
     }
