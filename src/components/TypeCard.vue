@@ -85,14 +85,16 @@
 </script>
 
 <style>
-  .kywd{
+  .kywd {
     font-size: 1.9vw;
   }
+
   .ityped-cursor {
     opacity: 1;
-    font-size: 2.2rem;
-    animation: blink 0.3s infinite;
+    font-size: 1.2rem;
+    animation: blink .4s infinite;
     animation-direction: alternate;
+    margin-left: -10px;
   }
 
   @keyframes blink {
