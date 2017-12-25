@@ -24,34 +24,29 @@
   }
 </script>
 
-<style>
+<style scoped lang="scss">
   .case-card {
     width: 200px;
     cursor: pointer;
     transition: all 500ms;
+    .card-img-top {
+      height: calc(100% - 115px);
+    }
+    .card-body {
+      padding: 20px 10px;
+      text-align: left;
+      .card-title {
+        font-size: 14px;
+        font-family: "SourceHanSansCN-Bold";
+        margin-bottom: 0;
+      }
+    }
+
+    .card-footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 0.3rem 10px;
+    }
   }
 
-  .card-body {
-    padding: 20px 10px;
-    text-align: left;
-  }
 
-  .card-footer {
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 0.3rem 10px;
-  }
-
-  .card-img-top {
-    height: calc(100% - 115px);
-  }
-
-  .card-title {
-    font-size: 14px;
-    font-family: "SourceHanSansCN-Bold";
-    margin-bottom: 0;
-  }
-
-  h4 {
-    margin-bottom: 0;
-  }
 </style>

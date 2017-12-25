@@ -18,10 +18,10 @@
   </footer>
 </template>
 
-<style>
+<style lang="scss">
   footer {
     width: 100%;
-    padding: 10px 10%;
+    padding: 10px 10%!important;
     color: #000;
     background-color: #FFF;
   }
@@ -46,7 +46,8 @@
     font-family: "SourceHanSansCN-Normal";
     font-size: 14px;
   }
-  .joinUs a{
+
+  .joinUs a {
     float: left;
     margin: 0 4px;
     line-height: 45px;
@@ -56,9 +57,12 @@
     display: inline-block;
     text-decoration: none;
   }
-  .joinUs a:hover{
+
+  .joinUs a:hover {
     color: #98d4d5;
+    text-decoration: none;
   }
+
   .share {
     float: right;
     display: inline-block;

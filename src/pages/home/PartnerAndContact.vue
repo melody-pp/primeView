@@ -9,12 +9,13 @@
 
         <div :class="{mobile:isMobile}" class="info">
           <div class="infoBox clearfix" v-for="(info, index) in contactInfo" :key="index">
-            <img v-if="index<2" class="icon" :src="info.icon">
+            <div class=" clearfix" style="margin: 0 auto;">
+            <img class="icon" :src="info.icon">
             <div class="txt">
               <span class="key">{{info.key}}</span>
               <span class="val">{{info.val}}</span>
             </div>
-            <img v-if="index===2" class="icon" :src="info.icon">
+            </div>
           </div>
         </div>
       </div>
@@ -42,8 +43,8 @@
       contactInfo() {
         return [
           {key: '办公电话', val: this.info.tel, icon: require('../../assets/logo/tel.png')},
-          {key: '办公地址 ', val: this.info.addr, icon: require('../../assets/logo/pos.png')},
           {key: 'EMAILS', val: this.info.mail, icon: require('../../assets/logo/email.png')},
+          {key: '办公地址 ', val: this.info.addr, icon: require('../../assets/logo/pos.png')},
         ]
       },
     },
@@ -107,20 +108,25 @@
 
   .contact-us {
     background-color: #000;
+
     .title {
       color: #fff;
       font-size: 2.4vw;
+      margin: 0 auto;
       margin-bottom: 60px;
       letter-spacing: 3px;
       font-family: "SourceHanSansCN-Normal";
+      width: 65%;
     }
   }
 
   .info {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 65%;
     margin: 0 auto;
+
   }
 
   .info.mobile {
@@ -130,14 +136,6 @@
   .infoBox {
     display: inline-block;
     flex: 1;
-    &:nth-child(3) {
-      img {
-        float: right;
-      }
-      div {
-        float: right;
-      }
-    }
     .key {
       color: #98d4d5;
       font-size: 18px;
@@ -164,8 +162,8 @@
     }
   }
 
-  .infoBox:nth-child(2) .txt {
-    width: 70%;
+  .infoBox:nth-child(3) .txt {
+    width: 62%;
   }
 
 </style>
