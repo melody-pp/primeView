@@ -10,11 +10,11 @@
         <div :class="{mobile:isMobile}" class="info">
           <div class="infoBox clearfix" v-for="(info, index) in contactInfo" :key="index">
             <div class=" clearfix" style="margin: 0 auto; display: inline-block">
-            <img class="icon" :src="info.icon">
-            <div class="txt">
-              <span class="key">{{info.key}}</span>
-              <span class="val">{{info.val}}</span>
-            </div>
+              <img class="icon" :src="info.icon">
+              <div class="txt">
+                <span class="key">{{info.key}}</span>
+                <span class="val">{{info.val}}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -163,7 +163,7 @@
   }
 
   .infoBox:nth-child(3) .txt {
-    width: 62%;
+    width: calc(100% - 65px);
   }
 
 </style>
