@@ -67,7 +67,7 @@
           el.style.width = '0'
         })
         ;[...this.$refs.aContainer.childNodes].forEach(el => {
-          el.classList.remove = 'active'
+          el.classList.remove = 'hover'
         })
       }
     }
