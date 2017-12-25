@@ -5,19 +5,7 @@
         <img src="../../assets/partner.png" alt="">
       </div>
       <div class="contact-us">
-        <div class="title">联系我们</div>
-
-        <div :class="{mobile:isMobile}" class="info">
-          <div class="infoBox clearfix" v-for="(info, index) in contactInfo" :key="index">
-            <div class=" clearfix" style="margin: 0 auto; display: inline-block">
-              <img class="icon" :src="info.icon">
-              <div class="txt">
-                <span class="key">{{info.key}}</span>
-                <span class="val">{{info.val}}</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <img src="../../assets/contact-us.jpg" alt="联系我们">
       </div>
     </div>
 
@@ -31,22 +19,8 @@
   export default {
     data() {
       return {
-        infos: [{}],
-        isMobile: false,
+        isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
       }
-    },
-
-    computed: {
-      info() {
-        return this.infos[0]
-      },
-      contactInfo() {
-        return [
-          {key: '办公电话', val: this.info.tel, icon: require('../../assets/logo/tel.png')},
-          {key: 'EMAILS', val: this.info.mail, icon: require('../../assets/logo/email.png')},
-          {key: '办公地址 ', val: this.info.addr, icon: require('../../assets/logo/pos.png')},
-        ]
-      },
     },
 
     mounted() {
@@ -57,9 +31,6 @@
       this.axios.get('/api/getContact').then(res => {
         this.infos = res.data
       })
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        this.isMobile = true
-      }
     },
 
     methods: {
@@ -71,22 +42,16 @@
       },
       setInfoHeight() {
         const $page = document.querySelector('.page-6')
-        const pageStyle = window.getComputedStyle($page, null)
-        const pageHeight = parseFloat(pageStyle.height) - parseFloat(pageStyle.paddingTop)
-
         const $partners = $page.querySelector('.partners')
-        const partnersHeight = $partners.offsetHeight
-
         const $contactUs = $page.querySelector('.contact-us')
-        const $title = $contactUs.querySelector('.title')
-        const $info = $contactUs.querySelector('.info')
+        const $img = $contactUs.querySelector('img')
 
+        const pageHeight = $page.offsetHeight
+        const partnersHeight = $partners.offsetHeight
         const totalHeight = pageHeight - partnersHeight - 65
-        const padding = totalHeight - $info.offsetHeight - $title.offsetHeight - 60
 
+        $img.style.height = totalHeight + 'px'
         $contactUs.style.height = totalHeight + 'px'
-        $contactUs.style.paddingTop = padding / 2 + 'px'
-        $contactUs.style.paddingBottom = padding / 2 + 'px'
       }
     },
 
@@ -107,63 +72,7 @@
   }
 
   .contact-us {
-    background-color: #000;
-
-    .title {
-      color: #fff;
-      font-size: 2.4vw;
-      margin: 0 auto;
-      margin-bottom: 60px;
-      letter-spacing: 3px;
-      font-family: "SourceHanSansCN-Normal";
-      width: 65%;
-    }
+    overflow: hidden;
+    background: #2c2b2a;
   }
-
-  .info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 65%;
-    margin: 0 auto;
-
-  }
-
-  .info.mobile {
-    width: 80%;
-  }
-
-  .infoBox {
-    display: inline-block;
-    flex: 1;
-    .key {
-      color: #98d4d5;
-      font-size: 18px;
-      font-family: "SourceHanSansCN-Bold";
-    }
-    .val {
-      font-size: 14px;
-      font-family: "SourceHanSansCN-Normal";
-    }
-    .icon {
-      float: left;
-    }
-    .txt {
-      float: left;
-      margin-left: 20px;
-      display: inline-block;
-      span {
-        display: block;
-        text-align: left;
-      }
-      span:nth-child(1) {
-        margin-bottom: 15px;
-      }
-    }
-  }
-
-  .infoBox:nth-child(3) .txt {
-    width: 266px;
-  }
-
 </style>
