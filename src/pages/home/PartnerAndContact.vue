@@ -32,7 +32,7 @@
     data() {
       return {
         infos: [{}],
-        isMobile: false,
+        isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
       }
     },
 
@@ -56,30 +56,26 @@
       this.axios.get('/api/getContact').then(res => {
         this.infos = res.data
       })
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        this.isMobile = true
-      }
     },
 
     methods: {
       onSlideStart(slide) {
         this.sliding = true
       },
+
       onSlideEnd(slide) {
         this.sliding = false
       },
+
       setInfoHeight() {
         const $page = document.querySelector('.page-6')
-        const pageStyle = window.getComputedStyle($page, null)
-        const pageHeight = parseFloat(pageStyle.height) - parseFloat(pageStyle.paddingTop)
-
         const $partners = $page.querySelector('.partners')
-        const partnersHeight = $partners.offsetHeight
-
         const $contactUs = $page.querySelector('.contact-us')
         const $title = $contactUs.querySelector('.title')
         const $info = $contactUs.querySelector('.info')
 
+        const pageHeight = $page.offsetHeight
+        const partnersHeight = $partners.offsetHeight
         const totalHeight = pageHeight - partnersHeight - 65
         const padding = totalHeight - $info.offsetHeight - $title.offsetHeight - 60
 
