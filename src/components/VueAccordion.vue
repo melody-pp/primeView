@@ -66,6 +66,9 @@
         ;[...this.$refs.table.querySelectorAll('.sp')].forEach(el => {
           el.style.width = '0'
         })
+        ;[...this.$refs.aContainer.childNodes].forEach(el => {
+          el.classList.remove = 'active'
+        })
       }
     }
   }
