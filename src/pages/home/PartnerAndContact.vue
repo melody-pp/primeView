@@ -158,7 +158,7 @@
   }
 
   .infoBox:nth-child(3) .txt {
-    width: calc(100% - 65px);
+    width: calc(100% - 63px);
   }
 
 </style>
