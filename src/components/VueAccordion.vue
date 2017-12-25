@@ -108,6 +108,7 @@
   .accordionModel table td {
     padding: 0;
     background: rgba(0, 0, 0, 0.8);
+    vertical-align: middle;
   }
 
   .accordionModel table td.sp {

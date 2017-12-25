@@ -146,6 +146,7 @@
     text-align: center;
     margin-top: 60px;
     color: #b5b4b4;
+    font-family: "SourceHanSansCN-ExtraLight";
   }
 
   @-webkit-keyframes load4 {

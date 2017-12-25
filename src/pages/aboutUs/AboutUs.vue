@@ -21,8 +21,8 @@
           </div>
         </div>
       </div>
-      <div class="mapBox" style="overflow: auto;height:400px;">
-        <iframe :src="mapSrc.addr" frameborder="0" width="100%" height="394"></iframe>
+      <div class="mapBox" style="overflow: auto;height:420px;">
+        <iframe :src="mapSrc.addr" frameborder="0" width="100%" height="410" scrolling="no"></iframe>
       </div>
     </div>
 
