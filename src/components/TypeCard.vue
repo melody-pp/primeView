@@ -1,9 +1,9 @@
 <template>
   <transition
-    :enter-active-class="`animated ${inClass}`"
-    :leave-active-class="`animated ${outClass}`">
+      :enter-active-class="`animated ${inClass}`"
+      :leave-active-class="`animated ${outClass}`">
 
-    <div v-show="show" ref="card" :style="cardStyle">
+    <div v-show="show" ref="card" :style="cardStyle" class="type-card">
       <span class="kywd" ref="span"></span>
     </div>
   </transition>
@@ -11,7 +11,7 @@
 
 <script>
   import iTyped from 'ityped'
-  import {sample} from '../utils'
+  import { sample } from '../utils'
 
   export default {
     data() {
@@ -21,12 +21,7 @@
         outClass: sample(this.outClasses),
         showString: sample(this.strings),
         cardStyle: {
-          height: '100%',
           background: sample(this.colors),
-          textAlign: 'left',
-          textIndent: '15px',
-          display: 'flex',
-          alignItems: 'center'
         },
       }
     },
@@ -84,14 +79,25 @@
   }
 </script>
 
-<style>
+<style scoped>
   .kywd {
     font-size: 1.9vw;
+    font-family: "SourceHanSansCN-Medium";
+
+  }
+
+  .type-card {
+    height: 100%;
+    text-align: left;
+    text-indent: 15px;
+    display: flex;
+    display: -ms-flexbox;
+    align-items: center;
   }
 
   .ityped-cursor {
     opacity: 1;
-    font-size: 1.2rem;
+    font-size: 2.5vw;
     animation: blink .4s infinite;
     animation-direction: alternate;
     margin-left: -10px;
