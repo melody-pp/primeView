@@ -2,7 +2,7 @@
   <div>
     <div class="contact-container">
       <div class="partners">
-        <img src="../../assets/partner.png" alt="">
+        <img src="../../assets/partner.png" @load="setInfoHeight" alt="">
       </div>
       <div class="contact-us">
         <div class="title">联系我们</div>
@@ -51,7 +51,6 @@
 
     mounted() {
       setTimeout(this.setInfoHeight)
-      window.onload = this.setInfoHeight
       window.addEventListener('resize', () => setTimeout(this.setInfoHeight))
 
       this.axios.get('/api/getContact').then(res => {
