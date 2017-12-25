@@ -11,31 +11,28 @@
 
     <div class="fullpage-wp" v-fullpage="opts" ref="fullpage">
       <div class="page-1 page">
-        <Banner></Banner>
+        <Banner/>
       </div>
 
       <div class="page-2 page">
-        <Keywords></Keywords>
+        <Keywords/>
       </div>
 
       <div class="page-3 page">
-        <Visual></Visual>
+        <Visual/>
       </div>
 
       <div class="page-4 page">
-        <Interaction></Interaction>
+        <Interaction/>
       </div>
-
+      
       <div class="page-5 page">
-        <Experience></Experience>
+        <Experience/>
       </div>
 
-      <keep-alive>
-        <div class="page-6 page">
-          <PartnerAndContact></PartnerAndContact>
-        </div>
-      </keep-alive>
-
+      <div class="page-6 page">
+        <PartnerAndContact/>
+      </div>
     </div>
   </div>
 </template>
