@@ -52,7 +52,7 @@
     mounted() {
       setTimeout(this.setInfoHeight)
       window.onload = this.setInfoHeight
-      window.addEventListener('resize', this.setInfoHeight)
+      window.addEventListener('resize', () => setTimeout(this.setInfoHeight))
 
       this.axios.get('/api/getContact').then(res => {
         this.infos = res.data
@@ -163,7 +163,7 @@
   }
 
   .infoBox:nth-child(3) .txt {
-    width: 266px;
+    width: calc(100% - 65px);
   }
 
 </style>
