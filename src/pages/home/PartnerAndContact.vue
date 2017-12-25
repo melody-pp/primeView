@@ -9,7 +9,7 @@
 
         <div :class="{mobile:isMobile}" class="info">
           <div class="infoBox clearfix" v-for="(info, index) in contactInfo" :key="index">
-            <div class=" clearfix" style="margin: 0 auto;">
+            <div class=" clearfix" style="margin: 0 auto; display: inline-block">
             <img class="icon" :src="info.icon">
             <div class="txt">
               <span class="key">{{info.key}}</span>
