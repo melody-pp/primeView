@@ -18,7 +18,7 @@
             return _this.$router.push(`/details/${_this.id}?caseSource=2`)
           }
 
-          for (const el of this.parentNode.childNodes) {
+          for (const el of this.parentNode.children) {
             el.classList.remove('hover')
           }
 

@@ -63,12 +63,9 @@
 
       mouseLeave() {
         this.$emit('startInterval')
-        ;[...this.$refs.table.querySelectorAll('.sp')].forEach(el => {
-          el.style.width = '0'
-        })
-        ;[...this.$refs.aContainer.childNodes].forEach(el => {
-          el.classList.remove = 'hover'
-        })
+        this.$refs.aContainer.classList.remove('hover')
+        ;[...this.$refs.table.querySelectorAll('.sp')].forEach(el => el.style.width = '0')
+        ;[...this.$refs.aContainer.children].forEach(el => el.classList.remove = 'hover')
       }
     }
   }
