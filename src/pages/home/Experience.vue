@@ -10,7 +10,9 @@
       <img :src="item.surface">
       <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
         <div class="introduce" v-show="showImg=== classMap[index]">
-          <router-link :to="`/details/${item.id}?caseSource=2`">{{item.ctitle}}</router-link>
+          <router-link :to="`/details/${item.id}?caseSource=2`" @touchstart.native="toDetail(`/details/${item.id}?caseSource=2`)">
+            {{item.ctitle}}
+          </router-link>
         </div>
       </transition>
     </div>
@@ -22,9 +24,10 @@
   export default {
     data() {
       return {
-        classMap: ['top', 'left', 'bottom'],
         showImg: null,
-        items: [{}, {}, {}]
+        items: [{}, {}, {}],
+        classMap: ['top', 'left', 'bottom'],
+        isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
       }
     },
 
@@ -43,6 +46,10 @@
     },
 
     methods: {
+      toDetail(route) {
+        this.$router.push(route)
+      },
+
       mousemove(event) {
         const {isLeft, underL1, underL2} = this.getConditions(event)
 
