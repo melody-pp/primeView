@@ -24,7 +24,6 @@
 </template>
 
 <script>
-  import { mapMutations } from 'vuex'
   import partialAccordion from './VueAccordionPartial.vue'
 
   export default {
@@ -48,7 +47,7 @@
         document.addEventListener('touchstart', event => {
           const $target = event.target
           const $container = document.querySelector('.accordion-container')
-          $target !== $container && !$container.contains($target) && this.mouseLeave()
+          $target !== $container && !$container.contains($target) && this.mouseleave()
         })
       }
 
@@ -56,16 +55,14 @@
     },
 
     methods: {
-      ...mapMutations['changeHoverIndex'],
-
       enteritem(index) {
         this.$emit('stopInterval')
-        this.changeHoverIndex(index)
+        this.$store.commit('changeHoverIndex', index)
       },
 
-      mouseLeave() {
+      mouseleave() {
         this.$emit('startInterval')
-        this.changeHoverIndex(null)
+        this.$store.commit('changeHoverIndex', null)
       }
     }
   }
