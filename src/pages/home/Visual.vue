@@ -11,7 +11,8 @@
         index: 0,
         timerId: null,
         showItems: [],
-        allItems: []
+        allItems: [],
+        intervalTime: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 5000 : 2500
       }
     },
 
@@ -33,7 +34,7 @@
         this.timerId = setInterval(() => {
           this.index = (this.index + 3) % this.allItems.length
           this.showItems = this.allItems.slice(this.index, this.index + 3)
-        }, 2000)
+        }, this.intervalTime)
       },
 
       stopInterval() {
