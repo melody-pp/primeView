@@ -93,15 +93,15 @@
     display: flex;
     display: -ms-flexbox;
     align-items: center;
-    font-size: 1.2vw;
   }
 
   .ityped-cursor {
     opacity: 1;
-    font-size: 2.4vw;
+    font-size: 1.9vw;
     animation: blink .4s infinite;
     animation-direction: alternate;
     margin-left: -5px;
+    margin-top: -10px;
   }
 
   @keyframes blink {
