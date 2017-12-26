@@ -47,7 +47,11 @@
         document.addEventListener('touchstart', event => {
           const $target = event.target
           const $container = document.querySelector('.accordion-container')
-          $target !== $container && !$container.contains($target) && this.mouseleave()
+
+          if ($target !== $container && !$container.contains($target)) {
+            this.$emit('startInterval')
+            this.$store.commit('changeHoverIndex', null)
+          }
         })
       }
 
@@ -61,8 +65,10 @@
       },
 
       mouseleave() {
-        this.$emit('startInterval')
-        this.$store.commit('changeHoverIndex', null)
+        if (!this.isMobile) {
+          this.$emit('startInterval')
+          this.$store.commit('changeHoverIndex', null)
+        }
       }
     }
   }
