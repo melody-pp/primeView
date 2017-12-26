@@ -35,7 +35,7 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  router.app.$options.store.dispatch('changeView', to.path)
+  router.app.$options.store.commit('changeView', to.path)
   next()
 })
 

@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import {mapState, mapActions} from 'vuex'
+  import {mapState, mapMutations} from 'vuex'
 
   export default {
     data() {
@@ -53,7 +53,7 @@
       }
     },
     methods: {
-      ...mapActions(['changeHoverNav', 'setAllCase', 'setSecase', 'setPagecase']),
+      ...mapMutations(['changeHoverNav', 'setAllCase', 'setSecase', 'setPagecase']),
 
       mouseenter() {
         this.changeHoverNav(true)

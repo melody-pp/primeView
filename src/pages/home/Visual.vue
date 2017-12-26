@@ -1,8 +1,5 @@
 <template>
-  <VueAccordion
-    :items="showItems"
-    @stopInterval="stopInterval"
-    @startInterval="startInterval"/>
+  <VueAccordion :items="showItems" @stopInterval="stopInterval" @startInterval="startInterval"/>
 </template>
 
 <script>

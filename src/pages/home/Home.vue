@@ -25,7 +25,7 @@
       <div class="page-4 page">
         <Interaction/>
       </div>
-      
+
       <div class="page-5 page">
         <Experience/>
       </div>
@@ -60,7 +60,7 @@
           //why
           beforeChange(ele, current, next) {
             that.index = next
-            that.$store.dispatch('changeFPIndex', that.index)
+            that.$store.commit('changeFPIndex', that.index)
           },
           afterChange(ele, current) {
             that.index = current
@@ -69,7 +69,7 @@
       }
     },
     mounted() {
-      this.$store.dispatch('changeFPIndex', 0)
+      this.$store.commit('changeFPIndex', 0)
       if (this.isMobile) {
         const classList = document.querySelector('.fullpage-container').classList
 

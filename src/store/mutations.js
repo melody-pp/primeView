@@ -22,4 +22,8 @@ export default {
   setPagecase(state, pagecase) {
     state.pagecase = pagecase
   },
+
+  changeHoverIndex(state, index) {
+    state.accordionHoverIndex = index
+  }
 }

@@ -1,21 +1,21 @@
 <template>
   <div class="vue-accordion">
-    <div ref="aContainer" class="accordion-container">
-      <partialAccordion v-for="(item,index) in items" @enteritem="enterItem"
-                        v-bind="item" :key="index" :data-index="index"/>
+    <div class="accordion-container" @mouseleave="mouseleave">
+      <partialAccordion v-for="(item,index) in items" :key="index"
+                        v-bind="item" :index="index" @enteritem="enteritem"/>
     </div>
 
     <div class="accordionModel">
-      <table border="0" cellpadding="0" cellspacing="0" ref="table">
+      <table border="0" cellpadding="0" cellspacing="0">
         <tbody>
         <tr>
-          <td class="sp" ref="sp1"></td>
+          <td class="sp" :style="{width: hoverIndex === 0 ? spWidth : '0'}"></td>
           <td align="right">视</td>
           <td><span style="width:33%;display: inline-block">&nbsp;</span>觉</td>
-          <td class="sp" ref="sp2"></td>
+          <td class="sp" :style="{width: hoverIndex === 1 ? spWidth : '0'}"></td>
           <td>表<span style="width:33%;display: inline-block">&nbsp;</span></td>
           <td align="left">现</td>
-          <td class="sp" ref="sp3"></td>
+          <td class="sp" :style="{width: hoverIndex === 2 ? spWidth : '0'}"></td>
         </tr>
         </tbody>
       </table>
@@ -24,48 +24,48 @@
 </template>
 
 <script>
+  import { mapMutations } from 'vuex'
   import partialAccordion from './VueAccordionPartial.vue'
 
   export default {
-    data: () => ({isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)}),
+    name: 'vue-accordion',
+    props: {items: Array},
+    components: {partialAccordion},
+    computed: {
+      hoverIndex() {
+        return this.$store.state.accordionHoverIndex
+      }
+    },
+    data() {
+      return {
+        isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
+        spWidth: window.innerWidth * 0.66 + 'px'
+      }
+    },
+
     mounted() {
       if (this.isMobile) {
         document.addEventListener('touchstart', event => {
           const $target = event.target
-          const $container = this.$refs.aContainer
+          const $container = document.querySelector('.accordion-container')
           $target !== $container && !$container.contains($target) && this.mouseLeave()
         })
-      } else {
-        this.$refs.aContainer.addEventListener('mouseleave', this.mouseLeave.bind(this))
       }
+
+      window.addEventListener('resize', () => this.spWidth = window.innerWidth * 0.66 + 'px')
     },
-    name: 'vue-accordion',
-    props: {items: Array,},
-    components: {partialAccordion},
+
     methods: {
-      enterItem(index) {
+      ...mapMutations['changeHoverIndex'],
+
+      enteritem(index) {
         this.$emit('stopInterval')
-
-        ;[...this.$refs.table.querySelectorAll('.sp')].forEach(el => {
-          el.style.width = '0'
-        })
-
-        const width = window.innerWidth * 0.666 + 'px'
-        switch (+index) {
-          case 0:
-            return this.$refs.sp1.style.width = width
-          case 1:
-            return this.$refs.sp2.style.width = width
-          case 2:
-            return this.$refs.sp3.style.width = width
-        }
+        this.changeHoverIndex(index)
       },
 
       mouseLeave() {
         this.$emit('startInterval')
-        this.$refs.aContainer.classList.remove('hover')
-        ;[...this.$refs.table.querySelectorAll('.sp')].forEach(el => el.style.width = '0')
-        ;[...this.$refs.aContainer.children].forEach(el => el.classList.remove('hover'))
+        this.changeHoverIndex(null)
       }
     }
   }

@@ -1,5 +1,7 @@
 <template>
-  <div ref="item" class="accordion-item" :style="{backgroundImage: `url(${surface})`}">
+  <div :class="['accordion-item',{hover: index === hoverIndex}]"
+       :style="{backgroundImage: `url(${surface})`}"
+       @touchstart="touchHandler" @mouseenter="mouseHandler">
     <div v-if="isMobile"></div>
     <router-link v-else :to="`/details/${id}?caseSource=2`"></router-link>
   </div>
@@ -7,30 +9,33 @@
 
 <script>
   export default {
-    props: ['surface', 'id'],
-    data: () => ({isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)}),
-    mounted() {
-      const _this = this
+    props: ['surface', 'id', 'index'],
 
-      if (this.isMobile) {
-        this.$refs.item.addEventListener('touchstart', function (event) {
-          if (this.classList.contains('hover')) {
-            return _this.$router.push(`/details/${_this.id}?caseSource=2`)
-          }
+    computed: {
+      hoverIndex() {
+        return this.$store.state.accordionHoverIndex
+      }
+    },
 
-          for (const el of this.parentNode.children) {
-            el.classList.remove('hover')
-          }
+    data() {
+      return {
+        isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
+      }
+    },
 
-          this.classList.add('hover')
-          this.parentNode.classList.add('hover')
+    methods: {
+      mouseHandler() {
+        this.isMobile || this.$emit('enteritem', this.index)
+      },
 
-          _this.$emit('enteritem', this.dataset.index)
-        })
-      } else {
-        this.$refs.item.addEventListener('mouseenter', function () {
-          _this.$emit('enteritem', this.dataset.index)
-        })
+      touchHandler() {
+        if (!this.isMobile) return
+
+        if (this.index === this.hoverIndex) {
+          return this.$router.push(`/details/${this.id}?caseSource=2`)
+        }
+
+        this.$emit('enteritem', this.index)
       }
     }
   }
