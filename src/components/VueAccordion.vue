@@ -43,18 +43,7 @@
     },
 
     mounted() {
-      if (this.isMobile) {
-        document.addEventListener('touchstart', event => {
-          const $target = event.target
-          const $container = document.querySelector('.accordion-container')
-
-          if ($target !== $container && !$container.contains($target)) {
-            this.$emit('startInterval')
-            this.$store.commit('changeHoverIndex', null)
-          }
-        })
-      }
-
+      this.isMobile && document.addEventListener('touchstart', this.touchstart.bind(this))
       window.addEventListener('resize', () => this.spWidth = window.innerWidth * 0.66666 + 'px')
     },
 
@@ -66,6 +55,16 @@
 
       mouseleave() {
         if (!this.isMobile) {
+          this.$emit('startInterval')
+          this.$store.commit('changeHoverIndex', null)
+        }
+      },
+
+      touchstart(event) {
+        const $target = event.target
+        const $container = document.querySelector('.accordion-container')
+
+        if ($target !== $container && !$container.contains($target)) {
           this.$emit('startInterval')
           this.$store.commit('changeHoverIndex', null)
         }
