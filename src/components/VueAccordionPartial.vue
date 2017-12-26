@@ -56,11 +56,11 @@
     }
   }
 
-  .accordion-container:hover, .accordion-container.hover {
+  .accordion-container.hover {
     .accordion-item {
       width: 16.66%;
     }
-    .accordion-item:hover, .accordion-item.hover {
+    .accordion-item.hover {
       width: 66.66%;
     }
   }
