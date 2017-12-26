@@ -123,7 +123,7 @@
       font-family: "SourceHanSansCN-ExtraLight";
     }
     .unit {
-      font-size: 0.8vw;
+      font-size: 1vw;
       font-family: "SourceHanSansCN-Medium";
       opacity: 0.5;
     }
