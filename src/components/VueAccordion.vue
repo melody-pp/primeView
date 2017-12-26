@@ -38,7 +38,7 @@
     data() {
       return {
         isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
-        spWidth: window.innerWidth * 0.66 + 'px'
+        spWidth: window.innerWidth * 0.66666 + 'px'
       }
     },
 
@@ -51,7 +51,7 @@
         })
       }
 
-      window.addEventListener('resize', () => this.spWidth = window.innerWidth * 0.66 + 'px')
+      window.addEventListener('resize', () => this.spWidth = window.innerWidth * 0.66666 + 'px')
     },
 
     methods: {
