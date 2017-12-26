@@ -9,13 +9,7 @@
 
 <script>
   export default {
-    props: ['surface', 'id', 'index'],
-
-    computed: {
-      hoverIndex() {
-        return this.$store.state.accordionHoverIndex
-      }
-    },
+    props: ['surface', 'id', 'index', 'hoverIndex'],
 
     data() {
       return {

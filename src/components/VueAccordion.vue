@@ -1,8 +1,8 @@
 <template>
   <div class="vue-accordion">
     <div class="accordion-container" @mouseleave="mouseleave">
-      <partialAccordion v-for="(item,index) in items" :key="index"
-                        v-bind="item" :index="index" @enteritem="enteritem"/>
+      <partialAccordion v-for="(item,index) in items" v-bind="item" @enteritem="enteritem"
+                        :key="index" :index="index" :hoverIndex="hoverIndex"/>
     </div>
 
     <div class="accordionModel">
@@ -30,15 +30,11 @@
     name: 'vue-accordion',
     props: {items: Array},
     components: {partialAccordion},
-    computed: {
-      hoverIndex() {
-        return this.$store.state.accordionHoverIndex
-      }
-    },
     data() {
       return {
         isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
-        spWidth: window.innerWidth * 0.66666 + 'px'
+        spWidth: window.innerWidth * 0.66666 + 'px',
+        hoverIndex: null
       }
     },
 
@@ -49,14 +45,14 @@
 
     methods: {
       enteritem(index) {
+        this.hoverIndex = index
         this.$emit('stopInterval')
-        this.$store.commit('changeHoverIndex', index)
       },
 
       mouseleave() {
         if (!this.isMobile) {
+          this.hoverIndex = null
           this.$emit('startInterval')
-          this.$store.commit('changeHoverIndex', null)
         }
       },
 
@@ -65,8 +61,8 @@
         const $container = document.querySelector('.accordion-container')
 
         if ($target !== $container && !$container.contains($target)) {
+          this.hoverIndex = null
           this.$emit('startInterval')
-          this.$store.commit('changeHoverIndex', null)
         }
       }
     }

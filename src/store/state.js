@@ -10,6 +10,4 @@ export default {
   secase: [],
 
   pagecase: [],
-
-  accordionHoverIndex: null,
 }
