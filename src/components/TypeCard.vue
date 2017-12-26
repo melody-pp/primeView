@@ -79,7 +79,7 @@
   }
 </script>
 
-<style scoped>
+<style>
   .kywd {
     font-size: 1.9vw;
     font-family: "SourceHanSansCN-Medium";
@@ -98,11 +98,10 @@
 
   .ityped-cursor {
     opacity: 1;
-    font-size: 2.8vw;
+    font-size: 2.4vw;
     animation: blink .4s infinite;
     animation-direction: alternate;
-    margin-left: -10px;
-    margin-top: -5px;
+    margin-left: -5px;
   }
 
   @keyframes blink {
