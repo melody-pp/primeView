@@ -1,7 +1,6 @@
 <template>
-  <div :class="['accordion-item',{hover: index === hoverIndex}]"
-       :style="{backgroundImage: `url(${surface})`}"
-       @touchstart="touchHandler" @mouseenter="mouseHandler">
+  <div ref="item" :style="{backgroundImage: `url(${surface})`}"
+       :class="['accordion-item',{hover: index === hoverIndex}]">
     <div v-if="isMobile"></div>
     <router-link v-else :to="`/details/${id}?caseSource=2`"></router-link>
   </div>
@@ -17,14 +16,18 @@
       }
     },
 
+    mounted() {
+      this.isMobile
+        ? this.$refs.item.addEventListener('touchstart', this.touchHandler.bind(this))
+        : this.$refs.item.addEventListener('mouseenter', this.mouseHandler.bind(this))
+    },
+
     methods: {
       mouseHandler() {
-        this.isMobile || this.$emit('enteritem', this.index)
+        this.$emit('enteritem', this.index)
       },
 
       touchHandler() {
-        if (!this.isMobile) return
-
         if (this.index === this.hoverIndex) {
           return this.$router.push(`/details/${this.id}?caseSource=2`)
         }

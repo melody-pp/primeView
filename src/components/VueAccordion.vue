@@ -1,6 +1,6 @@
 <template>
   <div class="vue-accordion">
-    <div class="accordion-container" @mouseleave="mouseleave">
+    <div :class="['accordion-container', {hover: hoverIndex !== null}]" @mouseleave="mouseleave">
       <partialAccordion v-for="(item,index) in items" v-bind="item" @enteritem="enteritem"
                         :key="index" :index="index" :hoverIndex="hoverIndex"/>
     </div>
