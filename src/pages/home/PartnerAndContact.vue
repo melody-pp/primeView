@@ -2,7 +2,7 @@
   <div>
     <div class="contact-container">
       <div class="partners">
-        <img src="../../assets/partner.png" @load="setInfoHeight" alt="">
+        <img src="../../assets/partner.jpg" @load="setInfoHeight" alt="">
       </div>
       <div class="contact-us">
         <div class="title">联系我们</div>

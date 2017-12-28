@@ -1,7 +1,9 @@
 <template>
   <div :style="containerStyle">
     <div class="clearfix" :style="rowStyle">
-      <div class="titleCss"></div>
+      <div class="titleCss">
+        <img class="interTitle" src="../../assets/index/interTitle.png" alt="">
+      </div>
 
       <InteractionCard v-for="(item, index) in items" :key="index"
                        :imgUrl="item.surface" :text="item.ctitle" :id="item.id"/>
@@ -42,11 +44,16 @@
     height: 100%;
     width: 50%;
     float: left;
-    background-size: cover;
-    background-image: url("../../assets/index/it1.jpg");
     padding: 0px;
     overflow: hidden;
     position: relative;
 
+  }
+
+  .interTitle {
+    position: absolute;
+    top: 42%;
+    left: 33%;
+    width: 32%;
   }
 </style>
