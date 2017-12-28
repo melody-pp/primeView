@@ -8,9 +8,10 @@
 
     <div v-for="(item, index) in items" :key="index" :class="[classMap[index],{active: showImg === classMap[index]}]">
       <img :src="item.surface">
-      <transition enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
+      <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
         <div class="introduce" v-show="showImg=== classMap[index]">
-          <router-link :to="`/details/${item.id}?caseSource=2`" @touchstart.native="toDetail(`/details/${item.id}?caseSource=2`)">
+          <router-link :to="`/details/${item.id}?caseSource=2`"
+                       @touchstart.native="toDetail(`/details/${item.id}?caseSource=2`)">
             {{item.ctitle}}
           </router-link>
         </div>
@@ -115,7 +116,7 @@
     width: 100%;
     height: 50%;
     position: absolute;
-    transition: all 3s;
+    transition: all 1.5s;
   }
 
   .left {
@@ -125,7 +126,7 @@
     width: 50%;
     height: 100%;
     position: absolute;
-    transition: all 3s;
+    transition: all 1.5s;
   }
 
   .bottom {
@@ -135,7 +136,7 @@
     width: 100%;
     height: 50%;
     position: absolute;
-    transition: all 3s;
+    transition: all 1.5s;
   }
 
   .active {
