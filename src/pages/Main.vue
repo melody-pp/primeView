@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="md" type="light" variant="info" fixed="top" class="b-ca"
+    <b-navbar  ref="navbar" toggleable="md" type="light" variant="info" fixed="top" class="b-ca"
               :class="{hide: hideNav}" @mouseenter="mouseenter" @mouseleave="mouseleave">
       <b-navbar-brand to="/"><img src="../assets/logo.png" alt=""></b-navbar-brand>
 
@@ -29,7 +29,8 @@
   export default {
     data() {
       return {
-        lang: 'cn'
+        lang: 'cn',
+        isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
       }
     },
     mounted() {
@@ -44,6 +45,7 @@
       this.axios.post('/api/getPagecase').then(res => {
         this.setPagecase(res.data)
       })
+      // this.isMobile ? this.$refs.navbar.style.display="none"
     },
     computed: {
       ...mapState(['path', 'fpIndex', 'hoverNav']),

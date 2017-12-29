@@ -12,7 +12,7 @@
 
     <div class="clearfix exp-highlight">
       <div class="content">
-        <h3>{{caseInfo.cmiddle}}</h3>
+        <h3 style="margin-top: 10px;">{{caseInfo.cmiddle}}</h3>
         <p v-for="text in caseInfo.csubmiddle.split('\n')" v-text="text"></p>
       </div>
 
