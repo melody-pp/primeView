@@ -45,6 +45,8 @@
       this.axios.post('/api/getPagecase').then(res => {
         this.setPagecase(res.data)
       })
+
+      this.isMobile && this.$refs.navbar.classList.remove('navbar-expand-md')
       // this.isMobile ? this.$refs.navbar.style.display="none"
     },
     computed: {
