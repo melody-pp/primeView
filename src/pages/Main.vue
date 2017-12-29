@@ -46,8 +46,10 @@
         this.setPagecase(res.data)
       })
 
-      this.isMobile && this.$refs.navbar.classList.remove('navbar-expand-md')
-      // this.isMobile ? this.$refs.navbar.style.display="none"
+      if(this.isMobile) {
+        this.$refs.navbar.classList.remove('navbar-expand-md')
+        this.$refs.navbar.classList.add('isMobile')
+      }
     },
     computed: {
       ...mapState(['path', 'fpIndex', 'hoverNav']),
@@ -83,6 +85,10 @@
       height: 3.4rem;
     }
 
+  }
+
+  .isMobile .nav-item{
+    padding: 15px 5px;
   }
 
   .navbar.hide {
