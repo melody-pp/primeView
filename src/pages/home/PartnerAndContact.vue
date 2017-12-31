@@ -110,7 +110,7 @@
       margin: 0 auto;
       margin-bottom: 60px;
       letter-spacing: 3px;
-      font-family: "SourceHanSansCN-Normal";
+      font-family: "SourceHanSansCN-Normal", "Microsoft Yahei", sans-serif;
       width: 65%;
     }
   }
@@ -134,11 +134,11 @@
     .key {
       color: #98d4d5;
       font-size: 18px;
-      font-family: "SourceHanSansCN-Bold";
+      font-family: "SourceHanSansCN-Bold", "Microsoft Yahei", sans-serif;
     }
     .val {
       font-size: 14px;
-      font-family: "SourceHanSansCN-Normal";
+      font-family: "SourceHanSansCN-Normal", "Microsoft Yahei", sans-serif;
     }
     .icon {
       float: left;

@@ -120,11 +120,11 @@
     }
     .num {
       font-size: 3.8vw;
-      font-family: "SourceHanSansCN-ExtraLight";
+      font-family: "SourceHanSansCN-ExtraLight", "Microsoft Yahei", sans-serif;;
     }
     .unit {
       font-size: 1vw;
-      font-family: "SourceHanSansCN-Medium";
+      font-family: "SourceHanSansCN-Medium", "Microsoft Yahei", sans-serif;
       opacity: 0.5;
     }
   }

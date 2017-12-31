@@ -37,7 +37,7 @@
       text-align: left;
       .card-title {
         font-size: 14px;
-        font-family: "SourceHanSansCN-Bold";
+        font-family: "SourceHanSansCN-Bold", "Microsoft Yahei", sans-serif;
         margin-bottom: 0;
       }
     }

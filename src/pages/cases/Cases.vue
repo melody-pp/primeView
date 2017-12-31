@@ -146,7 +146,7 @@
     text-align: center;
     margin-top: 60px;
     color: #b5b4b4;
-    font-family: "SourceHanSansCN-ExtraLight";
+    font-family: "SourceHanSansCN-ExtraLight", "Microsoft Yahei", sans-serif;;
   }
 
   @-webkit-keyframes load4 {
@@ -222,7 +222,7 @@
     padding: 7px 10px;
     color: #000;
     font-size: 16px;
-    font-family: "SourceHanSansCN-Bold";
+    font-family: "SourceHanSansCN-Bold", "Microsoft Yahei", sans-serif;
     text-decoration: none;
   }
 

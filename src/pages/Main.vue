@@ -100,7 +100,7 @@
   }
 
   .navbar-light .navbar-nav .nav-link {
-    font-family: "SourceHanSansCN-Medium";
+    font-family: "SourceHanSansCN-Medium", "Microsoft Yahei", sans-serif;
     font-size: 18px;
     color: #333;
   }

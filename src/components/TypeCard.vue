@@ -82,7 +82,7 @@
 <style>
   .kywd {
     font-size: 1.9vw;
-    font-family: "SourceHanSansCN-Medium";
+    font-family: "SourceHanSansCN-Medium", "Microsoft Yahei", sans-serif;
 
   }
 

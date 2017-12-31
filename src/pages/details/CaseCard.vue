@@ -54,11 +54,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: "SourceHanSansCN-Bold";
+      font-family: "SourceHanSansCN-Bold", "Microsoft Yahei", sans-serif;
       font-size: 36px;
       a {
         color: #fff;
-        font-family: "SourceHanSansCN-Medium";
+        font-family: "SourceHanSansCN-Medium", "Microsoft Yahei", sans-serif;
         font-size: 1.6vw;
         text-decoration: none;
       }

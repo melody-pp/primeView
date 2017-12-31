@@ -83,13 +83,13 @@
     h3 {
       margin-top: 120px;
       font-size: 36px;
-      font-family: "SourceHanSansCN-Bold";
+      font-family: "SourceHanSansCN-Bold", "Microsoft Yahei", sans-serif;
       line-height: 86px;
       margin-bottom: 38px;
     }
     p {
       font-size: 14px;
-      font-family: "SourceHanSansCN-ExtraLight";
+      font-family: "SourceHanSansCN-ExtraLight", "Microsoft Yahei", sans-serif;;
       width: 60%;
       line-height: 32px;
       color: #000;

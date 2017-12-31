@@ -64,7 +64,7 @@
 
   .breadCrumb .title {
     font-size: 40px;
-    font-family: "SourceHanSansCN-Bold";
+    font-family: "SourceHanSansCN-Bold", "Microsoft Yahei", sans-serif;
     float: left;
     margin-right: 40px;
 
@@ -73,7 +73,7 @@
   .breadCrumb .Breadcrumb {
     float: left;
     font-size: 30px;
-    font-family: "SourceHanSansCN-Bold";
+    font-family: "SourceHanSansCN-Bold", "Microsoft Yahei", sans-serif;
     padding: 8px 0;
 
   }
@@ -81,7 +81,7 @@
   .breadCrumb .Breadcrumb a {
     float: left;
     font-size: 30px;
-    font-family: "SourceHanSansCN-Bold";
+    font-family: "SourceHanSansCN-Bold", "Microsoft Yahei", sans-serif;
     color: #000;
     text-decoration: none;
   }

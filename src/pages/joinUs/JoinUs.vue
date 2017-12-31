@@ -37,7 +37,7 @@
 
   .resume {
     color: #98d4d5;
-    font-family: "SourceHanSansCN-Light";
+    font-family: "SourceHanSansCN-Light", "Microsoft Yahei", sans-serif;
     font-size: 30px;
     text-align: center;
     background-color: #f5f5f5;

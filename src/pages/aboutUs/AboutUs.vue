@@ -133,7 +133,7 @@
     margin-bottom: 64px;
     color: #313131;
     font-size: 30px;
-    font-family: "SourceHanSansCN-ExtraLight";
+    font-family: "SourceHanSansCN-ExtraLight", "Microsoft Yahei", sans-serif;;
   }
 
   .addressImg {

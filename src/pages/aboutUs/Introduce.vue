@@ -68,14 +68,14 @@
     width: 49%;
 
     h6 {
-      font-family: "SourceHanSansCN-ExtraLight";
+      font-family: "SourceHanSansCN-ExtraLight", "Microsoft Yahei", sans-serif;;
       font-size: 36px;
       color: #000;
       margin-bottom: 3%;
     }
 
     p {
-      font-family: "SourceHanSansCN-Normal";
+      font-family: "SourceHanSansCN-Normal", "Microsoft Yahei", sans-serif;
       font-size: 14px;
       color: #313131;
       line-height: 32px;

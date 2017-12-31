@@ -93,7 +93,7 @@
     width: 100%;
     height: 100%;
     font-size: 5.2vw;
-    font-family: "SourceHanSansCN-ExtraLight";
+    font-family: "SourceHanSansCN-ExtraLight", "Microsoft Yahei", sans-serif;;
     transition: all 1s;
   }
 

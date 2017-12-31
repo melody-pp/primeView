@@ -43,7 +43,7 @@
     margin: 0 4px;
     line-height: 45px;
     color: #4a4a4a;
-    font-family: "SourceHanSansCN-Normal";
+    font-family: "SourceHanSansCN-Normal", "Microsoft Yahei", sans-serif;
     font-size: 14px;
   }
 
@@ -52,7 +52,7 @@
     margin: 0 4px;
     line-height: 45px;
     color: #4a4a4a;
-    font-family: "SourceHanSansCN-Normal";
+    font-family: "SourceHanSansCN-Normal", "Microsoft Yahei", sans-serif;
     font-size: 14px;
     display: inline-block;
     text-decoration: none;

@@ -36,14 +36,14 @@
       float: left;
     }
     h3 {
-      font-family: "SourceHanSansCN-Bold";
+      font-family: "SourceHanSansCN-Bold", "Microsoft Yahei", sans-serif;
       font-size: 30px;
       line-height: 66px;
       text-align: center;
     }
     p {
       text-align: center;
-      font-family: "SourceHanSansCN-Light";
+      font-family: "SourceHanSansCN-Light", "Microsoft Yahei", sans-serif;
       font-size: 16px;
       color: #333333;
       line-height: 36px;
@@ -60,7 +60,7 @@
         text-align: left;
       }
       .qualification {
-        font-family: "SourceHanSansCN-Bold";
+        font-family: "SourceHanSansCN-Bold", "Microsoft Yahei", sans-serif;
         font-size: 16px;
         line-height: 36px;
       }

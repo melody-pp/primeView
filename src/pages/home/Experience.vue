@@ -156,7 +156,7 @@
 
     a {
       color: #fff;
-      font-family: "SourceHanSansCN-Heavy";
+      font-family: "SourceHanSansCN-Heavy", "Microsoft Yahei", sans-serif;;
       font-size: 1.6vw;
       text-decoration: none;
     }
