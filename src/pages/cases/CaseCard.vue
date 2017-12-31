@@ -1,5 +1,5 @@
 <template>
-  <b-card :title="ctitle" :img-src="surface" :img-alt="ctitle" img-top @click="toDetail">
+  <b-card ref="card" :title="ctitle" :img-src="surface" :img-alt="ctitle" img-top @click="toDetail">
     <div slot="footer">
       <small class="text-muted">
         {{created_at}}
@@ -10,14 +10,21 @@
 
 <script>
   export default {
-    data() {
+    data () {
       return {}
     },
 
     props: ['ctitle', 'created_at', 'surface', 'id'],
 
+    mounted () {
+      const $img = this.$refs.card.querySelector('.card-img-top')
+      $img.addEventListener('load', function () {
+        $img.style.height = $img.naturalHeight * 200 / $img.naturalWidth + 'px'
+      })
+    },
+
     methods: {
-      toDetail() {
+      toDetail () {
         this.$router.push('/details/' + this.id)
       }
     }
@@ -29,9 +36,6 @@
     width: 200px;
     cursor: pointer;
     transition: all 500ms;
-    .card-img-top {
-      height: calc(100% - 115px);
-    }
     .card-body {
       padding: 20px 10px;
       text-align: left;
