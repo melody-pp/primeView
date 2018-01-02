@@ -114,7 +114,7 @@
     justify-content: center;
     a {
       color: #fff;
-      font-family: "SourceHanSansCN-Heavy", "Microsoft Yahei", sans-serif;;
+      font-family: "SourceHanSansCN-Heavy", "Microsoft Yahei", sans-serif;
       font-size: 1.6vw;
       text-decoration: none;
     }

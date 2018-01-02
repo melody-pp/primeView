@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar  ref="navbar" toggleable="md" type="light" variant="info" fixed="top" class="b-ca"
+    <b-navbar ref="navbar" toggleable="md" type="light" variant="info" fixed="top" class="b-ca"
               :class="{hide: hideNav}" @mouseenter="mouseenter" @mouseleave="mouseleave">
       <b-navbar-brand to="/"><img src="../assets/logo.png" alt=""></b-navbar-brand>
 
@@ -46,7 +46,7 @@
         this.setPagecase(res.data)
       })
 
-      if(this.isMobile) {
+      if (this.isMobile) {
         this.$refs.navbar.classList.remove('navbar-expand-md')
         this.$refs.navbar.classList.add('isMobile')
       }
@@ -87,7 +87,7 @@
 
   }
 
-  .isMobile .nav-item{
+  .isMobile .nav-item {
     padding: 15px 5px;
   }
 
