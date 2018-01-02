@@ -35,6 +35,9 @@ module.exports = {
       '/sy/public': {
         target: 'http://118.190.99.176/',
         changeOrigin: true
+      },
+      '/log':{
+        target: 'http://localhost:3000',
       }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"

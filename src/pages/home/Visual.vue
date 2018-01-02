@@ -6,9 +6,10 @@
   import VueAccordion from '../../components/VueAccordion.vue'
 
   export default {
-    data() {
+    data () {
       return {
         index: 0,
+        isLooping: false,
         timerId: null,
         showItems: [],
         allItems: [],
@@ -16,7 +17,7 @@
       }
     },
 
-    mounted() {
+    mounted () {
       this.showItems = this.allItems.slice(0, 3)
       this.startInterval()
 
@@ -25,20 +26,24 @@
       })
     },
 
-    destroyed() {
+    destroyed () {
       this.stopInterval()
     },
 
     methods: {
-      startInterval() {
+      startInterval () {
+        if (this.isLooping) return
+
+        this.isLooping = true
         this.timerId = setInterval(() => {
           this.index = (this.index + 3) % this.allItems.length
           this.showItems = this.allItems.slice(this.index, this.index + 3)
         }, this.intervalTime)
       },
 
-      stopInterval() {
+      stopInterval () {
         clearInterval(this.timerId)
+        this.isLooping = false
       }
     },
 
