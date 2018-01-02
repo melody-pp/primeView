@@ -1,10 +1,10 @@
 <template>
   <div ref="box" :style="colStyle">
     <transition
-        :enter-active-class="enterClass"
-        @enter="enter"
-        :leave-active-class="leaveClass"
-        @after-leave="afterLeave">
+      :enter-active-class="enterClass"
+      @enter="enter"
+      :leave-active-class="leaveClass"
+      @after-leave="afterLeave">
       <div class="modelStyle" v-if="text" v-show="showModel" :style="modelStyle">
         <transition :enter-active-class="enterClass">
           <router-link :to="`/details/${id}?caseSource=2`" v-show="showText">{{text}}</router-link>
@@ -43,9 +43,7 @@
           background: 'rgba(0, 0, 0, 0.4)',
           fontSize: '30px',
           fontFamily: 'SourceHanSansCN-Medium',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
+
         }
       }
     },
@@ -110,6 +108,10 @@
   }
 
   .modelStyle {
+    display: flex;
+    display: -ms-flexbox;
+    align-items: center;
+    justify-content: center;
     a {
       color: #fff;
       font-family: "SourceHanSansCN-Heavy", "Microsoft Yahei", sans-serif;;
