@@ -102,12 +102,9 @@
     vertical-align: baseline;
   }
 
-  body {
-    text-align: center;
-  }
-
   .main {
     margin-top: 130px;
+    text-align: center;
   }
 
   .main .icon {
