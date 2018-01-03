@@ -1,6 +1,6 @@
 <template>
   <div ref="container" class="ex-container">
-    <img ref="gather" class="gather" src="../../assets/index/gather.png"
+    <img ref="gather" class="gather" src="../../assets/index/gather.jpg"
          @mousemove="mousemove">
     <div class="gatherTitle">
       <img ref="gatherTitle" src="../../assets/index/gatherTitle.png">

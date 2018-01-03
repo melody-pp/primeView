@@ -14,12 +14,13 @@
   body {
     line-height: unset !important;
     font-family: "Microsoft YaHei" !important;
-  }
+
+/*
 
   @font-face {
     font-family: 'SourceHanSansCN-ExtraLight';
     src: url('./font/SourceHanSansCN-ExtraLight.otf');
-    /*url('./font/SourceHanSansCN-ExtraLight.eot');*/
+    !*url('./font/SourceHanSansCN-ExtraLight.eot');*!
   }
 
   @font-face {
@@ -55,6 +56,7 @@
     src: url('./font/SourceHanSansCN-Heavy.otf');
 
   }
+*/
 
   ul, li, p {
     list-style: none;
