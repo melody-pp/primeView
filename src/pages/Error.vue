@@ -151,5 +151,7 @@
     color: #AAACB4;
     font-size: 13px;
     font-weight: 100;
+    text-align: center;
+
   }
 </style>
