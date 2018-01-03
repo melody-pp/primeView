@@ -103,7 +103,7 @@
   }
 
   body {
-    text-align: center!important;
+    text-align: center;
   }
 
   .main {

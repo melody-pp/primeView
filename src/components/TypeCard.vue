@@ -105,7 +105,7 @@
     margin-top: -9px;
   }
   .mobileCursor .ityped-cursor{
-    margin-top: -3px;
+    margin-top: -1px;
   }
 
   @keyframes blink {
