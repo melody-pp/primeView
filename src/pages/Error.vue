@@ -103,7 +103,7 @@
   }
 
   body {
-    text-align: center;
+    text-align: center!important;
   }
 
   .main {
@@ -139,6 +139,7 @@
     line-height: 1.5em;
     color: #a7a7a7;
     padding: 0 20px;
+
   }
 
   .main a {

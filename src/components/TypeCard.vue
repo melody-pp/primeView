@@ -3,7 +3,7 @@
       :enter-active-class="`animated ${inClass}`"
       :leave-active-class="`animated ${outClass}`">
 
-    <div v-show="show" ref="card" :style="cardStyle" class="type-card">
+    <div v-show="show" ref="card" :style="cardStyle" class="type-card " :class="{mobileCursor:isMobile}">
       <span class="kywd" ref="span"></span>
     </div>
   </transition>
@@ -16,6 +16,7 @@
   export default {
     data() {
       return {
+        isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
         show: false,
         inClass: sample(this.inClasses),
         outClass: sample(this.outClasses),
@@ -101,7 +102,10 @@
     animation: blink .4s infinite;
     animation-direction: alternate;
     margin-left: -5px;
-    margin-top: -10px;
+    margin-top: -9px;
+  }
+  .mobileCursor .ityped-cursor{
+    margin-top: -3px;
   }
 
   @keyframes blink {
