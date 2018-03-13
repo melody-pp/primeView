@@ -29,7 +29,7 @@ const router = new Router({
     },
     {path: '*', component: Error}
   ],
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior (to, from, savedPosition) {
     return {x: 0, y: 0}
   }
 })
